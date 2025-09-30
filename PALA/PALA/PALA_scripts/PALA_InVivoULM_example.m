@@ -17,14 +17,14 @@
 % Performance benchmarking of microbubble-localization algorithms for ultrasound localization microscopy, Nature Biomedical Engineering, 2021.
 % General description of super-resolution in: Couture et al., Ultrasound localization microscopy and super-resolution: A state of the art, IEEE UFFC 2018
 
-run('PALA_SetUpPaths.m')
+%run('PALA_SetUpPaths.m') 
 %% Selected data file and saving folders
-workingdir = [PALA_data_folder '\PALA_data_InVivoRatBrain'];
-filename = 'PALA_InVivoRatBrain_';
+workingdir = fullfile(PALA_data_folder, 'PALA_data_InVivoMouseTumor');
+filename = 'PALA_InVivoMouseTumor_';
 cd(workingdir)
 
 mydatapath = [workingdir filesep 'IQ' filesep filename];
-workingdir = [workingdir '\Example'];mkdir(workingdir)
+workingdir = fullfile(workingdir, 'Example'); mkdir(workingdir)
 
 IQfiles = dir([mydatapath '*.mat']);
 load([IQfiles(1).folder filesep IQfiles(1).name],'UF','PData');
