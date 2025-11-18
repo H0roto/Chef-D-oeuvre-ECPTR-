@@ -1,6 +1,6 @@
 """This file contains ULM class."""
 
-from typing import Tuple
+from typing import Optional, Tuple
 
 import numpy as np
 from loguru import logger
@@ -9,6 +9,7 @@ from scipy.ndimage import maximum_filter
 from scipy.signal import butter, convolve, lfilter
 
 from ulm3d.loc.radial_symmetry_center import radial_symmetry_center_3d
+from ulm3d.utils.benchmark import BenchmarkManager
 from ulm3d.utils.load_data import load_iq
 from ulm3d.utils.matlab_tool import smooth
 
@@ -152,6 +153,9 @@ class ULM:
         )
         self.min_length = min_length
         logger.info(f"min_track_len: { self.min_length}")
+        
+        # Benchmark manager (will be set externally if needed)
+        self.benchmark_manager: Optional[BenchmarkManager] = None
 
     def filtering(self, iq: np.ndarray) -> np.ndarray:
         """
@@ -163,6 +167,14 @@ class ULM:
         Returns:
             np.ndarray: The filtered IQ data.
         """
+        if self.benchmark_manager:
+            with self.benchmark_manager.measure("filtering"):
+                return self._filtering_impl(iq)
+        else:
+            return self._filtering_impl(iq)
+    
+    def _filtering_impl(self, iq: np.ndarray) -> np.ndarray:
+        """Internal filtering implementation."""
         iq = iq.astype("complex128")
         # Extract shape of IQ.
 
@@ -207,6 +219,18 @@ class ULM:
                 - pos: The sub-wavelength position of the microbubble (sub-voxel).
                 - frame_no: The index of the frame where the microbubble is located.
         """
+        if self.benchmark_manager:
+            with self.benchmark_manager.measure("super_localization"):
+                return self._super_localization_impl(iq, type_name)
+        else:
+            return self._super_localization_impl(iq, type_name)
+    
+    def _super_localization_impl(
+        self,
+        iq: np.ndarray,
+        type_name: str = "float",
+    ) -> Tuple[np.ndarray, np.ndarray]:
+        """Internal super localization implementation."""
         iq = np.abs(np.asarray(iq))
         mask, intensity = get_intensity_matrix(iq, self.fwhm, type_name)
 
@@ -309,7 +333,15 @@ class ULM:
 
         if pos.shape[1] == 0:
             logger.warning("0 microbubble located !")
-            return False, None
+            # Return empty structured array instead of False, None
+            return np.array(
+                [],
+                dtype=[
+                    ("snr", float),
+                    ("pos", float, 3),
+                    ("frame_no", int),
+                ],
+            )
 
         new_struct = []
         for i in range(pos.shape[1]):
@@ -352,6 +384,14 @@ class ULM:
                 - time: The index frame.
                 - track_ind: The index of the track.
         """
+        if self.benchmark_manager:
+            with self.benchmark_manager.measure("tracking"):
+                return self._create_tracks_impl(localizations)
+        else:
+            return self._create_tracks_impl(localizations)
+    
+    def _create_tracks_impl(self, localizations: np.ndarray) -> np.ndarray:
+        """Internal tracking implementation."""
         pitch = np.mean(self.scale[:3])
         logger.debug(f"Average voxel pitch {pitch} ({self.scale[:3]})")
 

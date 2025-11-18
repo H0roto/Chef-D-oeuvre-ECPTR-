@@ -81,6 +81,11 @@ def parse_arguments():
         default=None,
         help="Parallel computing (use value in config.yaml by default)",
     )
+    parser.add_argument(
+        "--benchmark",
+        action="store_true",
+        help="Enable benchmarking of pipeline steps",
+    )
     return parser.parse_args()
 
 
@@ -90,6 +95,7 @@ def compute_bloc(
     input_var_name: str,
     export_parameters: dict,
     index: int,
+    enable_benchmark: bool = False,
 ):
     """
     Function to apply 3DULM for each 3D ultrasound data block (it can be done in parallel).
@@ -100,18 +106,33 @@ def compute_bloc(
         input_var_name (str): The name of the input variable in the dictionary .mat to open the IQ file.
         export_parameters (dict): The dictionary that contains settings to export data.
         index (int): The index of the current block to apply 3D ULM.
+        enable_benchmark (bool): Enable benchmarking for this worker.
+    
+    Returns:
+        dict: Benchmark timings if enabled, None otherwise.
     """
+    import time
+    timings = {} if enable_benchmark else None
+    
     # Load IQ.
     iq = load_iq(iq_files[index], input_var_name)
 
     # Filtering.
     if ulm_pipeline.filt_mode != "no_filter":
+        if enable_benchmark:
+            start = time.perf_counter()
         iq_before_loc = ulm_pipeline.filtering(iq)  # Filtering is applied.
+        if enable_benchmark:
+            timings['filtering'] = time.perf_counter() - start
     else:
         iq_before_loc = iq  # IQ is used without filtering.
 
     # Super-localization.
+    if enable_benchmark:
+        start = time.perf_counter()
     localizations = ulm_pipeline.super_localization(iq_before_loc)
+    if enable_benchmark:
+        timings['super_localization'] = time.perf_counter() - start
 
     # Export localizations if needed.
     if "localizations" in export_parameters and localizations.shape[0] > 0:
@@ -122,16 +143,22 @@ def compute_bloc(
         logger.warning(f"No localizations detected in bloc {index}.")
 
     # Tracking.
+    if enable_benchmark:
+        start = time.perf_counter()
     tracks = ulm_pipeline.create_tracks(localizations)
+    if enable_benchmark:
+        timings['tracking'] = time.perf_counter() - start
 
     # Export tracks if needed.
     if "tracks" in export_parameters and tracks[1].shape[0] > 0:
         ulm3d.utils.export.export_tracks(index, tracks, export_parameters["tracks"])
     elif tracks[1].shape[0] == 0:
         logger.warning(f"No tracks detected in bloc {index}.")
+    
+    return timings
 
 
-def run(config_file: str, iq_files: list, output_dir: str, workers: int):
+def run(config_file: str, iq_files: list, output_dir: str, workers: int, enable_benchmark: bool = False):
     """
     The main function of the project that runs the entire pipeline.
 
@@ -140,6 +167,7 @@ def run(config_file: str, iq_files: list, output_dir: str, workers: int):
         iq_files (list): List of IQ files.
         output_dir (str): The path of the output directory.
         workers (int): Number of workers (1 for single thread).
+        enable_benchmark (bool): Enable benchmarking of pipeline steps.
     """
 
     # Load config file.
@@ -161,6 +189,15 @@ def run(config_file: str, iq_files: list, output_dir: str, workers: int):
 
     # Create 3DULM class.
     ulm = ulm3d.ulm.ULM(iq_files=iq_files, **config)
+    
+    # Initialize benchmarking if enabled
+    benchmark_manager = None
+    if enable_benchmark:
+        from ulm3d.utils.benchmark import BenchmarkManager
+        benchmark_manager = BenchmarkManager(output_dir)
+        benchmark_manager.start_total()
+        ulm.benchmark_manager = benchmark_manager
+        logger.info("Benchmarking enabled")
 
     input_var_name = input_var_name = (
         config["input_var_name"] if "input_var_name" in config else ""
@@ -190,27 +227,45 @@ def run(config_file: str, iq_files: list, output_dir: str, workers: int):
                 input_var_name,
                 export_parameters,
                 ind,
+                enable_benchmark,
             )
     else:
         workers = min(workers, cpu_count())
         logger.info(f"Start parallel pool ({workers} workers)")
         with ProcessPoolExecutor(workers) as executor:
             with tqdm(total=len(iq_files)) as pbar:
-                for _ in executor.map(
+                results = []
+                for result in executor.map(
                     functools.partial(
                         compute_bloc,
                         ulm,
                         iq_files,
                         input_var_name,
                         export_parameters,
+                        enable_benchmark=enable_benchmark,
                     ),
                     range(len(iq_files)),
                 ):
+                    if enable_benchmark and result:
+                        results.append(result)
                     pbar.update()
+        
+        # Aggregate benchmark results from parallel workers
+        if enable_benchmark and results and benchmark_manager:
+            for timings in results:
+                for step_name, duration in timings.items():
+                    benchmark_manager.record(step_name, duration)
 
     # Export volume for visualization (always apply on interp tracks).
     if "3D_rendering" in export_parameters:
         ulm3d.utils.render.rendering_3d(ulm, export_parameters)
+    
+    # Export benchmark results if enabled
+    if enable_benchmark and benchmark_manager:
+        benchmark_manager.stop_total()
+        benchmark_manager.print_summary()
+        benchmark_manager.export_to_csv()
+    
     logger.success(f"Processing successfully ended, save at {output_dir}")
 
 
@@ -297,4 +352,5 @@ if __name__ == "__main__":
         iq_files=iq_files,
         output_dir=output_dir,
         workers=args.workers,
+        enable_benchmark=args.benchmark,
     )
