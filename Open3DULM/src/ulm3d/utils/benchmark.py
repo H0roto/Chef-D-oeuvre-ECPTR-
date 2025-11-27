@@ -93,8 +93,8 @@ class BenchmarkManager:
                 'std_time_s',
                 'min_time_s',
                 'max_time_s',
-                'total_time_s',
-                'percentage'
+                'cumulative_time_s',
+                'percentage_of_total'
             ]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             
@@ -102,14 +102,14 @@ class BenchmarkManager:
             
             # Add total execution time as first row
             writer.writerow({
-                'step_name': 'TOTAL_EXECUTION',
+                'step_name': 'TOTAL_PIPELINE',
                 'n_executions': 1,
                 'mean_time_s': f"{self.total_time:.6f}",
                 'std_time_s': "0.000000",
                 'min_time_s': f"{self.total_time:.6f}",
                 'max_time_s': f"{self.total_time:.6f}",
-                'total_time_s': f"{self.total_time:.6f}",
-                'percentage': "100.00"
+                'cumulative_time_s': f"{self.total_time:.6f}",
+                'percentage_of_total': "100.00"
             })
             
             # Add individual steps
@@ -122,8 +122,8 @@ class BenchmarkManager:
                     'std_time_s': f"{result.std_time:.6f}",
                     'min_time_s': f"{result.min_time:.6f}",
                     'max_time_s': f"{result.max_time:.6f}",
-                    'total_time_s': f"{result.total_time:.6f}",
-                    'percentage': f"{percentage:.2f}"
+                    'cumulative_time_s': f"{result.total_time:.6f}",
+                    'percentage_of_total': f"{percentage:.2f}"
                 })
         
         logger.success(f"Benchmark results exported to {csv_path}")
