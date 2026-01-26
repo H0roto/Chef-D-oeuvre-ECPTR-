@@ -1,0 +1,34 @@
+Metadata-Version: 2.4
+Name: ulm3d
+Version: 1.2
+Summary: 3D ULM
+Home-page: https://github.com/Lab-Imag-Bio
+Author: LIB
+License: CC BY-NC-SA 4.0
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Embedded Systems
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Scientific/Engineering :: Medical Science Apps.
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: numpy>=1.19.3
+Requires-Dist: scipy>=1.14
+Requires-Dist: hdf5storage>=0.1.19
+Requires-Dist: loguru>=0.7.2
+Requires-Dist: mat73>=0.63
+Requires-Dist: matplotlib>=3.9.0
+Requires-Dist: peasyTracker>=0.0.1
+Requires-Dist: PyYAML>=6.0.1
+Requires-Dist: tqdm>=4.66.4
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+Volumetric Ultrasound Localization Microscopy
