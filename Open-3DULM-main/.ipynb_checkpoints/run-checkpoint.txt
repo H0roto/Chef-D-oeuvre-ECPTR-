@@ -1,0 +1,3 @@
+source /projects/minds/PHAM_Codes/mon_env/bin/activate
+
+python open_3D_ulm_main.py  --config-file /projects/minds/PHAM_Codes/Open-3DULM-main/config/basic_config.yaml --input /projects/minds/PHAM_Codes/3D_ULM_Data --output /projects/minds/PHAM_Codes/Open-3DULM-main/outputs --verbose-level 2 --workers 16
