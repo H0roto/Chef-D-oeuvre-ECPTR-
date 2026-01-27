@@ -31,10 +31,24 @@ from multiprocessing import cpu_count
 # from tkinter import Tk, filedialog # <-- Ligne supprimée
 import sys
 
+import sys
+import os
+
+# --- SOLUTION 1 : FORCER L'IMPORT LOCAL ---
+# On récupère le chemin du dossier 'src' qui est au même niveau que le dossier 'scripts'
+# Structure supposée : /ton_projet/scripts/ton_script.py  -> on veut /ton_projet/src
+current_dir = os.path.dirname(os.path.abspath(__file__))
+src_path = os.path.abspath(os.path.join(current_dir, '../src'))
+
+# On l'insère en PREMIÈRE position dans la liste de recherche de Python
+sys.path.insert(0, src_path)
+# ------------------------------------------
+
 import yaml
 from loguru import logger
 from tqdm import tqdm
 
+# Maintenant, cet import va charger ton fichier modifié dans ../src/ulm3d/ulm.py
 import ulm3d.ulm
 import ulm3d.utils
 import ulm3d.utils.export
@@ -44,7 +58,6 @@ import ulm3d.utils.type_config_file
 from ulm3d.utils.create_archi_export import (create_archi_export,
                                              increment_config_folder)
 from ulm3d.utils.load_data import load_iq
-
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description="3D ULM reconstruction")
@@ -121,7 +134,8 @@ def compute_bloc(
 
     # Tracking.
     tracks = ulm_pipeline.create_tracks(localizations)
-
+    #Parti du tracking
+    print(f"\nINSPECTION DE LA STRUCTURE 'tracks' (Bloc {index})")
     # Export tracks if needed.
     if "tracks" in export_parameters and tracks[1].shape[0] > 0:
         ulm3d.utils.export.export_tracks(index, tracks, export_parameters["tracks"])
@@ -223,24 +237,26 @@ def run(config_file: str, iq_files: list, output_dir: str, workers: int):
 
 
 if __name__ == "__main__":
-    # Chemins définis en dur :
-    # Chemin vers configuration
+
+    # --- 1. VOS CHEMINS SONT DEFINIS ICI ---
+    # Chemin vers votre fichier de config
     config_file_path = "/projects/ecptr/Open-3DULM-main-test/config/basic_config.yaml"
     
-    # Chemin vers le dossier de données
+    # Chemin vers votre DOSSIER de données (celui avec les 400 .mat)
     data_folder_path = "/projects/ecptr/3D_ULM_Data" 
     
-    # Chemin vers le dossier de résultats
+    # Chemin vers votre DOSSIER de résultats
     output_dir_base = "/projects/ecptr/results/"
     # -----------------------------------
 
-    # Configuration du logger
+    # Configuration du logger (ne pas changer)
     logger.remove()
     logger.add(
         lambda msg: tqdm.write(msg, end=""),
         colorize=True,
         level="INFO", # Niveau de verbosité
-        format="[<green>{time:HH:mm:ss}</green> <d>({elapsed.seconds}s)</d>] <level>{level: <5}</level> <cyan>{name}</cyan>:<cyan>{function}</cyan> - <level>{message}</level>",
+        format="<level>{message}</level>"
+        #format="[<green>{time:HH:mm:ss}</green> <d>({elapsed.seconds}s)</d>] <level>{level: <5}</level> <cyan>{name}</cyan>:<cyan>{function}</cyan> - <level>{message}</level>",
     )
     logger.info("CHEMINS DEFINIS EN DUR DANS LE SCRIPT")
 
@@ -250,11 +266,12 @@ if __name__ == "__main__":
         raise FileNotFoundError("Fichier de configuration non trouvé.")
     logger.info(f"Config file: {config_file_path}")
 
+    # --- Génération de la liste des 400 fichiers IQ ---
     iq_files = []
     if not os.path.isdir(data_folder_path):
         raise NotADirectoryError(f"Le dossier de données n'existe pas: {data_folder_path}")
 
-    for i in range(1, 3):  # Crée une boucle de 1 à 400
+    for i in range(1, 11):  # Crée une boucle de 1 à 400
         # Formate le nom du fichier : "IQ" + numéro (ex: 001) + ".mat"
         file_name = f"IQ{i:03d}.mat"
         
@@ -272,6 +289,7 @@ if __name__ == "__main__":
     logger.info(
         f"{len(iq_files)} IQ files générés: {data_folder_path} ({iq_files[0]}...)"
     )
+    # --- Fin de la modification ---
 
     # Création du dossier de sortie
     output_dir = increment_config_folder(output_dir_base)

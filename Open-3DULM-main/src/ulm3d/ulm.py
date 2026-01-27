@@ -1,7 +1,8 @@
 """This file contains ULM class."""
-
 from typing import Tuple
 
+import time
+import torch
 import numpy as np
 from loguru import logger
 from peasyTracker import SimpleTracker
@@ -11,6 +12,7 @@ from scipy.signal import butter, convolve, lfilter
 from ulm3d.loc.radial_symmetry_center import radial_symmetry_center_3d
 from ulm3d.utils.load_data import load_iq
 from ulm3d.utils.matlab_tool import smooth
+
 
 
 class ULM:
@@ -163,27 +165,37 @@ class ULM:
         Returns:
             np.ndarray: The filtered IQ data.
         """
-        iq = iq.astype("complex128")
-        # Extract shape of IQ.
-
-        # Reshape IQ in 2D to SVD filtering (Casorati matrix space x time).
+        start_time = time.time()
+        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        
+        iq = torch.from_numpy(iq).to(device).to(torch.complex64)
+        
         iq_shape = iq.shape
-        iq = np.reshape(iq, (-1, iq_shape[-1]), order="F")
+        #iq = iq.reshape(-1, iq_shape[-1], order="F") Ne marche plus
+        iq = iq.reshape(-1, iq_shape[-1]) # autre solution
 
-        # Apply SVD.
-        u, _, _ = np.linalg.svd(np.matmul(np.conj(iq.T), iq), full_matrices=True)
-        v = np.matmul(iq, u)
+        
+        u, _, _ = torch.linalg.svd(torch.matmul(torch.conj(iq.T), iq), full_matrices=False) #Passer a False
 
-        logger.debug(f"SVD filtering: keep {self.svd_tresh} over {iq_shape[3]} frames.")
-        # Compute array filtered in 2D.
-        iq_filtered = np.matmul(
+        v = torch.matmul(iq, u)
+        
+        iq_filtered = torch.matmul(
             v[:, self.svd_tresh[0] - 1 : self.svd_tresh[1]],
-            np.conj(u[:, self.svd_tresh[0] - 1 : self.svd_tresh[1]]).T,
+            torch.conj(u[:, self.svd_tresh[0] - 1 : self.svd_tresh[1]]).T,
         )
+        
+        #iq_filtered = iq_filtered.reshape(iq_shape, order="F")
+        iq_filtered = iq_filtered.reshape(iq_shape) # pareil changer le F
 
-        # Get original shape.
-        iq_filtered = np.reshape(iq_filtered, (iq_shape), order="F")
+        
+        iq_filtered = iq_filtered.cpu().numpy()
 
+        torch.cuda.synchronize()
+        end_time = time.time()
+        duration = end_time - start_time
+
+        logger.info(f"[PERFORMANCE SVD] Mode: GPU | Temps: {duration:.4f} secondes")
+        
         # Apply bandpass filter if it is needed
         if self.filt_mode == "SVD_bandpass":
             iq_filtered = lfilter(self.filter_num, self.filter_den, iq_filtered)
