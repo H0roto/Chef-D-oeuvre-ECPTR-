@@ -31,6 +31,15 @@ from multiprocessing import cpu_count
 # from tkinter import Tk, filedialog # <-- Ligne supprimée
 import sys
 
+import sys
+import os
+
+current_dir = os.path.dirname(os.path.abspath(__file__))
+src_path = os.path.abspath(os.path.join(current_dir, '../src'))
+
+sys.path.insert(0, src_path)
+
+
 import yaml
 from loguru import logger
 from tqdm import tqdm
@@ -44,7 +53,6 @@ import ulm3d.utils.type_config_file
 from ulm3d.utils.create_archi_export import (create_archi_export,
                                              increment_config_folder)
 from ulm3d.utils.load_data import load_iq
-
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description="3D ULM reconstruction")
@@ -119,9 +127,41 @@ def compute_bloc(
     elif localizations.shape[0] == 0:
         logger.warning(f"No localizations detected in bloc {index}.")
 
-    # Tracking.
+    # Tracking
     tracks = ulm_pipeline.create_tracks(localizations)
+    print(f"\nINSPECTION DE LA STRUCTURE 'tracks' (Bloc {index})")
+    print(f"---------------------------------------------------")
+    
+    # A. Vérification du conteneur principal
+    print(f"1. Type de l'objet 'tracks' : {type(tracks)}")
+    # On s'attend à voir : <class 'tuple'> ou <class 'list'>
+    
+    if isinstance(tracks, (tuple, list)):
+        print(f"2. Nombre d'éléments dans 'tracks' : {len(tracks)}")
+        # On s'attend à voir : 2
+        
+        # Vérification du premier élément (tracks[0])
+        if len(tracks) > 0:
+            elem_0 = tracks[0]
+            print(f"3. Contenu de tracks[0] (Raw Tracks) :")
+            print(f"   - Type : {type(elem_0)}")
+            # On regarde la taille pour voir combien de pistes brutes il y a
+            nb_raw = len(elem_0) if hasattr(elem_0, '__len__') else "Inconnu"
+            print(f"   - Quantité : {nb_raw}")
 
+        # Vérification du second élément (tracks[1])
+        if len(tracks) > 1:
+            elem_1 = tracks[1]
+            print(f"4. Contenu de tracks[1] (Interpolated Tracks) :")
+            print(f"   - Type : {type(elem_1)}")
+
+            if hasattr(elem_1, 'shape'):
+                print(f"   - Shape (Dimensions) : {elem_1.shape}")
+            else:
+                print(f"   - Taille : {len(elem_1)}")
+    print(f"---------------------------------------------------\n")
+    # =======================================================
+    
     # Export tracks if needed.
     if "tracks" in export_parameters and tracks[1].shape[0] > 0:
         ulm3d.utils.export.export_tracks(index, tracks, export_parameters["tracks"])
@@ -139,7 +179,6 @@ def run(config_file: str, iq_files: list, output_dir: str, workers: int):
         output_dir (str): The path of the output directory.
         workers (int): Number of workers (1 for single thread).
     """
-    Workers = 0 
     if workers == 0:
         slurm_cpus = os.environ.get("SLURM_CPUS_PER_TASK") \
                      or os.environ.get("SLURM_JOB_CPUS_PER_NODE")
@@ -223,14 +262,13 @@ def run(config_file: str, iq_files: list, output_dir: str, workers: int):
 
 
 if __name__ == "__main__":
-    # Chemins définis en dur :
-    # Chemin vers configuration
+    # Chemin vers fichier de config
     config_file_path = "/projects/ecptr/Open-3DULM-main-test/config/basic_config.yaml"
     
-    # Chemin vers le dossier de données
+    # Chemin vers dossier de données
     data_folder_path = "/projects/ecptr/3D_ULM_Data" 
     
-    # Chemin vers le dossier de résultats
+    # Chemin vers votre dossier de résultats
     output_dir_base = "/projects/ecptr/results/"
     # -----------------------------------
 
@@ -240,7 +278,8 @@ if __name__ == "__main__":
         lambda msg: tqdm.write(msg, end=""),
         colorize=True,
         level="INFO", # Niveau de verbosité
-        format="[<green>{time:HH:mm:ss}</green> <d>({elapsed.seconds}s)</d>] <level>{level: <5}</level> <cyan>{name}</cyan>:<cyan>{function}</cyan> - <level>{message}</level>",
+        format="<level>{message}</level>"
+        #format="[<green>{time:HH:mm:ss}</green> <d>({elapsed.seconds}s)</d>] <level>{level: <5}</level> <cyan>{name}</cyan>:<cyan>{function}</cyan> - <level>{message}</level>",
     )
     logger.info("CHEMINS DEFINIS EN DUR DANS LE SCRIPT")
 
@@ -250,11 +289,12 @@ if __name__ == "__main__":
         raise FileNotFoundError("Fichier de configuration non trouvé.")
     logger.info(f"Config file: {config_file_path}")
 
+    # Génération de la liste des fichiers IQ
     iq_files = []
     if not os.path.isdir(data_folder_path):
         raise NotADirectoryError(f"Le dossier de données n'existe pas: {data_folder_path}")
 
-    for i in range(1, 3):  # Crée une boucle de 1 à 400
+    for i in range(1, 11):
         # Formate le nom du fichier : "IQ" + numéro (ex: 001) + ".mat"
         file_name = f"IQ{i:03d}.mat"
         
