@@ -165,7 +165,6 @@ class ULM:
         Returns:
             np.ndarray: The filtered IQ data.
         """
-        start_time = time.time()
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         
         iq = torch.from_numpy(iq).to(device).to(torch.complex64)
@@ -191,11 +190,6 @@ class ULM:
         iq_filtered = iq_filtered.cpu().numpy()
 
         torch.cuda.synchronize()
-        end_time = time.time()
-        duration = end_time - start_time
-
-        logger.info(f"[PERFORMANCE SVD] Mode: GPU | Temps: {duration:.4f} secondes")
-        
         # Apply bandpass filter if it is needed
         if self.filt_mode == "SVD_bandpass":
             iq_filtered = lfilter(self.filter_num, self.filter_den, iq_filtered)
