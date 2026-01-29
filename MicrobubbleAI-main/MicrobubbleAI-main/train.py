@@ -131,7 +131,7 @@ def train_position_map_model(model, args, train_loader, test_loader):
     ut.plot_metrics(epochs, train_precision_save, test_precision_save, "Precision", args.pathSave)
 
 def train_position_model(model, args, train_loader, test_loader, origin, data_size, max_bulles):
-    optimizer = Prodigy(model.parameters(), lr=1., weight_decay=args.weightDecay)
+    optimizer = Prodigy(model.parameters(), lr=0.1, weight_decay=args.weightDecay)
     scheduler = lr_scheduler.CosineAnnealingLR(optimizer, T_max=args.epochs)
     train_accuracy_save, train_abs_diff_total_save, test_accuracy_save, test_abs_diff_total_save, losses, epochs = [], [], [], [], [], []
     for epoch in range(args.epochs):

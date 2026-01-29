@@ -44,8 +44,11 @@ def PALA_AddNoiseInIQ(IQ, power, impedance, sigmaGauss, clutterdB, amplCullerdB)
     return IQ + ndimage.gaussian_filter(max_IQ * 10**(clutterdB / 20) + np.reshape(np.random.normal(size=np.prod(IQ.shape), scale=np.abs(power * impedance)), IQ.shape) * max_IQ * 10**((amplCullerdB + clutterdB) / 20), sigma=sigmaGauss)
 
 def load_silicoFlow_data(args):
+
+    path = args.pathData
+ 
     transform = transforms.ToTensor()
-    sequence = scipy.io.loadmat(join(args.pathData,"PALA_InSilicoFlow_sequence.mat"))
+    sequence = scipy.io.loadmat(join(path, "PALA_InSilicoFlow_sequence.mat"))    
     Origin = sequence["PData"]["Origin"].flatten()[0][0]
     data_size = sequence["PData"]["Size"].flatten()[0][0]
     NoiseParam = {}
