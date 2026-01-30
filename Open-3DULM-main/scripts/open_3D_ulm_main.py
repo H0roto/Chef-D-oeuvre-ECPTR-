@@ -34,6 +34,7 @@ import sys
 import sys
 import os
 
+<<<<<<< HEAD
 # --- SOLUTION 1 : FORCER L'IMPORT LOCAL ---
 # On récupère le chemin du dossier 'src' qui est au même niveau que le dossier 'scripts'
 # Structure supposée : /ton_projet/scripts/ton_script.py  -> on veut /ton_projet/src
@@ -43,6 +44,13 @@ src_path = os.path.abspath(os.path.join(current_dir, '../src'))
 # On l'insère en PREMIÈRE position dans la liste de recherche de Python
 sys.path.insert(0, src_path)
 # ------------------------------------------
+=======
+current_dir = os.path.dirname(os.path.abspath(__file__))
+src_path = os.path.abspath(os.path.join(current_dir, '../src'))
+
+sys.path.insert(0, src_path)
+
+>>>>>>> origin/dev
 
 import yaml
 from loguru import logger
@@ -132,10 +140,46 @@ def compute_bloc(
     elif localizations.shape[0] == 0:
         logger.warning(f"No localizations detected in bloc {index}.")
 
-    # Tracking.
+    # Tracking
     tracks = ulm_pipeline.create_tracks(localizations)
+<<<<<<< HEAD
     #Parti du tracking
     print(f"\nINSPECTION DE LA STRUCTURE 'tracks' (Bloc {index})")
+=======
+    print(f"\nINSPECTION DE LA STRUCTURE 'tracks' (Bloc {index})")
+    print(f"---------------------------------------------------")
+    
+    # A. Vérification du conteneur principal
+    print(f"1. Type de l'objet 'tracks' : {type(tracks)}")
+    # On s'attend à voir : <class 'tuple'> ou <class 'list'>
+    
+    if isinstance(tracks, (tuple, list)):
+        print(f"2. Nombre d'éléments dans 'tracks' : {len(tracks)}")
+        # On s'attend à voir : 2
+        
+        # Vérification du premier élément (tracks[0])
+        if len(tracks) > 0:
+            elem_0 = tracks[0]
+            print(f"3. Contenu de tracks[0] (Raw Tracks) :")
+            print(f"   - Type : {type(elem_0)}")
+            # On regarde la taille pour voir combien de pistes brutes il y a
+            nb_raw = len(elem_0) if hasattr(elem_0, '__len__') else "Inconnu"
+            print(f"   - Quantité : {nb_raw}")
+
+        # Vérification du second élément (tracks[1])
+        if len(tracks) > 1:
+            elem_1 = tracks[1]
+            print(f"4. Contenu de tracks[1] (Interpolated Tracks) :")
+            print(f"   - Type : {type(elem_1)}")
+
+            if hasattr(elem_1, 'shape'):
+                print(f"   - Shape (Dimensions) : {elem_1.shape}")
+            else:
+                print(f"   - Taille : {len(elem_1)}")
+    print(f"---------------------------------------------------\n")
+    # =======================================================
+    
+>>>>>>> origin/dev
     # Export tracks if needed.
     if "tracks" in export_parameters and tracks[1].shape[0] > 0:
         ulm3d.utils.export.export_tracks(index, tracks, export_parameters["tracks"])
@@ -153,7 +197,6 @@ def run(config_file: str, iq_files: list, output_dir: str, workers: int):
         output_dir (str): The path of the output directory.
         workers (int): Number of workers (1 for single thread).
     """
-    Workers = 0 
     if workers == 0:
         slurm_cpus = os.environ.get("SLURM_CPUS_PER_TASK") \
                      or os.environ.get("SLURM_JOB_CPUS_PER_NODE")
@@ -237,6 +280,7 @@ def run(config_file: str, iq_files: list, output_dir: str, workers: int):
 
 
 if __name__ == "__main__":
+<<<<<<< HEAD
 
     # --- 1. VOS CHEMINS SONT DEFINIS ICI ---
     # Chemin vers votre fichier de config
@@ -246,6 +290,15 @@ if __name__ == "__main__":
     data_folder_path = "/projects/ecptr/3D_ULM_Data" 
     
     # Chemin vers votre DOSSIER de résultats
+=======
+    # Chemin vers fichier de config
+    config_file_path = "/projects/ecptr/Open-3DULM-main-test/config/basic_config.yaml"
+    
+    # Chemin vers dossier de données
+    data_folder_path = "/projects/ecptr/3D_ULM_Data" 
+    
+    # Chemin vers votre dossier de résultats
+>>>>>>> origin/dev
     output_dir_base = "/projects/ecptr/results/"
     # -----------------------------------
 
@@ -266,12 +319,20 @@ if __name__ == "__main__":
         raise FileNotFoundError("Fichier de configuration non trouvé.")
     logger.info(f"Config file: {config_file_path}")
 
+<<<<<<< HEAD
     # --- Génération de la liste des 400 fichiers IQ ---
+=======
+    # Génération de la liste des fichiers IQ
+>>>>>>> origin/dev
     iq_files = []
     if not os.path.isdir(data_folder_path):
         raise NotADirectoryError(f"Le dossier de données n'existe pas: {data_folder_path}")
 
+<<<<<<< HEAD
     for i in range(1, 11):  # Crée une boucle de 1 à 400
+=======
+    for i in range(1, 11):
+>>>>>>> origin/dev
         # Formate le nom du fichier : "IQ" + numéro (ex: 001) + ".mat"
         file_name = f"IQ{i:03d}.mat"
         
