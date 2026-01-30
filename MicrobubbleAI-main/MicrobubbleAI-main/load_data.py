@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import scipy.io
 from os.path import join
 import numpy as np

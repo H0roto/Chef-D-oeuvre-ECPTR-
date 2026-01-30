@@ -1,9 +1,8 @@
+# -*- coding: utf-8 -*-
 from networks.UnetBulle import UnetBulle
 from networks.UnetPosition import UnetPosition
 from networks.UnetMap import UnetMap
 import torch
-#from tkinter import Tk
-#from tkinter import filedialog
 from torchvision import transforms
 import scipy.io
 import os
@@ -93,13 +92,14 @@ def temp_read_vivo_data(pathData):
         bulles = SVDfilter(IQ,cutoff)
         but_b,but_a = scipy.signal.butter(2,[50/(framerate*0.5),249/(framerate*0.5)],btype='bandpass')
         bulles = signal.lfilter(but_b,but_a,bulles,axis=2)
-        bulles[np.isfinite(bulles)] = 0
-        IQs = torch.cat((IQs, IQ), dim=0) if IQs is not None else transform(IQ)
+        
+        bulles = np.nan_to_num(bulles) 
+        
+        IQs = torch.cat((IQs, transform(bulles)), dim=0) if IQs is not None else transform(bulles)
     return normalize(IQs)
 
 def temp_in_vivo_inference():
-    # 1. Définition manuelle des chemins des modèles (À ADAPTER)
-    # Remplace ces chemins par les emplacements réels de tes fichiers .pt sur le cluster
+    # 1. Définition manuelle des chemins des modeles 
     filename_heatmap = "/projects/ecptr/Espace_GIT/Espace_Clement/Chef-D-oeuvre-ECPTR-/save/epoch_heatmap.pt"
     filename_map = "/projects/ecptr/Espace_GIT/Espace_Clement/Chef-D-oeuvre-ECPTR-/save/epoch_map.pt"
     
@@ -107,49 +107,55 @@ def temp_in_vivo_inference():
     pathData = "/projects/ecptr/Dataset2D/PALA_data/PALA_data_InSilicoFlow"
     pathSave = "/projects/ecptr/Espace_GIT/Espace_Clement/Chef-D-oeuvre-ECPTR-/results/"
 
-    # --- CHARGEMENT DU MODÈLE HEATMAP ---
-    print(f"Chargement du modèle Heatmap : {filename_heatmap}")
+    # --- CHARGEMENT DU MODELE HEATMAP ---
+    print(f"Chargement du modele Heatmap : {filename_heatmap}")
     checkpoint_heatmap = torch.load(filename_heatmap, map_location=device)
     if checkpoint_heatmap['model_name'] == 'UnetHeatmap' or checkpoint_heatmap['model_name'] == 'UnetMap':
         model_heatmap = UnetMap() # Ou UnetHeatmap selon ta classe
         model_heatmap.load_state_dict(checkpoint_heatmap['model_state_dict'])
     else:
-        raise Exception(f"Le modèle {filename_heatmap} n'est pas un UnetHeatmap")
+        raise Exception(f"Le modele {filename_heatmap} n'est pas un UnetHeatmap")
 
-    # --- CHARGEMENT DU MODÈLE MAP ---
-    print(f"Chargement du modèle Map : {filename_map}")
+    # --- CHARGEMENT DU MODELE MAP ---
+    print(f"Chargement du modele Map : {filename_map}")
     checkpoint_map = torch.load(filename_map, map_location=device)
     if checkpoint_map['model_name'] == 'UnetMap':
         model_map = UnetMap()
         model_map.load_state_dict(checkpoint_map['model_state_dict'])
     else:
-        raise Exception(f"Le modèle {filename_map} n'est pas un UnetMap")
+        raise Exception(f"Le modele {filename_map} n'est pas un UnetMap")
 
-    # Préparation des modèles
+    # Préparation des modeles
     model_heatmap.eval()
     model_heatmap.to(device)
     model_map.eval()
     model_map.to(device)
 
     # --- TRAITEMENT ---
-    print("Lecture des données In Vivo...")
+    print("Lecture des donnees In Vivo...")
     IQs = temp_read_vivo_data(pathData)
     
     padding = (0, 25, 0, 6)
     result_dict = {}
     
-    print(f"Début de l'inférence sur {len(IQs)} images...")
-    for i, iq in enumerate(IQs):
-        img_tensor = iq.to(device=device, dtype=torch.float)
-        img_tensor = F.pad(img_tensor, padding, "constant", 0)
-        img_tensor = torch.unsqueeze(torch.unsqueeze(img_tensor, 0), 0)
+    print(f"Debut de l inference sur {len(IQs)} images...")
+    for i in range(min(len(IQs), nbSamples)):
+        img_tensor = IQs[i].to(device=device, dtype=torch.float)
         
-        with torch.no_grad(): # Ajouté pour économiser de la mémoire sur GPU
-            pos_prediction = model_heatmap(img_tensor)
-            out_probability_img = model_map(img_tensor)
+        # Ajout des dimensions batch et channel [1, 1, H, W]
+        img_input = img_tensor.unsqueeze(0).unsqueeze(0)
         
-        pos_prediction = torch.squeeze(pos_prediction).cpu().numpy()
-        out_probability_img = torch.squeeze(out_probability_img).cpu().numpy()
+        # Application du padding
+        img_input = F.pad(img_input, padding, "constant", 0)
+        
+        with torch.no_grad(): 
+            pos_prediction_raw = model_heatmap(img_input)
+            out_probability_raw = model_map(img_input)
+        
+        # Suppression du padding sur la sortie pour retrouver la taille originale
+        # On retire 25 en bas (H) et 6 à droite (W)
+        pos_prediction = torch.squeeze(pos_prediction_raw)[:, :img_tensor.shape[0], :img_tensor.shape[1]].cpu().numpy()
+        out_probability_img = torch.squeeze(out_probability_raw)[:, :img_tensor.shape[0], :img_tensor.shape[1]].cpu().numpy()
         
         pos_prediction = ut.heatmap_to_coordinates(pos_prediction, out_probability_img)
         result_dict[f'pred_position_img{i}'] = pos_prediction.tolist()
@@ -160,25 +166,30 @@ def temp_in_vivo_inference():
     with open(output_path, 'w') as json_file:
         json.dump(result_dict, json_file)
     
-    print(f"Inférence terminée. Résultats sauvegardés dans : {output_path}")
+    print(f"Inference terminee. Resultats sauvegardes dans : {output_path}")
 
 
 def ask_data_and_save_path():
-    print("Veuillez choisir le dossier contenant vos donnÃ©es (.mat):")
-    pathData = filedialog.askdirectory()
-    print("Dossier donnÃ©es choisi: ", pathData)
-    print("Veuillez choisir le dossier dans lequel sauvegarder vos resultats:")
-    pathSave = filedialog.askdirectory() + "/"
-    print("Dossier sauvegarde choisi: ", pathSave)
+    """ 
+    Remplacement de filedialog par des chemins fixes pour Slurm car ca crashe sinon
+    """
+    pathData = "/projects/ecptr/Dataset2D/PALA_data/PALA_data_InSilicoFlow"
+    pathSave = "/projects/ecptr/Espace_GIT/Espace_Clement/Chef-D-oeuvre-ECPTR-/results/"
+    os.makedirs(pathSave, exist_ok=True)
     return pathData, pathSave
 
+def get_latest_checkpoint(folder_path):
+    files = [f for f in os.listdir(folder_path) if f.startswith('epoch_') and f.endswith('.pt')]
+    if not files:
+        raise Exception(f"Aucun checkpoint trouve dans {folder_path}")
+    # On extrait le nombre, on trie et on prend le max
+    latest_epoch = max([int(f.split('_')[1].split('.')[0]) for f in files])
+    return os.path.join(folder_path, f"epoch_{latest_epoch}.pt")
+
 def unet_inference():
-    print("Veuillez choisir un modele pour effectuer la prÃ©diction des coordonÃ©es:")
-    filename_pos = filedialog.askopenfilename()
-    print("Modele choisi: ", filename_pos)
-    print("Veuillez choisir un modele pour effectuer la prÃ©diction du nombre de bulles:")
-    filename_nbbulles = filedialog.askopenfilename()
-    print("Modele choisi: ", filename_nbbulles)
+    base_models_path = "/projects/ecptr/Espace_GIT/Espace_Clement/Chef-D-oeuvre-ECPTR-/MicrobubbleAI-main/MicrobubbleAI-main/Save"
+    filename_pos = get_latest_checkpoint(os.path.join(base_models_path, "Type0_Position"))
+    filename_nbbulles = get_latest_checkpoint(os.path.join(base_models_path, "Type1_Bulle"))    
     pathData, pathSave = ask_data_and_save_path()
 
     checkpoint_pos = torch.load(filename_pos, map_location=device)
@@ -234,8 +245,8 @@ def unet_inference():
         json.dump(result_dict, json_file)
 
 def map_inference():
-    print("Veuillez choisir un modele pour effectuer la prÃ©diction des coordonÃ©es:")
-    filename_map = filedialog.askopenfilename()
+    base_models_path = "/projects/ecptr/Espace_GIT/Espace_Clement/Chef-D-oeuvre-ECPTR-/MicrobubbleAI-main/MicrobubbleAI-main/Save"
+    filename_map = get_latest_checkpoint(os.path.join(base_models_path, "Type2_Segmentation"))    
     print("Modele choisi: ", filename_map)
     pathData, pathSave = ask_data_and_save_path()
     checkpoint_map = torch.load(filename_map, map_location=device)
@@ -262,90 +273,112 @@ def map_inference():
         cv2.imwrite(pathSave + f"ground_truth_img{i}.png", img_ground_truth)
 
 def heatmap_inference():
-    print("Veuillez choisir un modele pour effectuer la prÃ©diction par heatmap:")
-    filename_heatmap = filedialog.askopenfilename()
-    print("Modele choisi: ", filename_heatmap)
+    # --- CONFIGURATION DES CHEMINS ---
+    base_save_path = "/projects/ecptr/Espace_GIT/Espace_Clement/Chef-D-oeuvre-ECPTR-/MicrobubbleAI-main/MicrobubbleAI-main/Save"
+    path_type2 = os.path.join(base_save_path, "Type2_Segmentation")
+    path_type3 = os.path.join(base_save_path, "Type3_Heatmap")
+    
+    # Dossier pour les images de sortie
+    path_results = os.path.join(base_save_path, "Results_Inference")
+    if not os.path.exists(path_results):
+        os.makedirs(path_results, exist_ok=True)
+
+    # --- RECHERCHE AUTOMATIQUE DES MODELES ---
+    try:
+        # Trouver la derniere époque du Type 2 (le Guide/Map)
+        files_2 = [f for f in os.listdir(path_type2) if f.startswith('epoch_') and f.endswith('.pt')]
+        latest_2 = max([int(f.split('_')[1].split('.')[0]) for f in files_2])
+        filename_map = os.path.join(path_type2, f"epoch_{latest_2}.pt")
+
+        # Trouver la derniere époque du Type 3 (la Heatmap)
+        files_3 = [f for f in os.listdir(path_type3) if f.startswith('epoch_') and f.endswith('.pt')]
+        latest_3 = max([int(f.split('_')[1].split('.')[0]) for f in files_3])
+        filename_heatmap = os.path.join(path_type3, f"epoch_{latest_3}.pt")
+    except Exception as e:
+        print(f"Erreur lors de la recherche des modeles : {e}")
+        print("Verifie que les dossiers Type2_Segmentation et Type3_Heatmap contiennent bien des fichiers .pt")
+        return
+
+    print(f"Prediction Heatmap avec :\n > Map: {filename_map}\n > Heatmap: {filename_heatmap}")
+
+    # --- CHARGEMENT DES MODELES ---
     checkpoint_heatmap = torch.load(filename_heatmap, map_location=device)
-    if checkpoint_heatmap['model_name'] == 'UnetHeatmap':
-        model_heatmap = UnetMap()
-        model_heatmap.load_state_dict(checkpoint_heatmap['model_state_dict'])
-    else:
-        raise Exception("Veuillez choisir un modÃ¨le pour effectuer la localisation par heatmap")
-    print("Veuillez choisir un modele pour calculer les probabilitÃ©s (Map):")
-    filename_map = filedialog.askopenfilename()
-    print("Modele choisi: ", filename_map)
-    checkpoint_map = torch.load(filename_map, map_location=device)
-    if checkpoint_map['model_name'] == 'UnetMap':
-        model_map = UnetMap()
-        model_map.load_state_dict(checkpoint_map['model_state_dict'])
-    else:
-        raise Exception("Veuillez choisir un modÃ¨le pour effectuer la localisation par heatmap")
-    pathData, pathSave = ask_data_and_save_path()
+    model_heatmap = UnetMap().to(device)
+    model_heatmap.load_state_dict(checkpoint_heatmap['model_state_dict'])
     model_heatmap.eval()
-    model_heatmap.to(device)
+
+    checkpoint_map = torch.load(filename_map, map_location=device)
+    model_map = UnetMap().to(device)
+    model_map.load_state_dict(checkpoint_map['model_state_dict'])
     model_map.eval()
-    model_map.to(device)
+
+    # --- CHARGEMENT DES DONNÉES ---
+    pathData = "/projects/ecptr/Dataset2D/PALA_data/PALA_data_InSilicoFlow"
     IQs, xy_pos, origin, data_size, _ = read_flow_data(pathData)
+    
     random_samples = torch.randint(high=IQs.shape[0], size=(nbSamples,))
     result_dict = {}
+
     for i, num in enumerate(random_samples):
         img_tensor = IQs[num].to(device=device, dtype=torch.float)
-        img_tensor = torch.unsqueeze(img_tensor, 0)
-        ground_truth = xy_pos[num].clone()
-        gt_save = ground_truth.clone()
-        pos_prediction = model_heatmap(torch.unsqueeze(img_tensor, 0))
-        pos_prediction = torch.squeeze(pos_prediction).cpu().detach().numpy() if device==torch.device("cuda") else torch.squeeze(pos_prediction).detach().numpy()
-        out_probability_img = model_map(torch.unsqueeze(img_tensor, 0))
-        out_probability_img = torch.squeeze(out_probability_img).cpu().detach().numpy() if device==torch.device("cuda") else torch.squeeze(out_probability_img).detach().numpy()
-        ground_truth = ut.coordinates_to_heatmap(img_tensor.shape, data_size, origin, torch.unsqueeze(ground_truth.cpu().detach(), 0), checkpoint_heatmap['std'])
-        gt_save = ut.process_data(gt_save, origin, data_size)
-        ground_truth = torch.squeeze(ground_truth).cpu().detach().numpy() if device==torch.device("cuda") else torch.squeeze(ground_truth).detach().numpy()
-        gt_numpy = gt_save.cpu().detach().numpy()
-        pos_prediction = ut.heatmap_to_coordinates(pos_prediction, out_probability_img)
-        plt.imshow(torch.squeeze(img_tensor).cpu().detach().numpy(), cmap='gray')
-        plt.scatter(*zip(*pos_prediction), color='red', marker='+', label='Predictions')
-        plt.scatter(*zip(*gt_numpy), color='green', marker='x', label='Verite terrain')
+        img_input = torch.unsqueeze(torch.unsqueeze(img_tensor, 0), 0) # Format [1, 1, H, W]
+        
+        # 1. Prediction de la heatmap (Type 3)
+        pos_prediction_heatmap = model_heatmap(img_input)
+        pos_prediction_heatmap = torch.squeeze(pos_prediction_heatmap).cpu().detach().numpy()
+        
+        # 2. Prediction de la map de probabilité (Type 2)
+        out_probability_img = model_map(img_input)
+        out_probability_img = torch.squeeze(out_probability_img).cpu().detach().numpy()
+        
+        # 3. Conversion heatmap -> coordonnées (x,y) en utilisant le guide
+        pos_prediction = ut.heatmap_to_coordinates(pos_prediction_heatmap, out_probability_img)
+        
+        # 4. Preparation de la Vérité Terrain (Ground Truth)
+        gt_save = xy_pos[num].clone()
+        gt_numpy = ut.process_data(gt_save, origin, data_size).cpu().detach().numpy()
+
+        # --- PLOT ET SAUVEGARDE ---
+        plt.figure()
+        plt.imshow(img_tensor.cpu().detach().numpy(), cmap='gray')
+        
+        if len(pos_prediction) > 0:
+            plt.scatter(*zip(*pos_prediction), color='red', marker='+', label='Predictions')
+        
+        plt.scatter(gt_numpy[:,0], gt_numpy[:,1], color='green', marker='x', label='Verite terrain')
+        
+        plt.title(f"Image {num} - Inference Heatmap")
         plt.legend(loc='best')
-        plt.savefig(pathSave + f"img_{i}.png")
-        plt.clf()
+        plt.savefig(os.path.join(path_results, f"img_heatmap_{i}.png"))
+        plt.close() # Important pour ne pas saturer la mémoire
+
         result_dict[f'ground_truth_img{i}'] = gt_numpy.tolist()
         result_dict[f'pred_position_img{i}'] = pos_prediction.tolist()
-    with open(pathSave + 'result.json', 'w', encoding='utf-8') as json_file:
-        json.dump(result_dict, json_file, ensure_ascii=False)
+
+    # Sauvegarde des résultats numériques
+    with open(os.path.join(path_results, 'result.json'), 'w', encoding='utf-8') as f:
+        json.dump(result_dict, f, ensure_ascii=False)
+    
+    print(f"Inference terminee. Resultats dans : {path_results}")
  
 def in_vivo_inference():
-    print("Veuillez choisir un modele pour effectuer la prÃ©diction par heatmap:")
-    filename_heatmap = filedialog.askopenfilename()
-    print("Modele choisi: ", filename_heatmap)
-    checkpoint_heatmap = torch.load(filename_heatmap, map_location=device)
-    if checkpoint_heatmap['model_name'] == 'UnetHeatmap':
-        model_heatmap = UnetMap()
-        model_heatmap.load_state_dict(checkpoint_heatmap['model_state_dict'])
+    base_models_path = "/projects/ecptr/Espace_GIT/Espace_Clement/Chef-D-oeuvre-ECPTR-/MicrobubbleAI-main/MicrobubbleAI-main/Save"
     
-    else:
-        # On remplace l'exception par un message informatif
-        print("Initialisation du modèle de localisation par heatmap...")
+    filename_heatmap = get_latest_checkpoint(os.path.join(base_models_path, "Type3_Heatmap"))
+    filename_map = get_latest_checkpoint(os.path.join(base_models_path, "Type2_Segmentation"))
 
-    # Suppression de filedialog. On définit le chemin manuellement
-    print("Chargement du modèle Map (calcul des probabilités)...")
-    
-    # INDIQUE ICI LE CHEMIN RÉEL DE TON FICHIER .PT
-    filename_map = "/projects/ecptr/Espace_GIT/Espace_Clement/Chef-D-oeuvre-ECPTR-/save/epoch_30.pt" 
-    
-    print("Modèle utilisé : ", filename_map)
-    
-    # Chargement du fichier
+    # 1. Charger Heatmap
+    checkpoint_heatmap = torch.load(filename_heatmap, map_location=device)
+    model_heatmap = UnetMap().to(device)
+    model_heatmap.load_state_dict(checkpoint_heatmap['model_state_dict'])
+
+    # 2. Charger Map
     checkpoint_map = torch.load(filename_map, map_location=device)
-    
-    if checkpoint_map['model_name'] == 'UnetMap':
-        model_map = UnetMap()
-        model_map.load_state_dict(checkpoint_map['model_state_dict'])
-        model_map = model_map.to(device) # N'oublie pas d'envoyer au device (GPU/CPU)
-    else:
-        # Optionnel : lever une erreur si le fichier chargé n'est pas le bon type de modèle
-        raise ValueError(f"Le modèle chargé ({checkpoint_map['model_name']}) n'est pas un UnetMap.")
+    model_map = UnetMap().to(device)
+    model_map.load_state_dict(checkpoint_map['model_state_dict'])
 
     pathData, pathSave = ask_data_and_save_path()
+    
     model_heatmap.eval()
     model_heatmap.to(device)
     model_map.eval()
