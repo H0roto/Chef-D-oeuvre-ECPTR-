@@ -7,12 +7,14 @@ from loguru import logger
 from peasyTracker import SimpleTracker
 from scipy.ndimage import maximum_filter
 from scipy.signal import butter, convolve, lfilter
+import torch
 
 #Changer cette ligne pour passer de cpu à gpu (de numpy à torch)
-from ulm3d.loc.radial_symmetry_center_numpy import radial_symmetry_center_3d
-# from ulm3d.loc.radial_symmetry_center_torch import radial_symmetry_center_3d
+from ulm3d.loc.radial_symmetry_center_torch import radial_symmetry_center_3d_torch_batch
 from ulm3d.utils.load_data import load_iq
 from ulm3d.utils.matlab_tool import smooth
+
+DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 class ULM:
     """
@@ -282,8 +284,16 @@ class ULM:
         # Localization.
         intensity_center = np.zeros((index_mask.shape[1]), dtype=type_name)
         pos = np.zeros_like(index_mask[:3, :], dtype=np.float32)
-
-        for iscat in range(index_mask.shape[1] - 1, -1, -1):
+        rois = []
+        rois_indices = []  # pour savoir où remettre le résultat
+       # Localization (BATCHED)
+        n_scats = index_mask.shape[1]
+        
+        rois = []
+        rois_iscat = []
+        valid = np.ones(n_scats, dtype=bool)
+        
+        for iscat in range(n_scats - 1, -1, -1):
             intensity_roi = np.absolute(
                 iq[
                     index_mask[0, iscat] + vectfwhm[0],
@@ -292,36 +302,47 @@ class ULM:
                     index_mask[3, iscat],
                 ]
             )
-            if index_frames[iscat] < iq.shape[3]:
-                # Remove frames from index_frames[iscat]+1 to the end.
-                iq = iq[..., : index_frames[iscat] + 1]
-            mask = maximum_filter(intensity_roi, footprint=np.ones((3, 3, 3)))
-            mask = mask == intensity_roi
-
-            # Remove localizations that exceed a specified number of local maxima criteria, keeping those with the highest SNR.
-            if np.count_nonzero(mask) > self.nb_local_max:
-                index_mask = np.delete(index_mask, iscat, axis=1)
-                pos = np.delete(pos, iscat, axis=1)
-                intensity_center = np.delete(intensity_center, iscat)
+        
+            mask_loc = maximum_filter(intensity_roi, footprint=np.ones((3, 3, 3)))
+            mask_loc = mask_loc == intensity_roi
+        
+            # Critère nb maxima
+            if np.count_nonzero(mask_loc) > self.nb_local_max:
+                valid[iscat] = False
                 continue
-            sub_pos = radial_symmetry_center_3d(intensity_roi)
-            pos[:, iscat] = index_mask[:3, iscat] + np.asarray(sub_pos)
-            intensity_center[iscat] = list_snr[iscat]
-
-        if pos.shape[1] == 0:
+        
+            # Stockage ROI (float32 pour GPU)
+            rois.append(intensity_roi.astype(np.float32, copy=False))
+            rois_iscat.append(iscat)
+        
+        if len(rois_iscat) == 0:
             logger.warning("0 microbubble located !")
             return False, None
 
-        new_struct = []
-        for i in range(pos.shape[1]):
-            new_struct.append(
-                (
-                    intensity_center[i],
-                    pos[:, i],
-                    index_mask[3, i],
-                )
-            )
-
+        # CPU → GPU (une seule fois)
+        rois_torch = torch.from_numpy(np.stack(rois, axis=0)).to(DEVICE)
+        
+        with torch.no_grad():
+            sub_pos_batch = radial_symmetry_center_3d_torch_batch(rois_torch)  # (B,3)
+        
+        sub_pos_batch = sub_pos_batch.cpu().numpy()
+        rois_iscat = np.array(rois_iscat, dtype=np.int64)
+        order = np.argsort(rois_iscat)
+        
+        rois_iscat = rois_iscat[order]
+        sub_pos_batch = sub_pos_batch[order]
+        
+        index_mask = index_mask[:, rois_iscat]
+        
+        pos = index_mask[:3, :].astype(np.float32)
+        pos += sub_pos_batch.T
+        
+        intensity_center = list_snr[rois_iscat].astype(type_name)
+        new_struct = [
+            (intensity_center[i], pos[:, i], index_mask[3, i])
+            for i in range(pos.shape[1])
+        ]
+        
         structured_localizations = np.array(
             new_struct,
             dtype=[
@@ -330,7 +351,9 @@ class ULM:
                 ("frame_no", int),
             ],
         )
+        
         return structured_localizations
+
 
     def create_tracks(self, localizations: np.ndarray) -> np.ndarray:
         """
