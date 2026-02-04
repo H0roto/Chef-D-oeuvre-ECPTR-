@@ -129,30 +129,57 @@ def radial_symmetry_center_3d_torch_batch(
         + Omega_33 * v2[None, None, None, :]
     ), dim=(1, 2, 3))
 
-    # --- Inverse symmetric matrix ---
-    alpha = M_22 * M_33 - M_23**2
-    delta = M_11 * M_33 - M_13**2
-    phi   = M_11 * M_22 - M_12**2
-    beta  = M_12 * M_33 - M_13 * M_23
-    gamma = M_12 * M_23 - M_13 * M_22
-    epsilon_m = M_11 * M_23 - M_13 * M_12
+    # # --- Inverse symmetric matrix ---
+    # alpha = M_22 * M_33 - M_23**2
+    # delta = M_11 * M_33 - M_13**2
+    # phi   = M_11 * M_22 - M_12**2
+    # beta  = M_12 * M_33 - M_13 * M_23
+    # gamma = M_12 * M_23 - M_13 * M_22
+    # epsilon_m = M_11 * M_23 - M_13 * M_12
 
-    det = M_11 * alpha - M_12 * beta + M_13 * gamma + eps
+    # det = M_11 * alpha - M_12 * beta + M_13 * gamma + eps
 
-    # --- Final super-localization ---
-    x = ( alpha * B0 - beta * B1 + gamma * B2) / det
-    y = (-beta * B0 + delta * B1 - epsilon_m * B2) / det
-    z = ( gamma * B0 - epsilon_m * B1 + phi * B2) / det
+    # # --- Final super-localization ---
+    # x = ( alpha * B0 - beta * B1 + gamma * B2) / det
+    # y = (-beta * B0 + delta * B1 - epsilon_m * B2) / det
+    # z = ( gamma * B0 - epsilon_m * B1 + phi * B2) / det
 
-    superloc = torch.stack([x, y, z], dim=1)   # (B,3)
+    # superloc = torch.stack([x, y, z], dim=1)   # (B,3)
 
-    # fallback NaN → guess
-    nan_mask = torch.isnan(superloc).any(dim=1)
-    superloc[nan_mask, 0] = guess_0[nan_mask]
-    superloc[nan_mask, 1] = guess_1[nan_mask]
-    superloc[nan_mask, 2] = guess_2[nan_mask]
+    # # fallback NaN → guess
+    # nan_mask = torch.isnan(superloc).any(dim=1)
+    # superloc[nan_mask, 0] = guess_0[nan_mask]
+    # superloc[nan_mask, 1] = guess_1[nan_mask]
+    # superloc[nan_mask, 2] = guess_2[nan_mask]
+
+    # return superloc
+    # --- Assemble M and B ---
+    M = torch.stack(
+        [
+            torch.stack([M_11, M_12, M_13], dim=1),
+            torch.stack([M_12, M_22, M_23], dim=1),
+            torch.stack([M_13, M_23, M_33], dim=1),
+        ],
+        dim=1,
+    )   # (B, 3, 3)
+
+    B = torch.stack([B0, B1, B2], dim=1)   # (B, 3)
+
+    # --- Robust solve ---
+    cond = torch.linalg.cond(M)
+
+    superloc = torch.empty_like(B)
+
+    good = cond < 1e8
+
+    # Fast + precise
+    superloc[good] = torch.linalg.solve(M[good], B[good])
+
+    # Stable fallback (continuous)
+    superloc[~good] = torch.linalg.lstsq(M[~good], B[~good]).solution
 
     return superloc
+
 
 def radial_symmetry_center_3d_torch(
     I: torch.Tensor,
