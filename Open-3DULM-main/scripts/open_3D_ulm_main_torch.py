@@ -43,8 +43,9 @@ sys.path.insert(0, src_path)
 import yaml
 from loguru import logger
 from tqdm import tqdm
+import torch
 
-import ulm3d.ulm
+import ulm3d.ulm_torch
 import ulm3d.utils
 import ulm3d.utils.export
 import ulm3d.utils.power_doppler
@@ -94,7 +95,7 @@ def parse_arguments():
 
 
 def compute_bloc(
-    ulm_pipeline: ulm3d.ulm.ULM,
+    ulm_pipeline: ulm3d.ulm_torch.ULM,
     iq_files: list,
     input_var_name: str,
     export_parameters: dict,
@@ -207,7 +208,7 @@ def run(config_file: str, iq_files: list, output_dir: str, workers: int):
     export_parameters = create_archi_export(output_dir, config)
 
     # Create 3DULM class.
-    ulm = ulm3d.ulm.ULM(iq_files=iq_files, **config)
+    ulm = ulm3d.ulm_torch.ULM(iq_files=iq_files, **config)
 
     input_var_name = input_var_name = (
         config["input_var_name"] if "input_var_name" in config else ""
