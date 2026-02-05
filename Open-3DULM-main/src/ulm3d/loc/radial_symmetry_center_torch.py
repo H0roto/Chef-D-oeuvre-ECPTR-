@@ -13,9 +13,9 @@ def uniform_filter_3d_batch(x: torch.Tensor, size: int = 3) -> torch.Tensor:
         device=x.device,
         dtype=x.dtype,
     ) / (size ** 3)
-
+    pad = size // 2
     x = x.unsqueeze(1)           # (B,1,D,H,W)
-    y = F.conv3d(x, kernel, padding=1)
+    y = F.conv3d(x, kernel, padding=pad)
     return y.squeeze(1)          # (B,D,H,W)
 
 
@@ -31,12 +31,15 @@ def uniform_filter_3d(x: torch.Tensor, size: int = 3) -> torch.Tensor:
     ) / (size ** 3)
 
     x = x.unsqueeze(0).unsqueeze(0)  # (1,1,D,H,W)
-    y = F.conv3d(x, kernel, padding=1)
+    pad = size//2
+    y = F.conv3d(x, kernel, padding=pad)
     return y.squeeze(0).squeeze(0)
 
 def radial_symmetry_center_3d_torch_batch(
     I: torch.Tensor,
-) -> torch.Tensor:
+    inverse_matrix_version = "pseudo_inverse V2",
+    reg_eps: float = 1e-6,
+    ) -> torch.Tensor:
     """
     Batch version of radial symmetry center localization
 
@@ -51,7 +54,7 @@ def radial_symmetry_center_3d_torch_batch(
     dtype = I.dtype
     eps = 1e-12
 
-    B, D, H, W = I.shape
+    B = I.shape[0]
 
     # --- Shifted derivatives ---
     dIdu = I[:, 1:, 1:, 1:] - I[:, :-1, :-1, :-1]
@@ -64,9 +67,9 @@ def radial_symmetry_center_3d_torch_batch(
     fdw = uniform_filter_3d_batch(dIdw)
 
     # --- Cartesian derivatives ---
-    dId_1 = 0.5 * (fdv - fdu) + 0.5 * (dIdv - dIdu)
-    dId_2 = 0.5 * (fdw - fdv) + 0.5 * (dIdw - dIdv)
-    dId_0 = 0.5 * (fdu - fdw) + 0.5 * (dIdu - dIdw)
+    dId_1 = 0.5 * (fdv - fdu + dIdv - dIdu)
+    dId_2 = 0.5 * (fdw - fdv + dIdw - dIdv)
+    dId_0 = 0.5 * (fdu - fdw + dIdu - dIdw)
 
     # --- Gradient magnitude ---
     mag_dI = fdu**2 + fdv**2 + fdw**2                     # (B,D-1,H-1,W-1)
@@ -77,22 +80,25 @@ def radial_symmetry_center_3d_torch_batch(
     v0 = torch.arange(-(n0)/2 + 0.5, (n0)/2 + 0.5, device=device, dtype=dtype)
     v1 = torch.arange(-(n1)/2 + 0.5, (n1)/2 + 0.5, device=device, dtype=dtype)
     v2 = torch.arange(-(n2)/2 + 0.5, (n2)/2 + 0.5, device=device, dtype=dtype)
-
+    
+    V0 = v0[None, :, None, None]
+    V1 = v1[None, None, :, None]
+    V2 = v2[None, None, None, :]
     # --- Initial guess (batch einsum) ---
     guess_0 = torch.einsum("bijk,i->b", mag_dI, v0) / sdI3
     guess_1 = torch.einsum("bijk,j->b", mag_dI, v1) / sdI3
     guess_2 = torch.einsum("bijk,k->b", mag_dI, v2) / sdI3
 
     # --- Weights ---
-    denom = dId_0**2 + dId_1**2 + dId_2**2 + eps
+    denom = torch.clamp(dId_0**2 + dId_1**2 + dId_2**2, min=eps)
 
-    dist = torch.sqrt(
-        (v0[None, :, None, None] - guess_0[:, None, None, None]) ** 2
-        + (v1[None, None, :, None] - guess_1[:, None, None, None]) ** 2
-        + (v2[None, None, None, :] - guess_2[:, None, None, None]) ** 2
+    dist = (
+    (V0 - guess_0[:, None, None, None])**2
+    + (V1 - guess_1[:, None, None, None])**2
+    + (V2 - guess_2[:, None, None, None])**2
     ) + eps
 
-    W = mag_dI / denom / dist
+    W = mag_dI / denom * torch.rsqrt(dist)
 
     # --- Omega matrices ---
     Omega_11 = -2 * (dId_1**2 + dId_2**2)
@@ -129,58 +135,75 @@ def radial_symmetry_center_3d_torch_batch(
         + Omega_33 * v2[None, None, None, :]
     ), dim=(1, 2, 3))
 
-    # # --- Inverse symmetric matrix ---
-    # alpha = M_22 * M_33 - M_23**2
-    # delta = M_11 * M_33 - M_13**2
-    # phi   = M_11 * M_22 - M_12**2
-    # beta  = M_12 * M_33 - M_13 * M_23
-    # gamma = M_12 * M_23 - M_13 * M_22
-    # epsilon_m = M_11 * M_23 - M_13 * M_12
-
-    # det = M_11 * alpha - M_12 * beta + M_13 * gamma + eps
-
-    # # --- Final super-localization ---
-    # x = ( alpha * B0 - beta * B1 + gamma * B2) / det
-    # y = (-beta * B0 + delta * B1 - epsilon_m * B2) / det
-    # z = ( gamma * B0 - epsilon_m * B1 + phi * B2) / det
-
-    # superloc = torch.stack([x, y, z], dim=1)   # (B,3)
-
-    # # fallback NaN → guess
-    # nan_mask = torch.isnan(superloc).any(dim=1)
-    # superloc[nan_mask, 0] = guess_0[nan_mask]
-    # superloc[nan_mask, 1] = guess_1[nan_mask]
-    # superloc[nan_mask, 2] = guess_2[nan_mask]
-
-    # return superloc
-    # --- Assemble M and B ---
-    M = torch.stack(
+    if inverse_matrix_version == "pseudo_inverse V1":
+        M = torch.stack(
         [
             torch.stack([M_11, M_12, M_13], dim=1),
             torch.stack([M_12, M_22, M_23], dim=1),
             torch.stack([M_13, M_23, M_33], dim=1),
         ],
         dim=1,
-    )   # (B, 3, 3)
+        )   # (B, 3, 3)
 
-    B = torch.stack([B0, B1, B2], dim=1)   # (B, 3)
+        B = torch.stack([B0, B1, B2], dim=1)   # (B, 3)
 
-    # --- Robust solve ---
-    cond = torch.linalg.cond(M)
+        # --- Robust solve ---
+        cond = torch.linalg.cond(M)
 
-    superloc = torch.empty_like(B)
+        superloc = torch.empty_like(B)
 
-    good = cond < 1e8
+        good = cond < 1e8
 
-    # Fast + precise
-    superloc[good] = torch.linalg.solve(M[good], B[good])
+        # Fast + precise
+        superloc[good] = torch.linalg.solve(M[good], B[good])
 
-    # Stable fallback (continuous)
-    superloc[~good] = torch.linalg.lstsq(M[~good], B[~good]).solution
+        # Stable fallback (continuous)
+        superloc[~good] = torch.linalg.lstsq(M[~good], B[~good]).solution
 
-    return superloc
+        return superloc
+    elif inverse_matrix_version == "pseudo_inverse V2":
+        M = torch.stack(
+        [
+            torch.stack([M_11, M_12, M_13], dim=1),
+            torch.stack([M_12, M_22, M_23], dim=1),
+            torch.stack([M_13, M_23, M_33], dim=1),
+        ],
+        dim=1,
+        )   # (B, 3, 3)
 
+        B = torch.stack([B0, B1, B2], dim=1)   # (B, 3)
+        # --- Robust solve (regularized) ---
+        eye = torch.eye(3, device=device, dtype=dtype)[None]
+        superloc = torch.linalg.solve(M + reg_eps * eye, B)
 
+        return superloc
+    else :
+
+        # --- Inverse symmetric matrix ---
+        alpha = M_22 * M_33 - M_23**2
+        delta = M_11 * M_33 - M_13**2
+        phi   = M_11 * M_22 - M_12**2
+        beta  = M_12 * M_33 - M_13 * M_23
+        gamma = M_12 * M_23 - M_13 * M_22
+        epsilon_m = M_11 * M_23 - M_13 * M_12
+
+        det = M_11 * alpha - M_12 * beta + M_13 * gamma + eps
+
+        # --- Final super-localization ---
+        x = ( alpha * B0 - beta * B1 + gamma * B2) / det
+        y = (-beta * B0 + delta * B1 - epsilon_m * B2) / det
+        z = ( gamma * B0 - epsilon_m * B1 + phi * B2) / det
+
+        superloc = torch.stack([x, y, z], dim=1)   # (B,3)
+
+        # fallback NaN → guess
+        nan_mask = torch.isnan(superloc).any(dim=1)
+        superloc[nan_mask, 0] = guess_0[nan_mask]
+        superloc[nan_mask, 1] = guess_1[nan_mask]
+        superloc[nan_mask, 2] = guess_2[nan_mask]
+
+        return superloc
+    
 def radial_symmetry_center_3d_torch(
     I: torch.Tensor,
 ) -> Tuple[float, float, float]:
