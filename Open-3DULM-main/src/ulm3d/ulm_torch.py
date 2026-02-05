@@ -10,6 +10,7 @@ from scipy.signal import butter, convolve, lfilter
 import torch
 
 #Changer cette ligne pour passer de cpu à gpu (de numpy à torch)
+import torch.nn.functional as F
 from ulm3d.loc.radial_symmetry_center_torch import radial_symmetry_center_3d_torch_batch
 from ulm3d.utils.load_data import load_iq
 from ulm3d.utils.matlab_tool import smooth
@@ -355,9 +356,7 @@ class ULM:
                 ("frame_no", int),
             ],
         )
-        
         return structured_localizations
-
 
     def create_tracks(self, localizations: np.ndarray) -> np.ndarray:
         """
@@ -486,12 +485,14 @@ def get_intensity_matrix(iq, fwhm, type_name) -> np.ndarray:
     return mask, mask * iq
 
 
+
 def get_local_contrast(
     iq: np.ndarray,
     mask: np.ndarray,
     intensity_matrix: np.ndarray,
     min_snr: float,
     patch_size: np.array,
+    device: str = "cuda" if torch.cuda.is_available() else "cpu",
 ) -> Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
     """Retrieves the local contrast of local maxima to detect microbubbles.
 
@@ -501,31 +502,52 @@ def get_local_contrast(
                 intensity_matrix (np.ndarray): The associated value of local maxima.
                 min_snr (float): min SNR to keep
                 patch_size (np.ndarray): size of patch for SNR computation
+                device (str): Device for computation ('cuda' or 'cpu')
 
     Returns:
-                Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]: A tuple containing the following elements:
-
-                - local_contrast_matrix (np.ndarray): A 4D array representing the computed local contrast values for the input data, when a microbubble is detected and kept based on local contrast threshold.
-                - final_mask (np.ndarray): A binary mask array where each element indicates the presence (`1`) or absence (`0`) of microbubbles based on the local contrast threshold.
-                - linear_ind_mb_detection (np.ndarray): A 1D array of linear indices representing the positions of detected microbubbles in the flattened data structure.
-                - index_frames (np.ndarray): A 1D array indicating the indices of the frames (or time steps) in which microbubbles are detected.
+                Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]: ...
     """
 
-    # Intensity to SNR.
-    mat_conv = np.ones(patch_size)
+    # Créer le kernel de convolution
+    mat_conv = np.ones(patch_size, dtype=np.float32)
     tt = np.arange(1, mat_conv.shape[0] + 1) - (mat_conv.shape[0] + 1) / 2
     [meshz, meshx, meshy] = np.meshgrid(tt, tt, tt)
     meshr = np.sqrt(meshz**2 + meshx**2 + meshy**2)
     mat_conv[meshr < np.sqrt(3) + 0.01] = 0.2  # 1rst neighbours voxels.
     mat_conv[meshr < 1] = 0  # center voxel.
     mat_conv = mat_conv / np.sum(mat_conv)
-    mat_conv = np.expand_dims(mat_conv, axis=-1)
 
-    # Compute local contrast
+    # Convertir le kernel en tensor PyTorch pour conv3d: (out_channels, in_channels, D, H, W)
+    kernel = torch.from_numpy(mat_conv).float().to(device)
+    kernel = kernel.unsqueeze(0).unsqueeze(0)  # Shape: (1, 1, D, H, W)
+
+    # Calculer le clutter
     clutter = iq - intensity_matrix
-    clutter = np.array(convolve(clutter, mat_conv, mode="same"))
 
-    local_contrast = intensity_matrix / (clutter)
+    # Convertir en tensor PyTorch
+    # iq shape: (X, Y, Z, T) -> conv3d attend (N, C, D, H, W)
+    # On traite toutes les frames en batch: (T, 1, X, Y, Z)
+    if clutter.dtype != np.float32:
+        clutter = clutter.astype(np.float32)
+    clutter_tensor = torch.from_numpy(clutter).to(device, non_blocking=True)
+    clutter_tensor = clutter_tensor.permute(3, 0, 1, 2).unsqueeze(1)
+
+    # Padding pour mode 'same'
+    pad = [s // 2 for s in patch_size]
+    padding = (pad[2], pad[2], pad[1], pad[1], pad[0], pad[0])
+    clutter_padded = F.pad(clutter_tensor, padding, mode='replicate')
+
+    # Convolution 3D sur GPU
+    clutter_conv = F.conv3d(clutter_padded, kernel)
+
+    # Remettre dans la forme originale: (T, 1, X, Y, Z) -> (X, Y, Z, T)
+    clutter_conv = clutter_conv.squeeze(1).permute(1, 2, 3, 0)
+
+    # Retour en numpy
+    clutter = clutter_conv.cpu().numpy()
+
+    # Calcul du contraste local
+    local_contrast = intensity_matrix / clutter
     local_contrast[~mask] = np.nan
     local_contrast = 20 * np.log10(local_contrast)
     logger.trace(f"Apply min SNR threshold at {min_snr}dB")
@@ -543,7 +565,6 @@ def get_local_contrast(
         linear_ind_mb_detection, final_mask.shape, order="F"
     )
     return local_contrast, final_mask, linear_ind_mb_detection, index_frames
-
 
 def get_curvilinear_abscissa(m: np.ndarray, axis: int = 0):
     m = np.diff(m, axis=axis)
