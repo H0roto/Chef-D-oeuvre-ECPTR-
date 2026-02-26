@@ -1,6 +1,6 @@
 #! /bin/bash
 
-#SBATCH --job-name=Test_torch_radial_sym
+#SBATCH --job-name=Test_git_SVD
 #SBATCH --output=Open-3DULM-main/Result/ML-%j-open_3D_ulm_main_Dylan.out
 #SBATCH --error=Open-3DULM-main/Result/ML-%j-open_3D_ulm_main_Dylan.err
 
@@ -13,4 +13,4 @@
 #SBATCH --gres=gpu:1
 #SBATCH --gres-flags=enforce-binding
 
-srun singularity exec /apps/containerCollections/CUDA12/pytorch-NGC-25-01.sif $HOME/my_occidata_env/bin/python -u "Open-3DULM-main/scripts/open_3D_ulm_main_torch.py" --input 3D_ULM_Data --output results
+srun singularity exec /apps/containerCollections/CUDA12/pytorch-NGC-25-01.sif $HOME/my_occidata_env/bin/python -u "Open-3DULM-main/scripts/open_3D_ulm_main.py" --input 3D_ULM_Data --output results

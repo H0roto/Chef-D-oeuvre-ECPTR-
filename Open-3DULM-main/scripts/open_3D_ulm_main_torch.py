@@ -30,21 +30,13 @@ from concurrent.futures import ProcessPoolExecutor
 from multiprocessing import cpu_count
 # from tkinter import Tk, filedialog # <-- Ligne supprimée
 import sys
-
-import sys
-import os
-
+import yaml
+from loguru import logger
+from tqdm import tqdm
 current_dir = os.path.dirname(os.path.abspath(__file__))
 src_path = os.path.abspath(os.path.join(current_dir, '../src'))
 
 sys.path.insert(0, src_path)
-
-
-import yaml
-from loguru import logger
-from tqdm import tqdm
-import torch
-
 import ulm3d.ulm_torch
 import ulm3d.utils
 import ulm3d.utils.export
@@ -91,8 +83,22 @@ def parse_arguments():
         default=None,
         help="Parallel computing (use value in config.yaml by default)",
     )
+    parser.add_argument(
+    "--backend",
+    choices=["numpy", "torch"],
+    default="numpy"
+    )
     return parser.parse_args()
 
+def configure_logger(level = "DEBUG"):
+    logger.remove()
+    logger.add(
+        lambda msg: tqdm.write(msg, end=""),
+        colorize=True,
+        level=level,
+        format="<level>{message}</level>",
+        enqueue=True
+    )
 
 def compute_bloc(
     ulm_pipeline: ulm3d.ulm_torch.ULM,
@@ -101,6 +107,9 @@ def compute_bloc(
     export_parameters: dict,
     index: int,
 ):
+    
+    if not logger._core.handlers:
+        configure_logger(level = "DEBUG")
     """
     Function to apply 3DULM for each 3D ultrasound data block (it can be done in parallel).
 
@@ -130,38 +139,41 @@ def compute_bloc(
 
     # Tracking
     tracks = ulm_pipeline.create_tracks(localizations)
-    print(f"\nINSPECTION DE LA STRUCTURE 'tracks' (Bloc {index})")
-    print(f"---------------------------------------------------")
-    
-    # A. Vérification du conteneur principal
-    print(f"1. Type de l'objet 'tracks' : {type(tracks)}")
-    # On s'attend à voir : <class 'tuple'> ou <class 'list'>
-    
-    if isinstance(tracks, (tuple, list)):
-        print(f"2. Nombre d'éléments dans 'tracks' : {len(tracks)}")
-        # On s'attend à voir : 2
+    print("compute_bloc sees log =", ulm_pipeline.log)
+    if "tracking" in ulm_pipeline.log:
         
-        # Vérification du premier élément (tracks[0])
-        if len(tracks) > 0:
-            elem_0 = tracks[0]
-            print(f"3. Contenu de tracks[0] (Raw Tracks) :")
-            print(f"   - Type : {type(elem_0)}")
-            # On regarde la taille pour voir combien de pistes brutes il y a
-            nb_raw = len(elem_0) if hasattr(elem_0, '__len__') else "Inconnu"
-            print(f"   - Quantité : {nb_raw}")
+        print(f"\nINSPECTION DE LA STRUCTURE 'tracks' (Bloc {index})")
+        print(f"---------------------------------------------------")
+        
+        # A. Vérification du conteneur principal
+        print(f"1. Type de l'objet 'tracks' : {type(tracks)}")
+        # On s'attend à voir : <class 'tuple'> ou <class 'list'>
+        
+        if isinstance(tracks, (tuple, list)):
+            print(f"2. Nombre d'éléments dans 'tracks' : {len(tracks)}")
+            # On s'attend à voir : 2
+            
+            # Vérification du premier élément (tracks[0])
+            if len(tracks) > 0:
+                elem_0 = tracks[0]
+                print(f"3. Contenu de tracks[0] (Raw Tracks) :")
+                print(f"   - Type : {type(elem_0)}")
+                # On regarde la taille pour voir combien de pistes brutes il y a
+                nb_raw = len(elem_0) if hasattr(elem_0, '__len__') else "Inconnu"
+                print(f"   - Quantité : {nb_raw}")
 
-        # Vérification du second élément (tracks[1])
-        if len(tracks) > 1:
-            elem_1 = tracks[1]
-            print(f"4. Contenu de tracks[1] (Interpolated Tracks) :")
-            print(f"   - Type : {type(elem_1)}")
+            # Vérification du second élément (tracks[1])
+            if len(tracks) > 1:
+                elem_1 = tracks[1]
+                print(f"4. Contenu de tracks[1] (Interpolated Tracks) :")
+                print(f"   - Type : {type(elem_1)}")
 
-            if hasattr(elem_1, 'shape'):
-                print(f"   - Shape (Dimensions) : {elem_1.shape}")
-            else:
-                print(f"   - Taille : {len(elem_1)}")
-    print(f"---------------------------------------------------\n")
-    # =======================================================
+                if hasattr(elem_1, 'shape'):
+                    print(f"   - Shape (Dimensions) : {elem_1.shape}")
+                else:
+                    print(f"   - Taille : {len(elem_1)}")
+        print(f"---------------------------------------------------\n")
+        # =======================================================
     
     # Export tracks if needed.
     if "tracks" in export_parameters and tracks[1].shape[0] > 0:
@@ -180,6 +192,7 @@ def run(config_file: str, iq_files: list, output_dir: str, workers: int):
         output_dir (str): The path of the output directory.
         workers (int): Number of workers (1 for single thread).
     """
+
     if workers == 0:
         slurm_cpus = os.environ.get("SLURM_CPUS_PER_TASK") \
                      or os.environ.get("SLURM_JOB_CPUS_PER_NODE")
@@ -194,7 +207,9 @@ def run(config_file: str, iq_files: list, output_dir: str, workers: int):
     with open(config_file) as stream:
         config = yaml.safe_load(stream)
     logger.debug(f"Input params from {config_file}:\n {yaml.dump(config)}")
-
+    log = config.get("log", [])
+    print("LOG FROM YAML =", log)
+    config.pop("log", None)
     if workers is None:
         workers = config["max_workers"]
         logger.info(f"Use default number of workers {workers}")
@@ -208,7 +223,8 @@ def run(config_file: str, iq_files: list, output_dir: str, workers: int):
     export_parameters = create_archi_export(output_dir, config)
 
     # Create 3DULM class.
-    ulm = ulm3d.ulm_torch.ULM(iq_files=iq_files, **config)
+    ulm = ulm3d.ulm_torch.ULM(iq_files=iq_files, **config, log = log)
+
 
     input_var_name = input_var_name = (
         config["input_var_name"] if "input_var_name" in config else ""
@@ -269,20 +285,12 @@ if __name__ == "__main__":
     # Chemin vers dossier de données
     data_folder_path = "/projects/ecptr/3D_ULM_Data" 
     
-    # Chemin vers votre dossier de résultats
+    # Chemin vers dossier de résultats
     output_dir_base = "/projects/ecptr/results/"
     # -----------------------------------
 
     # Configuration du logger
-    logger.remove()
-    logger.add(
-        lambda msg: tqdm.write(msg, end=""),
-        colorize=True,
-        level="INFO", # Niveau de verbosité
-        format="<level>{message}</level>"
-        #format="[<green>{time:HH:mm:ss}</green> <d>({elapsed.seconds}s)</d>] <level>{level: <5}</level> <cyan>{name}</cyan>:<cyan>{function}</cyan> - <level>{message}</level>",
-    )
-    logger.info("CHEMINS DEFINIS EN DUR DANS LE SCRIPT")
+    configure_logger(level = "DEBUG")
 
     # Vérification du fichier de config
     if not os.path.isfile(config_file_path):
@@ -295,7 +303,7 @@ if __name__ == "__main__":
     if not os.path.isdir(data_folder_path):
         raise NotADirectoryError(f"Le dossier de données n'existe pas: {data_folder_path}")
 
-    for i in range(1, 11):
+    for i in range(1, 401):
         # Formate le nom du fichier : "IQ" + numéro (ex: 001) + ".mat"
         file_name = f"IQ{i:03d}.mat"
         
@@ -325,4 +333,6 @@ if __name__ == "__main__":
         iq_files=iq_files,
         output_dir=output_dir,
         workers=None, # Utilise la valeur de 'max_workers' du fichier config
+
     )
+

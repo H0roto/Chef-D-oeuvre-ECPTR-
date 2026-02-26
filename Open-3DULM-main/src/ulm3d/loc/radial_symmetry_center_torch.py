@@ -1,9 +1,10 @@
 import torch
 import torch.nn.functional as F
 from typing import Tuple
+from loguru import logger
 
-
-def uniform_filter_3d_batch(x: torch.Tensor, size: int = 3) -> torch.Tensor:
+def uniform_filter_3d_batch(x: torch.Tensor, size: int = 3, ) -> torch.Tensor:
+   
     """
     x: (B, D, H, W)
     """
@@ -37,8 +38,9 @@ def uniform_filter_3d(x: torch.Tensor, size: int = 3) -> torch.Tensor:
 
 def radial_symmetry_center_3d_torch_batch(
     I: torch.Tensor,
-    inverse_matrix_version = "pseudo_inverse V2",
+    inverse_matrix_version = "inverse",
     reg_eps: float = 1e-6,
+    log = None
     ) -> torch.Tensor:
     """
     Batch version of radial symmetry center localization
@@ -49,7 +51,8 @@ def radial_symmetry_center_3d_torch_batch(
     Returns:
         sub_pos: (B, 3) tensor [x,y,z]
     """
-
+    if log is None: 
+        log = []
     device = I.device
     dtype = I.dtype
     eps = 1e-12
@@ -115,7 +118,32 @@ def radial_symmetry_center_3d_torch_batch(
     M_22 = torch.sum(W * Omega_22, dim=(1, 2, 3))
     M_23 = torch.sum(W * Omega_23, dim=(1, 2, 3))
     M_33 = torch.sum(W * Omega_33, dim=(1, 2, 3))
+    M = torch.stack(
+        [
+            torch.stack([M_11, M_12, M_13], dim=1),
+            torch.stack([M_12, M_22, M_23], dim=1),
+            torch.stack([M_13, M_23, M_33], dim=1),
+        ],
+        dim=1,
+        )   # (B, 3, 3)
+    condit = torch.linalg.cond(M)
+    if "conditionnement" in log:
+        logger.debug(
+            f"Conditioning stats → min: {condit.min().item():.2e}, "
+            f"max: {condit.max().item():.2e}, "
+            f"mean: {condit.mean().item():.2e}"
+        )
 
+        threshold = 1e8
+        bad_mask = condit > threshold
+
+        if bad_mask.any():
+            n_bad = bad_mask.sum().item()
+            logger.warning(
+                f"{n_bad} ill-conditioned matrices detected "
+                f"(cond > {threshold:.0e}). "
+                f"Max cond = {condit.max().item():.2e}"
+            )
     # --- Vector B ---
     B0 = torch.sum(W * (
         Omega_11 * v0[None, :, None, None]

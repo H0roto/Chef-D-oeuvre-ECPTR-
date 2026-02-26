@@ -75,6 +75,7 @@ class ULM:
         origin: int,
         iq_files: list,
         input_var_name="",
+        log = None,
         **kwargs,
     ) -> None:
         """To init ULM class.
@@ -104,8 +105,13 @@ class ULM:
             input_var_name (str): Name of the input variable when IQ are loaded.
             iq_files (list): The list of the paths of the IQ. Used to load an IQ to determine the shape of IQ.
         """
+        print("ULM RECEIVED LOG =", log)
+        if log is None:
+            log = []
 
-        logger.info("Initializing ULM pipeline...")
+        self.log = log
+        if "pipeline" in self.log:
+            logger.info("Initializing ULM pipeline...")
         for key, value in kwargs.items():
             setattr(self, key, value)
 
@@ -131,9 +137,10 @@ class ULM:
             self.filter_num, self.filter_den = butter(
                 self.filter_order, self.filter_fc / (self.filter_fs / 2), "bandpass"
             )
-            logger.debug(
-                f"Set bandpass filter: order {filter_order}, fc {self.filter_fc}"
-            )
+            if "pipeline" in self.log:
+                logger.debug(
+                    f"Set bandpass filter: order {filter_order}, fc {self.filter_fc}"
+                )
 
         self.filt_mode = filt_mode
 
@@ -146,56 +153,62 @@ class ULM:
 
         # Tracking parameters.
         self.max_gap_closing = max_gap_closing
-        logger.info(f"max_gap_closing: { self.max_gap_closing}")
+        if "pipeline" in self.log:
+            logger.info(f"max_gap_closing: { self.max_gap_closing}")
 
         max_link_dist = max_velocity / volumerate / voxel_size[self.z_dim] * self.res
         self.max_linking_distance = np.round(max_link_dist)
         mld_mm = self.max_linking_distance / self.res * np.mean(self.scale[:3])
-        logger.info(
-            f"max_linking_distance_dist: {mld_mm} (~{mld_mm/np.mean(self.scale[:3])} voxel)"
-        )
+        if "pipeline" in self.log:
+            logger.info(
+                f"max_linking_distance_dist: {mld_mm} (~{mld_mm/np.mean(self.scale[:3])} voxel)"
+            )
         self.min_length = min_length
-        logger.info(f"min_track_len: { self.min_length}")
+        if "pipeline" in self.log:
+            logger.info(f"min_track_len: { self.min_length}")
 
     def filtering(self, iq: np.ndarray) -> np.ndarray:
-        """
-        Filter the IQ data to remove the tissue signal, tissue motion as well as the skull signal to enhance microbubbles signal.
 
-        Args:
-            iq (np.ndarray): The IQ data to be filtered.
-
-        Returns:
-            np.ndarray: The filtered IQ data.
-        """
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        
-        iq = torch.from_numpy(iq).to(device).to(torch.complex64)
-        
-        iq_shape = iq.shape
-        #iq = iq.reshape(-1, iq_shape[-1], order="F") Ne marche plus
-        iq = iq.reshape(-1, iq_shape[-1]) # autre solution
 
-        
-        u, _, _ = torch.linalg.svd(torch.matmul(torch.conj(iq.T), iq), full_matrices=False) #Passer a False
+        # --- conversion exacte comme numpy ---
+        iq_t = torch.from_numpy(iq).to(device).to(torch.complex128)
 
-        v = torch.matmul(iq, u)
-        
+        iq_shape = iq_t.shape
+        T = iq_shape[-1]
+
+        # ===== Fortran-order reshape équivalent =====
+        iq_t = iq_t.permute(3, 0, 1, 2).contiguous()  # (T, X, Y, Z)
+        iq_t = iq_t.reshape(T, -1).T                  # (-1, T)
+
+        # ===== covariance matrix =====
+        cov = torch.matmul(torch.conj(iq_t.T), iq_t)
+
+        # ===== SVD full_matrices=True comme numpy =====
+        u, s, vh = torch.linalg.svd(cov, full_matrices=True)
+
+        # ===== projection =====
+        v = torch.matmul(iq_t, u)
+
+        k0 = self.svd_tresh[0] - 1
+        k1 = self.svd_tresh[1]
+
         iq_filtered = torch.matmul(
-            v[:, self.svd_tresh[0] - 1 : self.svd_tresh[1]],
-            torch.conj(u[:, self.svd_tresh[0] - 1 : self.svd_tresh[1]]).T,
+            v[:, k0:k1],
+            torch.conj(u[:, k0:k1]).T
         )
-        
-        #iq_filtered = iq_filtered.reshape(iq_shape, order="F")
-        iq_filtered = iq_filtered.reshape(iq_shape) # pareil changer le F
 
-        
+        # ===== reshape inverse Fortran =====
+        iq_filtered = iq_filtered.T.reshape(T, *iq_shape[:-1])
+        iq_filtered = iq_filtered.permute(1, 2, 3, 0).contiguous()
+
         iq_filtered = iq_filtered.cpu().numpy()
 
-        torch.cuda.synchronize()
-        # Apply bandpass filter if it is needed
         if self.filt_mode == "SVD_bandpass":
             iq_filtered = lfilter(self.filter_num, self.filter_den, iq_filtered)
+
         return iq_filtered
+
 
     def super_localization(
         self,
@@ -328,7 +341,7 @@ class ULM:
         rois_torch = torch.from_numpy(np.stack(rois, axis=0)).to(DEVICE)
         
         with torch.no_grad():
-            sub_pos_batch = radial_symmetry_center_3d_torch_batch(rois_torch)  # (B,3)
+            sub_pos_batch = radial_symmetry_center_3d_torch_batch(rois_torch, log = self.log)  # (B,3)
         
         sub_pos_batch = sub_pos_batch.cpu().numpy()
         rois_iscat = np.array(rois_iscat, dtype=np.int64)
@@ -380,17 +393,20 @@ class ULM:
                 - track_ind: The index of the track.
         """
         pitch = np.mean(self.scale[:3])
-        logger.debug(f"Average voxel pitch {pitch} ({self.scale[:3]})")
+        if "tracking" in self.log:
+            logger.debug(f"Average voxel pitch {pitch} ({self.scale[:3]})")
 
         # Convert localizations from pixel to [mm], frame to time in second.
         localizations["pos"] = localizations["pos"] * self.scale[:3] + self.origin
 
         # Tracking
-        logger.debug(f"Start SimpleTracker on {len(localizations)}")
+        if "tracking" in self.log:
+            logger.debug(f"Start SimpleTracker on {len(localizations)}")
         max_linking_distance_dist = self.max_linking_distance / self.res * pitch
-        logger.debug(
-            f"max_linking_distance_dist: {max_linking_distance_dist} (~{max_linking_distance_dist/pitch} voxel)"
-        )
+        if "tracking" in self.log:
+            logger.debug(
+                f"max_linking_distance_dist: {max_linking_distance_dist} (~{max_linking_distance_dist/pitch} voxel)"
+            )
         tracked_loc = SimpleTracker(
             data=localizations,
             max_linking_dist=max_linking_distance_dist,
@@ -420,8 +436,8 @@ class ULM:
                 ("track_ind", int),
             ],
         )
-
-        logger.debug(f"{len(track_ids)} tracks found.")
+        if "tracking" in self.log:  
+            logger.debug(f"{len(track_ids)} tracks found.")
         for id in track_ids:
             [raw_track, interp_track] = clean_and_interpolate_track(
                 pos=tracked_loc["pos"][tracked_loc["track_no"] == id],
