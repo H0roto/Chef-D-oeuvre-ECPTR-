@@ -1,8 +1,8 @@
 #! /bin/bash
 
 #SBATCH --job-name=Titre
-#SBATCH --output=Open-3DULM-main/Result/ML-%j-open_3D_ulm_main_Thomas.out
-#SBATCH --error=Open-3DULM-main/Result/ML-%j-open_3D_ulm_main_Thomas.err
+#SBATCH --output=Result/out/transformPAL_PNG_Thomas.out
+#SBATCH --error=Result/err/transformPAL_PNG_Thomas.err
 
 
 #SBATCH --mail-type=END
@@ -13,4 +13,4 @@
 #SBATCH --gres=gpu:1
 #SBATCH --gres-flags=enforce-binding
 
-srun singularity exec /apps/containerCollections/CUDA12/pytorch-NGC-25-01.sif $HOME/my_occidata_env/bin/python -u "Open-3DULM-main/scripts/open_3D_ulm_main.py" --input 3D_ULM_Data --output results
+srun singularity exec /apps/containerCollections/CUDA12/pytorch-NGC-25-01.sif $HOME/my_occidata_env/bin/python -u "testRF/transforme_PALA-mat_PNG.ipnyb" --input 3D_ULM_Data --output results
