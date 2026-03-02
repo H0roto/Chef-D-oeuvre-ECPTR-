@@ -1,3 +1,4 @@
 PALA_data/
 *.sh
 .ipynb_checkpoints/
+*.ipynb
