@@ -12,5 +12,5 @@
 #SBATCH --partition=RTX8000Nodes
 #SBATCH --gres=gpu:1
 #SBATCH --gres-flags=enforce-binding
-
-srun singularity exec /apps/containerCollections/CUDA12/pytorch-NGC-25-01.sif $HOME/my_occidata_env/bin/python -u "Open-3DULM-main/scripts/open_3D_ulm_main_torch.py" --input 3D_ULM_Data --output results
+# #SBATCH --mem=80G
+srun singularity exec /apps/containerCollections/CUDA12/pytorch-NGC-25-01.sif $HOME/my_occidata_env/bin/python -u "Open-3DULM-main/scripts/open_3D_ulm_main.py" --input "/projects/ecptr/3D_ULM_Data" --output "/projects/ecptr/results/" --backend "torch" --config-file "/projects/ecptr/Espace_GIT/Espace_Dylan/Chef-D-oeuvre-ECPTR-/Open-3DULM-main/config/basic_config.yaml"
