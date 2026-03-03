@@ -1,9 +1,10 @@
 import torch
 import torch.nn.functional as F
 from typing import Tuple
-
-
-def uniform_filter_3d_batch(x: torch.Tensor, size: int = 3) -> torch.Tensor:
+from loguru import logger
+import torch._dynamo
+def uniform_filter_3d_batch(x: torch.Tensor, size: int = 3, ) -> torch.Tensor:
+   
     """
     x: (B, D, H, W)
     """
@@ -15,7 +16,8 @@ def uniform_filter_3d_batch(x: torch.Tensor, size: int = 3) -> torch.Tensor:
     ) / (size ** 3)
     pad = size // 2
     x = x.unsqueeze(1)           # (B,1,D,H,W)
-    y = F.conv3d(x, kernel, padding=pad)
+    # y = F.conv3d(x, kernel, padding=pad)
+    y = F.avg_pool3d(x, kernel_size=size, stride=1, padding=pad, divisor_override=size**3)
     return y.squeeze(1)          # (B,D,H,W)
 
 
@@ -35,10 +37,12 @@ def uniform_filter_3d(x: torch.Tensor, size: int = 3) -> torch.Tensor:
     y = F.conv3d(x, kernel, padding=pad)
     return y.squeeze(0).squeeze(0)
 
+
 def radial_symmetry_center_3d_torch_batch(
     I: torch.Tensor,
-    inverse_matrix_version = "pseudo_inverse V2",
+    inverse_matrix_version = "pseudo_inverse V3", 
     reg_eps: float = 1e-6,
+    log = None
     ) -> torch.Tensor:
     """
     Batch version of radial symmetry center localization
@@ -49,7 +53,8 @@ def radial_symmetry_center_3d_torch_batch(
     Returns:
         sub_pos: (B, 3) tensor [x,y,z]
     """
-
+    if log is None: 
+        log = []
     device = I.device
     dtype = I.dtype
     eps = 1e-12
@@ -115,7 +120,32 @@ def radial_symmetry_center_3d_torch_batch(
     M_22 = torch.sum(W * Omega_22, dim=(1, 2, 3))
     M_23 = torch.sum(W * Omega_23, dim=(1, 2, 3))
     M_33 = torch.sum(W * Omega_33, dim=(1, 2, 3))
+    M = torch.stack(
+        [
+            torch.stack([M_11, M_12, M_13], dim=1),
+            torch.stack([M_12, M_22, M_23], dim=1),
+            torch.stack([M_13, M_23, M_33], dim=1),
+        ],
+        dim=1,
+        )   # (B, 3, 3)
+    condit = torch.linalg.cond(M)
+    if "conditionnement" in log:
+        logger.debug(
+            f"Conditioning stats → min: {condit.min().item():.2e}, "
+            f"max: {condit.max().item():.2e}, "
+            f"mean: {condit.mean().item():.2e}"
+        )
 
+        threshold = 1e8
+        bad_mask = condit > threshold
+
+        if bad_mask.any():
+            n_bad = bad_mask.sum().item()
+            logger.warning(
+                f"{n_bad} ill-conditioned matrices detected "
+                f"(cond > {threshold:.0e}). "
+                f"Max cond = {condit.max().item():.2e}"
+            )
     # --- Vector B ---
     B0 = torch.sum(W * (
         Omega_11 * v0[None, :, None, None]
@@ -177,6 +207,39 @@ def radial_symmetry_center_3d_torch_batch(
         superloc = torch.linalg.solve(M + reg_eps * eye, B)
 
         return superloc
+    elif inverse_matrix_version == "pseudo_inverse V3":
+        M = torch.stack(
+        [
+            torch.stack([M_11, M_12, M_13], dim=1),
+            torch.stack([M_12, M_22, M_23], dim=1),
+            torch.stack([M_13, M_23, M_33], dim=1),
+        ],
+        dim=1,
+        )   # (B, 3, 3)
+
+        B = torch.stack([B0, B1, B2], dim=1)   # (B, 3)
+
+        # --- Robust hybrid solve ---
+        cond = torch.linalg.cond(M)
+        superloc = torch.empty_like(B)
+        good = cond < 1e8
+
+        # Fast and precise resolution for well-conditioned matrices (V1)
+        superloc[good] = torch.linalg.solve(M[good], B[good])
+
+        # Regularization (the "eye") only for ill-conditioned matrices (V2)
+        # Check if there is at least one ill-conditioned matrix to avoid unnecessary calculations
+        if (~good).any():
+            eye = torch.eye(3, device=M.device, dtype=M.dtype)[None]
+            
+            # Add the regularization term (reg_eps) to the "bad" matrices
+            M_bad_reg = M[~good] + reg_eps * eye
+            
+            # Since the matrix is now regularized, 'solve' can be used 
+            superloc[~good] = torch.linalg.solve(M_bad_reg, B[~good])
+
+        return superloc
+        
     else :
 
         # --- Inverse symmetric matrix ---
