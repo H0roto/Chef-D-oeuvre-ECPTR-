@@ -26,12 +26,13 @@ def load_iq(iq_file: str, input_var_name="") -> np.ndarray:
         raise NotImplementedError(
             f"Loading iq with extension {ext} is not implemented."
         )
-    # Si les données sont complexes, on force le complex64
+    
+    # If data is complex, force complex64
     if np.iscomplexobj(iq):
         if iq.dtype != np.complex64:
             iq = iq.astype(np.complex64, copy=False)
             
-    # Si c'est du réel pur, on force le float32
+    # If data is purely real, force float32
     else:
         if iq.dtype != np.float32:
             iq = iq.astype(np.float32, copy=False)

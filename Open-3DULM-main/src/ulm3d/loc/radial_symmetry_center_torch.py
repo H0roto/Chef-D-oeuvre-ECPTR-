@@ -40,7 +40,7 @@ def uniform_filter_3d(x: torch.Tensor, size: int = 3) -> torch.Tensor:
 
 def radial_symmetry_center_3d_torch_batch(
     I: torch.Tensor,
-    inverse_matrix_version = "inverse",
+    inverse_matrix_version = "pseudo_inverse V3", 
     reg_eps: float = 1e-6,
     log = None
     ) -> torch.Tensor:
@@ -207,6 +207,39 @@ def radial_symmetry_center_3d_torch_batch(
         superloc = torch.linalg.solve(M + reg_eps * eye, B)
 
         return superloc
+    elif inverse_matrix_version == "pseudo_inverse V3":
+        M = torch.stack(
+        [
+            torch.stack([M_11, M_12, M_13], dim=1),
+            torch.stack([M_12, M_22, M_23], dim=1),
+            torch.stack([M_13, M_23, M_33], dim=1),
+        ],
+        dim=1,
+        )   # (B, 3, 3)
+
+        B = torch.stack([B0, B1, B2], dim=1)   # (B, 3)
+
+        # --- Robust hybrid solve ---
+        cond = torch.linalg.cond(M)
+        superloc = torch.empty_like(B)
+        good = cond < 1e8
+
+        # Fast and precise resolution for well-conditioned matrices (V1)
+        superloc[good] = torch.linalg.solve(M[good], B[good])
+
+        # Regularization (the "eye") only for ill-conditioned matrices (V2)
+        # Check if there is at least one ill-conditioned matrix to avoid unnecessary calculations
+        if (~good).any():
+            eye = torch.eye(3, device=M.device, dtype=M.dtype)[None]
+            
+            # Add the regularization term (reg_eps) to the "bad" matrices
+            M_bad_reg = M[~good] + reg_eps * eye
+            
+            # Since the matrix is now regularized, 'solve' can be used 
+            superloc[~good] = torch.linalg.solve(M_bad_reg, B[~good])
+
+        return superloc
+        
     else :
 
         # --- Inverse symmetric matrix ---

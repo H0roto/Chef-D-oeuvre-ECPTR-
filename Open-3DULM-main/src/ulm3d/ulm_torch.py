@@ -1,4 +1,4 @@
-"""This file contains ULM class."""
+"""This file contains the ULM class."""
 
 from typing import Tuple
 
@@ -9,7 +9,6 @@ from scipy.ndimage import maximum_filter
 from scipy.signal import butter, convolve, lfilter
 import torch
 
-#Changer cette ligne pour passer de cpu à gpu (de numpy à torch)
 import torch.nn.functional as F
 from ulm3d.loc.radial_symmetry_center_torch import radial_symmetry_center_3d_torch_batch
 from ulm3d.utils.load_data import load_iq
@@ -22,21 +21,21 @@ class ULM:
     The ULM class which contains ULM parameters and methods to apply the pipeline.
 
     Attributes:
-        res (int): The hypotetical super-resolution factor.
-        origin (int): Reconstruction grid origin in each directions.
-        voxel_size (int): Voxel size in each directions [µm].
+        res (int): The hypothetical super-resolution factor.
+        origin (int): Reconstruction grid origin in each direction.
+        voxel_size (int): Voxel size in each direction [µm].
         z_dim (int): Dimension in the IQ where z is located [1,2,3].
         size (np.ndarray): Input size of raw beamformed data (IQ).
-        scale (np.ndarray): Scaling for each dimensions [mm mm mm s].
+        scale (np.ndarray): Scaling for each dimension [mm mm mm s].
         svd_tresh (np.ndarray): The range of singular values preserved for SVD filter.
         filter_order (int): The order of the bandpass filter.
         filter_fs (float): Sampling frequency [Hz] (volumerate).
-        filter_fc (float): Cuttof frequency for bandpass filter [Hz].
-        filter_num (np.ndarray): Numerator (b) denominator of the butterworth filter.
+        filter_fc (float): Cutoff frequency for bandpass filter [Hz].
+        filter_num (np.ndarray): Numerator (b) polynomials of the butterworth filter.
         filter_den (np.ndarray): Denominator (a) polynomials of the butterworth filter.
         filt_mode (str): filtering mode.
             filt_mode can be:
-                - 'no_filter': nofilter.
+                - 'no_filter': no filter.
                 - 'SVD': only SVD.
                 - 'SVD_bandpass': SVD + bandpass.
         number_of_particles (int): The number of microbubbles to be localized in every frame.
@@ -45,13 +44,13 @@ class ULM:
         patch_size (np.ndarray): The size of the 3D kernel where the local SNR is computed.
         nb_local_max (int): The maximum number of allowed microbubbles inside a patch (fwhm^3).
         max_gap_closing (int): The maximum number of frames that the microbubble is allowed to disappear and reappear (PeasyTracker parameter).
-        max_linking_distance (int): Maximum linking distance between two frames to reject pairing, in super-resolved voxels. Should be between 20 to 40 SRvoxels (PeasyTracker parameter ).
+        max_linking_distance (int): Maximum linking distance between two frames to reject pairing, in super-resolved voxels. Should be between 20 to 40 SRvoxels (PeasyTracker parameter).
         min_length (int): The minimum number of frames a microbubble must be tracked for it to be accepted.
 
     Methods:
-        -filtering: Filter the IQ data to remove the tissue signal, tissue motion as well as the skull signal to enhance microbubbles signal.
-        -super_localization: Superlocalization function to pinpoint the microbubble's position with sub-wavelength precision.
-        -create_tracks: 3D Tracking function. The 3D tracking algorithm is a library Python-adapted ('PeasyTracker') version of the open-source 'SimpleTracker' [Tinevez, J.-Y. et al. 2017].
+        -filtering: Filter the IQ data to remove tissue signal, tissue motion, and skull signal to enhance microbubble signals.
+        -super_localization: Super-localization function to pinpoint the microbubble's position with sub-wavelength precision.
+        -create_tracks: 3D Tracking function. The 3D tracking algorithm is a Python-adapted ('PeasyTracker') version of the open-source 'SimpleTracker' [Tinevez, J.-Y. et al. 2017].
     """
 
     def __init__(
@@ -78,32 +77,32 @@ class ULM:
         log = None,
         **kwargs,
     ) -> None:
-        """To init ULM class.
+        """To initialize the ULM class.
 
         Args:
-            volumerate (int): Number of volumes acquiried per second.
+            volumerate (int): Number of volumes acquired per second.
             z_dim (int): Dimension in the IQ where z is located [1,2,3].
-            voxel_size (float): Voxel size in each directions [mm].
-            origin (list): Reconstruction grid origin in each directions [mm].
-            res (int): The hypotetical super-resolution factor.
-            max_velocity (int): The max speed of the particle to track [mm/s]. (To be converted to maximum linking distance).
+            voxel_size (float): Voxel size in each direction [mm].
+            origin (list): Reconstruction grid origin in each direction [mm].
+            res (int): The hypothetical super-resolution factor.
+            max_velocity (int): The max speed of the particle to track [mm/s]. (Converted to maximum linking distance).
             bandpass_filter (int): Cutoffs for the bandpass filter.
-            svd_value (int): The singular values that will be kept after applying SVD filtering.
+            svd_values (int): The singular values that will be kept after applying SVD filtering.
             number_of_particles (int): The number of microbubbles to be localized in every frame.
             min_length (int): The minimum number of frames a microbubble must be tracked for it to be accepted.
             filter_order (int): The order of the bandpass filter.
             filt_mode (str): Filtering mode.
                 filt_mode can be:
-                    - 'no_filter': nofilter.
+                    - 'no_filter': no filter.
                     - 'SVD': only SVD.
                     - 'SVD_bandpass': SVD + bandpass.
-            fwhm (list): Size of the PSF for localization in each directions.
+            fwhm (list): Size of the PSF for localization in each direction.
             nb_local_max (int): The maximum number of allowed microbubbles inside a patch (fwhm^3).
-            min_snr (int):The minimum SNR value for a microbubble to be accepted [dB].
+            min_snr (int): The minimum SNR value for a microbubble to be accepted [dB].
             patch_size (np.ndarray): The size of the 3D kernel where the local SNR is computed.
-            max_gap_closing (int): The maximum number of frames that the microbubble is allowed to disappear and reappear (simpletracker parameter).
+            max_gap_closing (int): The maximum number of frames that the microbubble is allowed to disappear and reappear (PeasyTracker parameter).
             input_var_name (str): Name of the input variable when IQ are loaded.
-            iq_files (list): The list of the paths of the IQ. Used to load an IQ to determine the shape of IQ.
+            iq_files (list): List of IQ paths. Used to load an IQ to determine the shape.
         """
         print("ULM RECEIVED LOG =", log)
         if log is None:
@@ -171,23 +170,18 @@ class ULM:
 
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-        # --- conversion exacte comme numpy ---
         iq_t = torch.from_numpy(iq).to(device, non_blocking=True).to(torch.complex128)
 
         iq_shape = iq_t.shape
         T = iq_shape[-1]
 
-        # ===== Fortran-order reshape équivalent =====
         iq_t = iq_t.permute(3, 0, 1, 2).contiguous()  # (T, X, Y, Z)
         iq_t = iq_t.reshape(T, -1).T                  # (-1, T)
 
-        # ===== covariance matrix =====
         cov = torch.matmul(torch.conj(iq_t.T), iq_t)
 
-        # ===== SVD full_matrices=True comme numpy =====
         u, s, vh = torch.linalg.svd(cov, full_matrices=False)
 
-        # ===== projection =====
         v = torch.matmul(iq_t, u)
 
         k0 = self.svd_tresh[0] - 1
@@ -198,7 +192,6 @@ class ULM:
             torch.conj(u[:, k0:k1]).T
         )
 
-        # ===== reshape inverse Fortran =====
         iq_filtered = iq_filtered.T.reshape(T, *iq_shape[:-1])
         iq_filtered = iq_filtered.permute(1, 2, 3, 0).contiguous()
 
@@ -216,14 +209,15 @@ class ULM:
         type_name: str = "float",
     ) -> Tuple[np.ndarray, np.ndarray]:
         """
-        Superlocalization function to pinpoint the microbubble's position with sub-wavelength precision.
+        Super-localization function to pinpoint the microbubble's position with sub-wavelength precision.
 
         Args:
             iq (np.ndarray): The filtered IQ data.
             type_name (str, optional): The type of the IQ matrix. Defaults to "float".
 
         Returns:
-            np.ndarray: A structured array containing matrix with the positions of the superlocalization in sub-voxel. The different fields are:
+            np.ndarray: A structured array containing a matrix with the super-localization positions in sub-voxels. 
+                        The fields are:
                 - snr: The local SNR of the microbubble.
                 - pos: The sub-wavelength position of the microbubble (sub-voxel).
                 - frame_no: The index of the frame where the microbubble is located.
@@ -248,7 +242,7 @@ class ULM:
         # If there are too many detections, remove the particles with the lowest local contrast values.
         if np.size(index_frames) / self.size[-1] > self.number_of_particles:
             logger.debug(
-                f"Too many detection, reducing to {self.number_of_particles} per frame."
+                f"Too many detections, reducing to {self.number_of_particles} per frame."
             )
             for frame in range(self.size[-1]):
                 idx_current_frame = np.unravel_index(
@@ -267,7 +261,7 @@ class ULM:
                         sort_idx_current_frame[self.number_of_particles :]
                     ] = 0
 
-                    # Keep only the linear index that match condition of number of particles.
+                    # Keep only the linear index that matches the condition of number of particles.
                     linear_ind_mb_detection[index_frames == frame] = (
                         linear_ind_mb_detection[index_frames == frame]
                         * (local_contrast_i > 0)
@@ -303,13 +297,14 @@ class ULM:
         intensity_center = np.zeros((index_mask.shape[1]), dtype=type_name)
         pos = np.zeros_like(index_mask[:3, :], dtype=np.float32)
         rois = []
-        rois_indices = []  # pour savoir où remettre le résultat
-       # Localization (BATCHED)
+        rois_indices = []
+        
+        # Localization (BATCHED)
         n_scats = index_mask.shape[1]
         
         rois = []
         rois_iscat = []
-        # 1. Extraction pure (le plus rapide possible sur CPU, sans SciPy)
+        # Pure extraction
         for iscat in range(n_scats):
             intensity_roi = np.absolute(
                 iq[
@@ -323,35 +318,33 @@ class ULM:
             rois_iscat.append(iscat)
 
         if len(rois) == 0:
-            logger.warning("0 microbubble located !")
+            logger.warning("0 microbubbles located!")
             return False, None
 
-        # 2. Envoi massif au GPU
+        # Massive upload to GPU
         rois_torch = torch.from_numpy(np.stack(rois, axis=0)).to(DEVICE, non_blocking=True)
         
-        # 3. Filtrage du maximum local en BATCH sur le GPU
-        # Equivalent de maximum_filter(footprint=np.ones((3, 3, 3)))
-        # On ajoute une dimension 'channel' pour F.max_pool3d -> (B, 1, D, H, W)
+        # Local maximum filtering in BATCH on GPU
         rois_torch_unsqueeze = rois_torch.unsqueeze(1)
         mask_loc_gpu = F.max_pool3d(rois_torch_unsqueeze, kernel_size=3, stride=1, padding=1)
         
-        # Comptage des maxima par patch
+        # Counting maxima per patch
         is_max = (rois_torch_unsqueeze == mask_loc_gpu).view(n_scats, -1)
         max_counts = is_max.sum(dim=1)
         
-        # Masque booléen des patchs valides
+        # Boolean mask of valid patches
         valid_mask = max_counts <= self.nb_local_max
         
-        # On ne garde que les patchs valides pour le calcul de symétrie radiale
+        # Keep only valid patches for radial symmetry calculation
         rois_torch_valid = rois_torch[valid_mask]
         valid_indices = torch.nonzero(valid_mask).squeeze(-1).cpu().numpy()
         rois_iscat = np.array(rois_iscat)[valid_indices]
 
         if len(rois_torch_valid) == 0:
-            logger.warning("0 microbubble valid after max filter !")
+            logger.warning("0 microbubbles valid after max filter!")
             return False, None
 
-        # 4. Appel de la fonction de symétrie radiale sur le sous-ensemble valide
+        # Call radial symmetry function on valid subset
         with torch.no_grad():
             sub_pos_batch = radial_symmetry_center_3d_torch_batch(rois_torch_valid, log=self.log)  # (B,3)
         
@@ -385,30 +378,31 @@ class ULM:
 
     def create_tracks(self, localizations: np.ndarray) -> np.ndarray:
         """
-        3D Tracking function. The 3D tracking algorithm is a library Python-adapted ('PeasyTracker') version of the open-source 'SimpleTracker' [Tinevez, J.-Y. et al. 2017].
+        3D Tracking function. The 3D tracking algorithm is a Python-adapted ('PeasyTracker') version of the open-source 'SimpleTracker' [Tinevez, J.-Y. et al. 2017].
 
         Args:
-            localizations (np.ndarray): The sub_wavelength localization matrix.
+            localizations (np.ndarray): The sub-wavelength localization matrix.
 
         Returns:
-            Tuple[np.ndarray, np.ndarray]: A tuple which containes he structured arrays tracking information with interpolated tracks at index 0 and raw tracks at index 1.
+            Tuple[np.ndarray, np.ndarray]: A tuple containing structured arrays with tracking information.
+                                           Interpolated tracks at index 0 and raw tracks at index 1.
 
-            The different fields for interpolated tracks are:
+            The fields for interpolated tracks are:
                 - pos: The interpolated sub-wavelength position of the microbubble [mm].
                 - speed: The interpolated speed of the microbubble [mm/s]
                 - time: The interpolated time [s].
                 - track_ind: The index of the track.
 
-            The different fields for raw tracks are:
-                - pos: The interpolated sub-wavelength position of the microbubble [dimension].
-                - time: The index frame.
+            The fields for raw tracks are:
+                - pos: The sub-wavelength position of the microbubble [dimension].
+                - time: The frame index.
                 - track_ind: The index of the track.
         """
         pitch = np.mean(self.scale[:3])
         if "tracking" in self.log:
             logger.debug(f"Average voxel pitch {pitch} ({self.scale[:3]})")
 
-        # Convert localizations from pixel to [mm], frame to time in second.
+        # Convert localizations from pixel to [mm], frame to time in seconds.
         localizations["pos"] = localizations["pos"] * self.scale[:3] + self.origin
 
         # Tracking
@@ -427,10 +421,10 @@ class ULM:
         )
         # Output from SimpleTracker: ['pos', 'frame_no', 'track_no']
         track_ids = np.unique(tracked_loc["track_no"])
-        # Remove localizations which are not associated to tracks.
+        # Remove localizations not associated with tracks.
         track_ids = track_ids[track_ids >= 0]
 
-        # Init list for structured arrays. Collect tracks indexes.
+        # Init list for structured arrays. Collect track indexes.
         raw_tracks = np.zeros(
             0,
             dtype=[
@@ -451,19 +445,17 @@ class ULM:
         if "tracking" in self.log:  
             logger.debug(f"{len(track_ids)} tracks found.")
 
-        # --- NOUVELLE APPROCHE ULTRA-RAPIDE ---
-        # 1. On utilise des listes Python vierges
+        # Use empty Python lists
         all_raw_tracks = []
         all_interp_tracks = []
 
-        # (Optionnel mais très puissant) : Pré-extraire les colonnes 
-        # pour éviter de taper dans le dictionnaire structuré à chaque itération
+        # Pre-extract columns to avoid accessing the structured dictionary in each iteration
         t_pos = tracked_loc["pos"]
         t_frame = tracked_loc["frame_no"]
         t_track_no = tracked_loc["track_no"]
 
         for track_id in track_ids:
-            # On crée un masque booléen pour isoler la bulle
+            # Create a boolean mask to isolate the bubble
             mask = (t_track_no == track_id)
             
             raw_track, interp_track = clean_and_interpolate_track(
@@ -474,11 +466,11 @@ class ULM:
                 track_id=track_id,
             )
             
-            # 2. .extend() ajoute les éléments de la liste sans réallouer la mémoire globale
+            # 2. .extend() adds list elements without global memory reallocation
             all_raw_tracks.extend(raw_track)
             all_interp_tracks.extend(interp_track)
 
-        # 3. Conversion finale en un seul coup (Zero-Copy overhead)
+        # 3. Final one-shot conversion (Zero-Copy overhead)
         raw_tracks_dtype = [
             ("pos", float, 3),
             ("time", float),
@@ -498,7 +490,7 @@ class ULM:
 
 
 def get_intensity_matrix(iq, fwhm, type_name) -> np.ndarray:
-    """Get the intensity of voxel when a local maxima is located.
+    """Get the intensity of a voxel when a local maximum is located.
 
     Args:
         iq (np.ndarray): The filtered IQ data.
@@ -506,14 +498,12 @@ def get_intensity_matrix(iq, fwhm, type_name) -> np.ndarray:
         type_name (str, optional): The type of the IQ matrix. Defaults to "float".
 
     Returns:
-        np.ndarray: An intensity matrix of size of iq. Value of the intensity of each voxel when a local maxima is found.
+        np.ndarray: An intensity matrix same size as iq. Contains the intensity value of each voxel when a local maximum is found.
     """
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-    # 1. Envoi immédiat sur le GPU
     iq_tensor = torch.from_numpy(iq).to(device, dtype=torch.float32)
 
-    # 2. On applique les marges (fwhm) directement sur le GPU
     half_fwhm = np.ceil(1 + fwhm / 2).astype(int)
     
     iq_reduced = torch.zeros_like(iq_tensor)
@@ -529,26 +519,17 @@ def get_intensity_matrix(iq, fwhm, type_name) -> np.ndarray:
         :,
     ]
 
-    # 3. Préparation pour le Max Pooling 3D batched
-    # iq_reduced est (X, Y, Z, T) -> PyTorch attend (Batch=T, Channel=1, D=X, H=Y, W=Z)
+
     iq_batched = iq_reduced.permute(3, 0, 1, 2).unsqueeze(1)
 
-    # 4. Filtrage par maximum (Extrêmement rapide sur GPU)
-    # kernel_size=3 et padding=1 correspond à footprint=np.ones((3,3,3)) mode='same'
     max_filtered = F.max_pool3d(iq_batched, kernel_size=3, stride=1, padding=1)
 
-    # 5. Logique des masques simplifiée
-    # Vous aviez : mask[mask == 0] = -1 pour éviter les zéros.
-    # En PyTorch, on vérifie juste que le pixel correspond au max ET qu'il est > 0.
     mask_tensor = (max_filtered == iq_batched) & (iq_batched > 0)
 
-    # 6. Retour aux dimensions d'origine (X, Y, Z, T)
     mask_tensor = mask_tensor.squeeze(1).permute(1, 2, 3, 0)
     
-    # 7. Calcul de l'intensité
     intensity_tensor = mask_tensor * iq_tensor
 
-    # On ne renvoie sur le CPU que le résultat strictement nécessaire pour la suite
     return mask_tensor.cpu().numpy(), intensity_tensor.cpu().numpy()
 
 
@@ -565,7 +546,7 @@ def get_local_contrast(
 
             Args:
                 iq (np.ndarray): The filtered IQ data.
-                mask (np.ndarray): The binary mask where local maxima is found.
+                mask (np.ndarray): The binary mask where local maxima are found.
                 intensity_matrix (np.ndarray): The associated value of local maxima.
                 min_snr (float): min SNR to keep
                 patch_size (np.ndarray): size of patch for SNR computation
@@ -575,51 +556,47 @@ def get_local_contrast(
                 Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]: ...
     """
 
-    # Créer le kernel de convolution
+    # Create convolution kernel
     mat_conv = np.ones(patch_size, dtype=np.float32)
     tt = np.arange(1, mat_conv.shape[0] + 1) - (mat_conv.shape[0] + 1) / 2
     [meshz, meshx, meshy] = np.meshgrid(tt, tt, tt)
     meshr = np.sqrt(meshz**2 + meshx**2 + meshy**2)
-    mat_conv[meshr < np.sqrt(3) + 0.01] = 0.2  # 1rst neighbours voxels.
+    mat_conv[meshr < np.sqrt(3) + 0.01] = 0.2  # 1st neighbours voxels.
     mat_conv[meshr < 1] = 0  # center voxel.
     mat_conv = mat_conv / np.sum(mat_conv)
 
-    # Convertir le kernel en tensor PyTorch pour conv3d: (out_channels, in_channels, D, H, W)
+    # Convert kernel to PyTorch tensor for conv3d: (out_channels, in_channels, D, H, W)
     kernel = torch.from_numpy(mat_conv).float().to(device, non_blocking=True)
     kernel = kernel.unsqueeze(0).unsqueeze(0)  # Shape: (1, 1, D, H, W)
 
-    # Calculer le clutter
+    # Calculate clutter
     clutter = iq - intensity_matrix
 
-    # Convertir en tensor PyTorch
-    # iq shape: (X, Y, Z, T) -> conv3d attend (N, C, D, H, W)
-    # On traite toutes les frames en batch: (T, 1, X, Y, Z)
+    # Convert to PyTorch tensor
     if clutter.dtype != np.float32:
         clutter = clutter.astype(np.float32)
     clutter_tensor = torch.from_numpy(clutter).to(device, non_blocking=True)
     clutter_tensor = clutter_tensor.permute(3, 0, 1, 2).unsqueeze(1)
 
-    # Padding pour mode 'same'
+    # Padding for 'same' mode
     pad = [s // 2 for s in patch_size]
     padding = (pad[2], pad[2], pad[1], pad[1], pad[0], pad[0])
     clutter_padded = F.pad(clutter_tensor, padding, mode='replicate')
 
-    # Convolution 3D sur GPU
+    # 3D convolution on GPU
     clutter_conv = F.conv3d(clutter_padded, kernel)
 
-    # Remettre dans la forme originale: (T, 1, X, Y, Z) -> (X, Y, Z, T)
+    # Reshape to original form: (T, 1, X, Y, Z) -> (X, Y, Z, T)
     clutter_conv = clutter_conv.squeeze(1).permute(1, 2, 3, 0)
 
-    # --- NOUVEAU CODE : On garde tout sur le GPU ---
-    # Envoyer intensity_matrix et mask sur le GPU
+    # Send intensity_matrix and mask to GPU
     intensity_tensor = torch.from_numpy(intensity_matrix).to(device, non_blocking=True)
     mask_tensor = torch.from_numpy(mask).to(device, non_blocking=True)
 
-    # Calcul du contraste local (Sur GPU)
-    # On ajoute un petit epsilon pour éviter la division par zéro
+    # Calculate local contrast (on GPU)
     local_contrast = intensity_tensor / (clutter_conv + 1e-12)
     
-    # Masquage et conversion en dB sur GPU
+    # Masking and dB conversion on GPU
     local_contrast[~mask_tensor] = 0.0
     local_contrast = 20 * torch.log10(local_contrast + 1e-12)
     
@@ -627,11 +604,11 @@ def get_local_contrast(
     local_contrast[local_contrast < min_snr] = 0
 
     final_mask = local_contrast > 0
-    # Remplacer les NaN par 0 (torch.isnan)
+    # Replace NaNs with 0 (torch.isnan)
     final_mask[torch.isnan(final_mask)] = False
     final_mask = final_mask * intensity_tensor
 
-    # --- On ramène SEULEMENT le résultat final sur le CPU ---
+    # Bring ONLY the final result back to CPU
     local_contrast = local_contrast.cpu().numpy()
     final_mask = final_mask.cpu().numpy()
 
@@ -660,13 +637,13 @@ def clean_and_interpolate_track(
     track_id: int = 0,
 ):
     """
-    Clean and interpolation function to process raw microbubbles track. Perform smoothing and interpolation
+    Clean and interpolation function to process raw microbubble tracks. Performs smoothing and interpolation.
 
     Args:
-        pos (np.ndarray) [Nx3]: raw microbubble's positions.
+        pos (np.ndarray) [Nx3]: raw microbubble positions.
         scale (np.ndarray) [4]: dimension scale [space, space, space, time].
         index_frames (np.ndarray) [Nx1]: frame index.
-        interp_factor (float): sub scale interpolation.
+        interp_factor (float): sub scale interpolation factor.
         smooth_window (int): smoothing window on raw positions.
         track_id (int, optional): index of the track.
 

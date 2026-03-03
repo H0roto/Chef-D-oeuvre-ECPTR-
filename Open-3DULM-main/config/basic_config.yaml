@@ -37,4 +37,5 @@
     "min_snr": 9                                                                                    # The minimum SNR value for a microbubble to be accepted [dB].
     "patch_size": [7,7,7]                                                                           # The size of the 3D kernel where the local SNR is computed [pixel * 3].
     "max_gap_closing": 0
-    "log" : ["tracking","conditionnement", "pipeline"]                                                                            # The maximum number of frames that the microbubble is allowed to disappear and reappear (simpletracker parameter). [1]
+    # "log" : ["tracking","conditionnement", "pipeline"]                                                                            # The maximum number of frames that the microbubble is allowed to disappear and reappear (simpletracker parameter). [1]
+    "log" : [] 
