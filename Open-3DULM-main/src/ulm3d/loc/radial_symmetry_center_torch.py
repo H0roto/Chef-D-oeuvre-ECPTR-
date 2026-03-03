@@ -2,7 +2,7 @@ import torch
 import torch.nn.functional as F
 from typing import Tuple
 from loguru import logger
-
+import torch._dynamo
 def uniform_filter_3d_batch(x: torch.Tensor, size: int = 3, ) -> torch.Tensor:
    
     """
@@ -16,7 +16,8 @@ def uniform_filter_3d_batch(x: torch.Tensor, size: int = 3, ) -> torch.Tensor:
     ) / (size ** 3)
     pad = size // 2
     x = x.unsqueeze(1)           # (B,1,D,H,W)
-    y = F.conv3d(x, kernel, padding=pad)
+    # y = F.conv3d(x, kernel, padding=pad)
+    y = F.avg_pool3d(x, kernel_size=size, stride=1, padding=pad, divisor_override=size**3)
     return y.squeeze(1)          # (B,D,H,W)
 
 
@@ -35,6 +36,7 @@ def uniform_filter_3d(x: torch.Tensor, size: int = 3) -> torch.Tensor:
     pad = size//2
     y = F.conv3d(x, kernel, padding=pad)
     return y.squeeze(0).squeeze(0)
+
 
 def radial_symmetry_center_3d_torch_batch(
     I: torch.Tensor,

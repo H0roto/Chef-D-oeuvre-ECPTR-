@@ -30,6 +30,7 @@ import importlib
 import os
 import sys
 from concurrent.futures import ProcessPoolExecutor
+import multiprocessing
 from multiprocessing import cpu_count
 ##
 
@@ -69,32 +70,35 @@ def choose_workers(config: dict, backend: str) -> int:
     - CPU vs GPU
     - YAML max_workers
     """
-
     yaml_max = config.get("max_workers", 1)
+
+    # --- Detect SLURM allocation
+    slurm_cpus = os.environ.get("SLURM_CPUS_PER_TASK")
+    if slurm_cpus is not None:
+        available_cpus = int(slurm_cpus)
+    else:
+        available_cpus = os.cpu_count() or 1
 
     # --- GPU case (torch + CUDA)
     if backend == "torch":
         try:
             import torch
             if torch.cuda.is_available():
-                print("GPU detected → forcing workers = 1")
-                return 1
+                # On ne force plus à 1, mais on évite d'utiliser tous les CPU
+                # 2 ou 3 workers sont souvent le point idéal ("sweet spot") pour saturer un GPU 
+                # sans provoquer de Out Of Memory (OOM). 
+                # Vous pouvez ajuster ce chiffre en fonction de la taille de vos cubes IQ et de votre VRAM.
+                max_gpu_workers = 3 
+                workers = min(yaml_max, available_cpus, max_gpu_workers)
+                print(f"GPU detected → Limiting to {workers} workers to prevent VRAM overflow.")
         except Exception:
-            pass  # torch not available or other issue
-
-    # --- Detect SLURM allocation
-    slurm_cpus = os.environ.get("SLURM_CPUS_PER_TASK")
-
-    if slurm_cpus is not None:
-        available_cpus = int(slurm_cpus)
+            workers = min(yaml_max, available_cpus)
     else:
-        available_cpus = os.cpu_count() or 1
-
-    # --- Final number of workers
-    if yaml_max == 0:
-        workers = available_cpus
-    else:
-        workers = min(yaml_max, available_cpus)
+        # --- Final number of workers (CPU only)
+        if yaml_max == 0:
+            workers = available_cpus
+        else:
+            workers = min(yaml_max, available_cpus)
 
     # --- Prevent MKL / OpenMP explosion
     if workers > 1:
@@ -339,6 +343,7 @@ def run(config_file: str, iq_files: list, output_dir: str, backend : str):
 
 
 if __name__ == "__main__":
+    multiprocessing.set_start_method('spawn', force=True)
     args = parse_arguments()
     # Chemin vers fichier de config
     config_file_path = args.config_file

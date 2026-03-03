@@ -172,7 +172,7 @@ class ULM:
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
         # --- conversion exacte comme numpy ---
-        iq_t = torch.from_numpy(iq).to(device).to(torch.complex128)
+        iq_t = torch.from_numpy(iq).to(device, non_blocking=True).to(torch.complex128)
 
         iq_shape = iq_t.shape
         T = iq_shape[-1]
@@ -185,7 +185,7 @@ class ULM:
         cov = torch.matmul(torch.conj(iq_t.T), iq_t)
 
         # ===== SVD full_matrices=True comme numpy =====
-        u, s, vh = torch.linalg.svd(cov, full_matrices=True)
+        u, s, vh = torch.linalg.svd(cov, full_matrices=False)
 
         # ===== projection =====
         v = torch.matmul(iq_t, u)
@@ -309,9 +309,8 @@ class ULM:
         
         rois = []
         rois_iscat = []
-        valid = np.ones(n_scats, dtype=bool)
-        
-        for iscat in range(n_scats - 1, -1, -1):
+        # 1. Extraction pure (le plus rapide possible sur CPU, sans SciPy)
+        for iscat in range(n_scats):
             intensity_roi = np.absolute(
                 iq[
                     index_mask[0, iscat] + vectfwhm[0],
@@ -320,28 +319,41 @@ class ULM:
                     index_mask[3, iscat],
                 ]
             )
-        
-            mask_loc = maximum_filter(intensity_roi, footprint=np.ones((3, 3, 3)))
-            mask_loc = mask_loc == intensity_roi
-        
-            # Critère nb maxima
-            if np.count_nonzero(mask_loc) > self.nb_local_max:
-                valid[iscat] = False
-                continue
-        
-            # Stockage ROI (float32 pour GPU)
             rois.append(intensity_roi.astype(np.float32, copy=False))
             rois_iscat.append(iscat)
-        
-        if len(rois_iscat) == 0:
+
+        if len(rois) == 0:
             logger.warning("0 microbubble located !")
             return False, None
 
-        # CPU → GPU (une seule fois)
-        rois_torch = torch.from_numpy(np.stack(rois, axis=0)).to(DEVICE)
+        # 2. Envoi massif au GPU
+        rois_torch = torch.from_numpy(np.stack(rois, axis=0)).to(DEVICE, non_blocking=True)
         
+        # 3. Filtrage du maximum local en BATCH sur le GPU
+        # Equivalent de maximum_filter(footprint=np.ones((3, 3, 3)))
+        # On ajoute une dimension 'channel' pour F.max_pool3d -> (B, 1, D, H, W)
+        rois_torch_unsqueeze = rois_torch.unsqueeze(1)
+        mask_loc_gpu = F.max_pool3d(rois_torch_unsqueeze, kernel_size=3, stride=1, padding=1)
+        
+        # Comptage des maxima par patch
+        is_max = (rois_torch_unsqueeze == mask_loc_gpu).view(n_scats, -1)
+        max_counts = is_max.sum(dim=1)
+        
+        # Masque booléen des patchs valides
+        valid_mask = max_counts <= self.nb_local_max
+        
+        # On ne garde que les patchs valides pour le calcul de symétrie radiale
+        rois_torch_valid = rois_torch[valid_mask]
+        valid_indices = torch.nonzero(valid_mask).squeeze(-1).cpu().numpy()
+        rois_iscat = np.array(rois_iscat)[valid_indices]
+
+        if len(rois_torch_valid) == 0:
+            logger.warning("0 microbubble valid after max filter !")
+            return False, None
+
+        # 4. Appel de la fonction de symétrie radiale sur le sous-ensemble valide
         with torch.no_grad():
-            sub_pos_batch = radial_symmetry_center_3d_torch_batch(rois_torch, log = self.log)  # (B,3)
+            sub_pos_batch = radial_symmetry_center_3d_torch_batch(rois_torch_valid, log=self.log)  # (B,3)
         
         sub_pos_batch = sub_pos_batch.cpu().numpy()
         rois_iscat = np.array(rois_iscat, dtype=np.int64)
@@ -438,21 +450,51 @@ class ULM:
         )
         if "tracking" in self.log:  
             logger.debug(f"{len(track_ids)} tracks found.")
-        for id in track_ids:
-            [raw_track, interp_track] = clean_and_interpolate_track(
-                pos=tracked_loc["pos"][tracked_loc["track_no"] == id],
-                index_frames=tracked_loc["frame_no"][tracked_loc["track_no"] == id],
+
+        # --- NOUVELLE APPROCHE ULTRA-RAPIDE ---
+        # 1. On utilise des listes Python vierges
+        all_raw_tracks = []
+        all_interp_tracks = []
+
+        # (Optionnel mais très puissant) : Pré-extraire les colonnes 
+        # pour éviter de taper dans le dictionnaire structuré à chaque itération
+        t_pos = tracked_loc["pos"]
+        t_frame = tracked_loc["frame_no"]
+        t_track_no = tracked_loc["track_no"]
+
+        for track_id in track_ids:
+            # On crée un masque booléen pour isoler la bulle
+            mask = (t_track_no == track_id)
+            
+            raw_track, interp_track = clean_and_interpolate_track(
+                pos=t_pos[mask],
+                index_frames=t_frame[mask],
                 interp_factor=1 / self.res,
                 scale=self.scale,
-                track_id=id,
+                track_id=track_id,
             )
-            raw_tracks = np.append(
-                raw_tracks, np.array(raw_track, dtype=raw_tracks.dtype)
-            )
-            interp_tracks = np.append(
-                interp_tracks, np.array(interp_track, dtype=interp_tracks.dtype)
-            )
-        return [interp_tracks, raw_tracks]
+            
+            # 2. .extend() ajoute les éléments de la liste sans réallouer la mémoire globale
+            all_raw_tracks.extend(raw_track)
+            all_interp_tracks.extend(interp_track)
+
+        # 3. Conversion finale en un seul coup (Zero-Copy overhead)
+        raw_tracks_dtype = [
+            ("pos", float, 3),
+            ("time", float),
+            ("track_ind", int),
+        ]
+        interp_tracks_dtype = [
+            ("pos", float, 3),
+            ("velocity", float, 3),
+            ("time", float),
+            ("track_ind", int),
+        ]
+        
+        raw_tracks_np = np.array(all_raw_tracks, dtype=raw_tracks_dtype)
+        interp_tracks_np = np.array(all_interp_tracks, dtype=interp_tracks_dtype)
+
+        return [interp_tracks_np, raw_tracks_np]
 
 
 def get_intensity_matrix(iq, fwhm, type_name) -> np.ndarray:
@@ -466,39 +508,48 @@ def get_intensity_matrix(iq, fwhm, type_name) -> np.ndarray:
     Returns:
         np.ndarray: An intensity matrix of size of iq. Value of the intensity of each voxel when a local maxima is found.
     """
-    iq_reduced = np.zeros_like(iq, dtype=type_name)
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+    # 1. Envoi immédiat sur le GPU
+    iq_tensor = torch.from_numpy(iq).to(device, dtype=torch.float32)
+
+    # 2. On applique les marges (fwhm) directement sur le GPU
     half_fwhm = np.ceil(1 + fwhm / 2).astype(int)
+    
+    iq_reduced = torch.zeros_like(iq_tensor)
     iq_reduced[
         half_fwhm[0] : -half_fwhm[0],
         half_fwhm[1] : -half_fwhm[1],
         half_fwhm[2] : -half_fwhm[2],
         :,
-    ] = iq[
+    ] = iq_tensor[
         half_fwhm[0] : -half_fwhm[0],
         half_fwhm[1] : -half_fwhm[1],
         half_fwhm[2] : -half_fwhm[2],
         :,
-    ].copy()
+    ]
 
-    # Concatenate height and nb frames to get a 3D matrix
-    iq_reduced = np.transpose(iq_reduced, (0, 3, 1, 2))
-    r_shape = iq_reduced.shape
-    iq_reduced = np.reshape(iq_reduced, (-1, r_shape[-2], r_shape[-1]), order="F")
+    # 3. Préparation pour le Max Pooling 3D batched
+    # iq_reduced est (X, Y, Z, T) -> PyTorch attend (Batch=T, Channel=1, D=X, H=Y, W=Z)
+    iq_batched = iq_reduced.permute(3, 0, 1, 2).unsqueeze(1)
 
-    # Find IMREGIONALMAX the 3D matrix.
-    mask = maximum_filter(
-        iq_reduced, footprint=np.ones((3, 3, 3)), mode="constant", cval=-1
-    )
-    # 0 value from IQ should not be considered as local maxima. To avoid this, change values of mask_3D from 0 to -1.
-    # With this, when IQ_3D = 0, the mask of local maxima will not be set to True.
-    mask[mask == 0] = -1
-    # With values at -1, 0 will not be considered as a local maxima of IQ_3D.
-    mask = mask == iq_reduced
+    # 4. Filtrage par maximum (Extrêmement rapide sur GPU)
+    # kernel_size=3 et padding=1 correspond à footprint=np.ones((3,3,3)) mode='same'
+    max_filtered = F.max_pool3d(iq_batched, kernel_size=3, stride=1, padding=1)
 
-    # Restore the 4D matrix
-    mask = np.reshape(mask, r_shape, order="F")
-    mask = np.transpose(mask, (0, 2, 3, 1))
-    return mask, mask * iq
+    # 5. Logique des masques simplifiée
+    # Vous aviez : mask[mask == 0] = -1 pour éviter les zéros.
+    # En PyTorch, on vérifie juste que le pixel correspond au max ET qu'il est > 0.
+    mask_tensor = (max_filtered == iq_batched) & (iq_batched > 0)
+
+    # 6. Retour aux dimensions d'origine (X, Y, Z, T)
+    mask_tensor = mask_tensor.squeeze(1).permute(1, 2, 3, 0)
+    
+    # 7. Calcul de l'intensité
+    intensity_tensor = mask_tensor * iq_tensor
+
+    # On ne renvoie sur le CPU que le résultat strictement nécessaire pour la suite
+    return mask_tensor.cpu().numpy(), intensity_tensor.cpu().numpy()
 
 
 
@@ -534,7 +585,7 @@ def get_local_contrast(
     mat_conv = mat_conv / np.sum(mat_conv)
 
     # Convertir le kernel en tensor PyTorch pour conv3d: (out_channels, in_channels, D, H, W)
-    kernel = torch.from_numpy(mat_conv).float().to(device)
+    kernel = torch.from_numpy(mat_conv).float().to(device, non_blocking=True)
     kernel = kernel.unsqueeze(0).unsqueeze(0)  # Shape: (1, 1, D, H, W)
 
     # Calculer le clutter
@@ -559,19 +610,30 @@ def get_local_contrast(
     # Remettre dans la forme originale: (T, 1, X, Y, Z) -> (X, Y, Z, T)
     clutter_conv = clutter_conv.squeeze(1).permute(1, 2, 3, 0)
 
-    # Retour en numpy
-    clutter = clutter_conv.cpu().numpy()
+    # --- NOUVEAU CODE : On garde tout sur le GPU ---
+    # Envoyer intensity_matrix et mask sur le GPU
+    intensity_tensor = torch.from_numpy(intensity_matrix).to(device, non_blocking=True)
+    mask_tensor = torch.from_numpy(mask).to(device, non_blocking=True)
 
-    # Calcul du contraste local
-    local_contrast = intensity_matrix / clutter
-    local_contrast[~mask] = np.nan
-    local_contrast = 20 * np.log10(local_contrast)
+    # Calcul du contraste local (Sur GPU)
+    # On ajoute un petit epsilon pour éviter la division par zéro
+    local_contrast = intensity_tensor / (clutter_conv + 1e-12)
+    
+    # Masquage et conversion en dB sur GPU
+    local_contrast[~mask_tensor] = 0.0
+    local_contrast = 20 * torch.log10(local_contrast + 1e-12)
+    
     logger.trace(f"Apply min SNR threshold at {min_snr}dB")
     local_contrast[local_contrast < min_snr] = 0
 
     final_mask = local_contrast > 0
-    final_mask[np.isnan(final_mask)] = 0
-    final_mask = (final_mask > 0) * intensity_matrix
+    # Remplacer les NaN par 0 (torch.isnan)
+    final_mask[torch.isnan(final_mask)] = False
+    final_mask = final_mask * intensity_tensor
+
+    # --- On ramène SEULEMENT le résultat final sur le CPU ---
+    local_contrast = local_contrast.cpu().numpy()
+    final_mask = final_mask.cpu().numpy()
 
     final_mask_flatten_F = np.ndarray.flatten(final_mask, order="F")
     linear_ind_mb_detection = np.nonzero(final_mask_flatten_F)[0]
