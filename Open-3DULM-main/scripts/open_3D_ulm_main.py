@@ -129,9 +129,16 @@ def parse_arguments():
     )
     parser.add_argument(
     "--backend",
-    choices=["numpy", "torch"],
+    choices=["numpy", "torch", "yolo"],
     default="numpy"
     )
+    parser.add_argument(
+        "--yolo-model", 
+        type=str, 
+        default=None, 
+        help="Path to the YOLO .pt weight file"
+    )
+
     return parser.parse_args()
 
 def configure_logger(level = "DEBUG"):
@@ -145,8 +152,11 @@ def configure_logger(level = "DEBUG"):
     )
 
 def select_backend(backend_name: str):
+    backend_name = backend_name.lower()
     if backend_name == "torch":
         module = importlib.import_module("ulm3d.ulm_torch")
+    elif backend_name == "yolo":
+        module = importlib.import_module("ulm3d.ulm_yolo")
     else:
         module = importlib.import_module("ulm3d.ulm")
 
@@ -236,7 +246,7 @@ def compute_block(
         logger.warning(f"No tracks detected in block {index}.")
 
 
-def run(config_file: str, iq_files: list, output_dir: str, backend : str):
+def run(config_file: str, iq_files: list, output_dir: str, backend : str, yolo_model : str = None):
     """
     The main function of the project that runs the entire pipeline.
 
@@ -249,6 +259,8 @@ def run(config_file: str, iq_files: list, output_dir: str, backend : str):
     # Load config file.
     with open(config_file) as stream:
         config = yaml.safe_load(stream)
+    if yolo_model:
+        config["yolo_model_path"] = yolo_model
     logger.debug(f"Input params from {config_file}:\n {yaml.dump(config)}")
     log = config.get("log", [])
     print("LOG FROM YAML =", log)
@@ -377,5 +389,6 @@ if __name__ == "__main__":
         config_file=config_file_path,
         iq_files=iq_files,
         output_dir=output_dir,
-        backend = backend
+        backend = backend,
+        yolo_model = args.yolo_model
     )

@@ -129,6 +129,7 @@ def radial_symmetry_center_3d_torch_batch(
         dim=1,
         )   # (B, 3, 3)
     condit = torch.linalg.cond(M)
+    threshold = 10
     if "conditionnement" in log:
         logger.debug(
             f"Conditioning stats → min: {condit.min().item():.2e}, "
@@ -136,7 +137,6 @@ def radial_symmetry_center_3d_torch_batch(
             f"mean: {condit.mean().item():.2e}"
         )
 
-        threshold = 1e8
         bad_mask = condit > threshold
 
         if bad_mask.any():
@@ -182,7 +182,7 @@ def radial_symmetry_center_3d_torch_batch(
 
         superloc = torch.empty_like(B)
 
-        good = cond < 1e8
+        good = cond < threshold
 
         # Fast + precise
         superloc[good] = torch.linalg.solve(M[good], B[good])
@@ -222,7 +222,8 @@ def radial_symmetry_center_3d_torch_batch(
         # --- Robust hybrid solve ---
         cond = torch.linalg.cond(M)
         superloc = torch.empty_like(B)
-        good = cond < 1e8
+        threshold = 10
+        good = cond < threshold
 
         # Fast and precise resolution for well-conditioned matrices (V1)
         superloc[good] = torch.linalg.solve(M[good], B[good])

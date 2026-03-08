@@ -1,6 +1,15 @@
-import setuptools
+import os
+from setuptools import setup, find_packages
 
-setuptools.setup(
+# Lecture automatique du requirements.txt
+with open('requirements.txt') as f:
+    required = [
+        line.strip() 
+        for line in f 
+        if line.strip() and not line.startswith('#')
+    ]
+
+setup(
     name="ulm3d",
     version="1.2",
     description="3D ULM",
@@ -19,16 +28,6 @@ setuptools.setup(
         "Topic :: Scientific/Engineering :: Bio-Informatics",
         "Topic :: Scientific/Engineering :: Medical Science Apps.",
     ],
-    install_requires=[
-        "numpy>=1.19.3",
-        "scipy>=1.14",
-        "hdf5storage>=0.1.19",
-        "loguru>=0.7.2",
-        "mat73>=0.63",
-        "matplotlib>=3.9.0",
-        "peasyTracker>=0.0.1",
-        "PyYAML>=6.0.1",
-        "tqdm>=4.66.4",
-    ],
-    python_requires=">=3.10",
+    install_requires=required,
+    python_requires=">=3.10", 
 )

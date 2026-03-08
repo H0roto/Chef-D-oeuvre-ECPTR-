@@ -1,14 +1,14 @@
 #! /bin/bash
 
 #SBATCH --job-name=Test_numpy_radial_sym
-#SBATCH --output=Open-3DULM-main/Result/ML-%j-open_3D_ulm_main_Dylan.out
-#SBATCH --error=Open-3DULM-main/Result/ML-%j-open_3D_ulm_main_Dylan.err
+#SBATCH --output=Open-3DULM-main/Result/ML-%j-open_3D_ulm_numpy_Dylan.out
+#SBATCH --error=Open-3DULM-main/Result/ML-%j-open_3D_ulm_numpy_Dylan.err
 
 #SBATCH --mail-type=END
 #SBATCH --mail-user=dylan.paquie@univ-tlse3.fr
 
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=16        
+#SBATCH --cpus-per-task=48        
 #SBATCH --mem=160G
 #SBATCH --partition=48CPUNodes
 
