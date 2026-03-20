@@ -556,7 +556,6 @@ def get_yolo_intensity_matrix(iq: np.ndarray, model_path: str, conf_thresh: floa
         
         res_face = yolo_model.predict(cv2.cvtColor(img_face, cv2.COLOR_GRAY2BGR), conf=conf_thresh, verbose=False)[0]
         res_profil = yolo_model.predict(cv2.cvtColor(img_profil, cv2.COLOR_GRAY2BGR), conf=conf_thresh, verbose=False)[0]
-
         
         boxes_face = res_face.boxes.xywh.cpu().numpy()
         boxes_profil = res_profil.boxes.xywh.cpu().numpy()
