@@ -40,7 +40,7 @@ def uniform_filter_3d(x: torch.Tensor, size: int = 3) -> torch.Tensor:
 
 def radial_symmetry_center_3d_torch_batch(
     I: torch.Tensor,
-    inverse_matrix_version = "pseudo_inverse V3", 
+    inverse_matrix_version = "pseudo_inverse V2", 
     reg_eps: float = 1e-6,
     log = None
     ) -> torch.Tensor:

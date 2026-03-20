@@ -129,7 +129,7 @@ def parse_arguments():
     )
     parser.add_argument(
     "--backend",
-    choices=["numpy", "torch", "yolo"],
+    choices=["numpy", "torch", "yolo", "rfdetr"],
     default="numpy"
     )
     parser.add_argument(
@@ -137,6 +137,12 @@ def parse_arguments():
         type=str, 
         default=None, 
         help="Path to the YOLO .pt weight file"
+    )
+    parser.add_argument(
+        "--rfdetr-model", 
+        type=str, 
+        default=None, 
+        help="Path to the RFDETR .pt weight file"
     )
 
     return parser.parse_args()
@@ -157,6 +163,8 @@ def select_backend(backend_name: str):
         module = importlib.import_module("ulm3d.ulm_torch")
     elif backend_name == "yolo":
         module = importlib.import_module("ulm3d.ulm_yolo")
+    elif backend_name == "rfdetr":
+        module = importlib.import_module("ulm3d.ulm_rfdetr")
     else:
         module = importlib.import_module("ulm3d.ulm")
 
@@ -246,7 +254,7 @@ def compute_block(
         logger.warning(f"No tracks detected in block {index}.")
 
 
-def run(config_file: str, iq_files: list, output_dir: str, backend : str, yolo_model : str = None):
+def run(config_file: str, iq_files: list, output_dir: str, backend : str, yolo_model : str = None, rfdetr_model : str = None):
     """
     The main function of the project that runs the entire pipeline.
 
@@ -261,6 +269,8 @@ def run(config_file: str, iq_files: list, output_dir: str, backend : str, yolo_m
         config = yaml.safe_load(stream)
     if yolo_model:
         config["yolo_model_path"] = yolo_model
+    elif rfdetr_model:
+        config["rfdetr_model_path"] = rfdetr_model
     logger.debug(f"Input params from {config_file}:\n {yaml.dump(config)}")
     log = config.get("log", [])
     print("LOG FROM YAML =", log)
@@ -390,5 +400,6 @@ if __name__ == "__main__":
         iq_files=iq_files,
         output_dir=output_dir,
         backend = backend,
-        yolo_model = args.yolo_model
+        yolo_model = args.yolo_model,
+        rfdetr_model = args.rfdetr_model
     )
