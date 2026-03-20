@@ -1,7 +1,0 @@
-Traceback (most recent call last):
-  File "/projects/ecptr/Espace_GIT/Espace_Dylan/Chef-D-oeuvre-ECPTR-/Open-3DULM-main/scripts/open_3D_ulm_main_torch.py", line 48, in <module>
-    import ulm3d.ulm_torch
-  File "/projects/ecptr/Espace_GIT/Espace_Dylan/Chef-D-oeuvre-ECPTR-/Open-3DULM-main/src/ulm3d/ulm_torch.py", line 13, in <module>
-    from ulm3d.loc.radial_symmetry_center_torch import radial_symmetry_center_3d_torch_batch
-ImportError: cannot import name 'radial_symmetry_center_3d_torch_batch' from 'ulm3d.loc.radial_symmetry_center_torch' (/projects/ecptr/Espace_GIT/Espace_Dylan/Chef-D-oeuvre-ECPTR-/Open-3DULM-main/src/ulm3d/loc/radial_symmetry_center_torch.py). Did you mean: 'radial_symmetry_center_3d_torch'?
-srun: error: r9ng-8000-3: task 0: Exited with exit code 1
