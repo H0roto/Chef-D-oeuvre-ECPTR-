@@ -8,7 +8,7 @@
 #SBATCH --mail-type=END
 #SBATCH --mail-user=dylan.paquie@univ-tlse3.fr
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=2
+#SBATCH --cpus-per-task=4
 #SBATCH --partition=RTX8000Nodes
 #SBATCH --gres=gpu:1
 #SBATCH --gres-flags=enforce-binding

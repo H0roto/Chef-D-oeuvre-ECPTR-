@@ -8,7 +8,7 @@
 #SBATCH --mail-user=dylan.paquie@univ-tlse3.fr
 
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=48        
+#SBATCH --cpus-per-task=32        
 #SBATCH --mem=160G
 #SBATCH --partition=48CPUNodes
 

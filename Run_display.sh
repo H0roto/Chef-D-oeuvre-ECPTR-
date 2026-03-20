@@ -13,4 +13,4 @@
 srun singularity exec /apps/containerCollections/CUDA12/pytorch-NGC-25-01.sif \
     $HOME/my_occidata_env/bin/python -u \
     "Open-3DULM-main/scripts/display_3D_ulm.py" \
-    --input "/projects/ecptr/results/config_218" \
+    --input "/projects/ecptr/results/rfdetr/config_13" \
