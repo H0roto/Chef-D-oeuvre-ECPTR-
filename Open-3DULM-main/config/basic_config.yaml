@@ -1,7 +1,7 @@
     # ---
     # I/O parameters
     "input_var_name": "IQ"                                                                          # Name of the varaible when IQ are loaded (needed when loading .mat or .npz files).
-    "max_workers": 1                                                                                # OPTIONAL PARAMETER (can be set with the command line). Number of process in parrallel to run 3D-ULM.
+    "max_workers": 0                                                                                # OPTIONAL PARAMETER (can be set with the command line). Number of process in parrallel to run 3D-ULM.
     "export_extension_tracks_localizations": ["npz", "csv", "hdf5"]                                 # Determines the format to save tracks (supported formats: "npz", "csv", "hdf5").
     "export_extension_volume": ["npz", "hdf5", "npy"]                                               # Determines the format to save localisations (supported formats: "npz", "hdf5", "npy").
     "export_volume" : ["density", "velocity", "directivity", "saturation_curve", "power_doppler"]   # Volumes can be exported in different types:
@@ -36,4 +36,6 @@
     "nb_local_max": 10                                                                              # The maximum number of allowed microbubbles inside a patch (fwhm^3) [1]
     "min_snr": 9                                                                                    # The minimum SNR value for a microbubble to be accepted [dB].
     "patch_size": [7,7,7]                                                                           # The size of the 3D kernel where the local SNR is computed [pixel * 3].
-    "max_gap_closing": 0                                                                            # The maximum number of frames that the microbubble is allowed to disappear and reappear (simpletracker parameter). [1]
+    "max_gap_closing": 0
+    # "log" : ["tracking","conditionnement", "pipeline"]                                                                            # The maximum number of frames that the microbubble is allowed to disappear and reappear (simpletracker parameter). [1]
+    "log" : [] 

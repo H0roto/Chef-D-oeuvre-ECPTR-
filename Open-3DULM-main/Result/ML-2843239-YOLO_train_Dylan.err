@@ -1,0 +1,28 @@
+Traceback (most recent call last):
+  File "/home/enzo.pasquies/.local/lib/python3.12/site-packages/ultralytics/engine/trainer.py", line 691, in get_dataset
+    data = check_det_dataset(self.args.data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/enzo.pasquies/.local/lib/python3.12/site-packages/ultralytics/data/utils.py", line 477, in check_det_dataset
+    raise FileNotFoundError(m)
+FileNotFoundError: Dataset 'YOLO/dataset_yolo_15dB/dataset.yaml' images not found, missing path '/projects/ecptr/Espace_GIT/Espace_Dylan/Chef-D-oeuvre-ECPTR-/images/val'
+Note dataset download directory is '/projects/ecptr/Espace_GIT/Espace_Enzo/Chef-D-oeuvre-ECPTR-/datasets'. You can update this in '/home/enzo.pasquies/.config/Ultralytics/settings.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/projects/ecptr/Espace_GIT/Espace_Dylan/Chef-D-oeuvre-ECPTR-/YOLO/training_YOLO.py", line 29, in <module>
+    results = model.train(
+              ^^^^^^^^^^^^
+  File "/home/enzo.pasquies/.local/lib/python3.12/site-packages/ultralytics/engine/model.py", line 772, in train
+    self.trainer = (trainer or self._smart_load("trainer"))(overrides=args, _callbacks=self.callbacks)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/enzo.pasquies/.local/lib/python3.12/site-packages/ultralytics/models/yolo/detect/train.py", line 63, in __init__
+    super().__init__(cfg, overrides, _callbacks)
+  File "/home/enzo.pasquies/.local/lib/python3.12/site-packages/ultralytics/engine/trainer.py", line 186, in __init__
+    self.data = self.get_dataset()
+                ^^^^^^^^^^^^^^^^^^
+  File "/home/enzo.pasquies/.local/lib/python3.12/site-packages/ultralytics/engine/trainer.py", line 695, in get_dataset
+    raise RuntimeError(emojis(f"Dataset '{clean_url(self.args.data)}' error ❌ {e}")) from e
+RuntimeError: Dataset 'YOLO/dataset_yolo_15dB/dataset.yaml' error ❌ Dataset 'YOLO/dataset_yolo_15dB/dataset.yaml' images not found, missing path '/projects/ecptr/Espace_GIT/Espace_Dylan/Chef-D-oeuvre-ECPTR-/images/val'
+Note dataset download directory is '/projects/ecptr/Espace_GIT/Espace_Enzo/Chef-D-oeuvre-ECPTR-/datasets'. You can update this in '/home/enzo.pasquies/.config/Ultralytics/settings.json'
+srun: error: r9ng-8000-3: task 0: Exited with exit code 1

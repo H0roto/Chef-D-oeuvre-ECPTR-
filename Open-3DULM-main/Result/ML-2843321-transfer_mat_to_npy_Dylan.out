@@ -1,0 +1,4 @@
+Starting parallel conversion on 16 cores...
+Target variable: 'IQ' | Range: [1 to 400]
+
+Conversion complete! Files are now in .npy format (Float32/Complex64).

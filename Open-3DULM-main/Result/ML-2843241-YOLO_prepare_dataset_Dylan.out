@@ -1,0 +1,67 @@
+
+CREATING DATASET FOR amplCullerdB = 10 dB
+--- File 01/20 -> Moving to [TRAIN] folder ---
+--- File 02/20 -> Moving to [TRAIN] folder ---
+--- File 03/20 -> Moving to [TRAIN] folder ---
+--- File 04/20 -> Moving to [TRAIN] folder ---
+--- File 05/20 -> Moving to [TRAIN] folder ---
+--- File 06/20 -> Moving to [TRAIN] folder ---
+--- File 07/20 -> Moving to [TRAIN] folder ---
+--- File 08/20 -> Moving to [TRAIN] folder ---
+--- File 09/20 -> Moving to [TRAIN] folder ---
+--- File 10/20 -> Moving to [TRAIN] folder ---
+--- File 11/20 -> Moving to [TRAIN] folder ---
+--- File 12/20 -> Moving to [TRAIN] folder ---
+--- File 13/20 -> Moving to [TRAIN] folder ---
+--- File 14/20 -> Moving to [TRAIN] folder ---
+--- File 15/20 -> Moving to [TRAIN] folder ---
+--- File 16/20 -> Moving to [TRAIN] folder ---
+--- File 17/20 -> Moving to [VAL] folder ---
+--- File 18/20 -> Moving to [VAL] folder ---
+--- File 19/20 -> Moving to [VAL] folder ---
+--- File 20/20 -> Moving to [VAL] folder ---
+
+CREATING DATASET FOR amplCullerdB = 15 dB
+--- File 01/20 -> Moving to [TRAIN] folder ---
+--- File 02/20 -> Moving to [TRAIN] folder ---
+--- File 03/20 -> Moving to [TRAIN] folder ---
+--- File 04/20 -> Moving to [TRAIN] folder ---
+--- File 05/20 -> Moving to [TRAIN] folder ---
+--- File 06/20 -> Moving to [TRAIN] folder ---
+--- File 07/20 -> Moving to [TRAIN] folder ---
+--- File 08/20 -> Moving to [TRAIN] folder ---
+--- File 09/20 -> Moving to [TRAIN] folder ---
+--- File 10/20 -> Moving to [TRAIN] folder ---
+--- File 11/20 -> Moving to [TRAIN] folder ---
+--- File 12/20 -> Moving to [TRAIN] folder ---
+--- File 13/20 -> Moving to [TRAIN] folder ---
+--- File 14/20 -> Moving to [TRAIN] folder ---
+--- File 15/20 -> Moving to [TRAIN] folder ---
+--- File 16/20 -> Moving to [TRAIN] folder ---
+--- File 17/20 -> Moving to [VAL] folder ---
+--- File 18/20 -> Moving to [VAL] folder ---
+--- File 19/20 -> Moving to [VAL] folder ---
+--- File 20/20 -> Moving to [VAL] folder ---
+
+CREATING DATASET FOR amplCullerdB = 20 dB
+--- File 01/20 -> Moving to [TRAIN] folder ---
+--- File 02/20 -> Moving to [TRAIN] folder ---
+--- File 03/20 -> Moving to [TRAIN] folder ---
+--- File 04/20 -> Moving to [TRAIN] folder ---
+--- File 05/20 -> Moving to [TRAIN] folder ---
+--- File 06/20 -> Moving to [TRAIN] folder ---
+--- File 07/20 -> Moving to [TRAIN] folder ---
+--- File 08/20 -> Moving to [TRAIN] folder ---
+--- File 09/20 -> Moving to [TRAIN] folder ---
+--- File 10/20 -> Moving to [TRAIN] folder ---
+--- File 11/20 -> Moving to [TRAIN] folder ---
+--- File 12/20 -> Moving to [TRAIN] folder ---
+--- File 13/20 -> Moving to [TRAIN] folder ---
+--- File 14/20 -> Moving to [TRAIN] folder ---
+--- File 15/20 -> Moving to [TRAIN] folder ---
+--- File 16/20 -> Moving to [TRAIN] folder ---
+--- File 17/20 -> Moving to [VAL] folder ---
+--- File 18/20 -> Moving to [VAL] folder ---
+--- File 19/20 -> Moving to [VAL] folder ---
+--- File 20/20 -> Moving to [VAL] folder ---
+Train/Val datasets generation completed!

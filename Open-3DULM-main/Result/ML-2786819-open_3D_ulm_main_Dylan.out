@@ -1,0 +1,1455 @@
+[1mCHEMINS DEFINIS EN DUR DANS LE SCRIPT[0m
+[1mConfig file: /projects/ecptr/Open-3DULM-main-test/config/basic_config.yaml[0m
+[1m400 IQ files générés: /projects/ecptr/3D_ULM_Data (/projects/ecptr/3D_ULM_Data/IQ001.mat...)[0m
+[1mOutput dir: /projects/ecptr/results/config_161[0m
+[1mUse default number of workers 1[0m
+[32m[1mOutput folders created at /projects/ecptr/results/config_161[0m
+[1mInitializing ULM pipeline...[0m
+[1mmax_gap_closing: 0[0m
+[1mmax_linking_distance_dist: 0.159424 (~1.2 voxel)[0m
+[1mmin_track_len: 19[0m
+[1mCompute Power Doppler on 2 blocs.[0m
+[1mStart processing (single thread)[0m
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 0)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 8504
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (3416,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 1)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 8890
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (3896,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 2)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 9113
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (3590,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 3)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 5061
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (2632,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 4)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 6511
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (2584,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 5)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 7569
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (3248,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 6)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 3716
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (1784,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 7)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 7803
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (3302,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 8)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 6201
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (2514,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 9)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 7530
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (2998,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 10)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 6632
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (3337,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 11)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 5310
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (2394,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 12)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 6548
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (3605,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 13)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 6812
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (2592,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 14)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 4962
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (2016,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 15)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 6431
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (2635,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 16)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 4684
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (2184,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 17)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 5707
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (2513,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 18)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 7203
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (3741,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 19)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 5328
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (2283,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 20)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 5787
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (2434,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 21)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 3939
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (1547,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 22)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 4803
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (1863,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 23)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 3872
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (1544,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 24)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 6076
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (2550,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 25)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 4818
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (1899,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 26)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 5029
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (2166,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 27)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 4931
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (2090,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 28)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 7340
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (2794,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 29)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 10079
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (3481,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 30)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 18076
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (6553,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 31)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 10897
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (4371,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 32)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 14405
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (5419,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 33)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 23160
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (8895,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 34)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 24588
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (9953,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 35)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 19789
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (8875,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 36)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 24358
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (9654,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 37)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 22219
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (8736,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 38)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 20169
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (7977,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 39)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 22562
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (8664,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 40)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 13472
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (6098,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 41)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 22796
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (8594,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 42)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 20581
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (7463,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 43)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 19806
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (8149,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 44)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 15106
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (6886,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 45)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 18594
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (7237,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 46)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 13539
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (5872,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 47)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 20545
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (8226,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 48)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 14180
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (6073,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 49)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 17754
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (6899,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 50)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 14129
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (5777,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 51)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 16929
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (6562,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 52)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 11233
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (5103,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 53)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 15150
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (6769,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 54)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 16906
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (7074,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 55)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 16626
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (6688,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 56)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 15369
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (6607,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 57)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 12533
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (5679,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 58)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 14092
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (5633,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 59)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 15097
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (6531,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 60)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 10765
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (5089,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 61)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 16895
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (8059,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 62)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 13854
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (5863,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 63)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 11488
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (5251,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 64)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 12208
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (4847,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 65)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 12253
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (4978,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 66)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 8965
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (4327,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 67)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 13559
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (6390,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 68)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 11707
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (5005,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 69)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 12315
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (4843,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 70)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 5874
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (2543,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 71)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 12023
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (5531,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 72)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 13960
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (5135,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 73)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 13435
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (6123,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 74)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 11288
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (5237,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 75)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 10537
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (4705,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 76)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 11866
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (5238,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 77)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 7845
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (3550,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 78)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 11123
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (4868,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 79)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 11285
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (5248,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 80)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 7610
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (3334,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 81)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 8748
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (3623,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 82)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 11290
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (4135,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 83)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 5807
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (2591,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 84)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 10785
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (4441,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 85)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 9826
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (4200,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 86)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 7767
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (3086,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 87)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 8357
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (3205,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 88)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 5430
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (2320,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 89)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 8686
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (3431,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 90)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 7702
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (3088,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 91)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 8704
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (3403,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 92)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 8086
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (3317,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 93)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 8317
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (3766,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 94)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 10365
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (4323,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 95)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 7783
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (3498,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 96)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 7782
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (3121,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 97)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 4067
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (1978,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 98)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 7798
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (3811,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 99)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 5858
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (2827,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 100)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 7214
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (3493,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 101)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 8142
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (3535,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 102)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 8289
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (3120,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 103)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 5697
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (2643,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 104)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 7654
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (2934,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 105)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 7365
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (3294,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 106)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 4790
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (2112,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 107)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 5893
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (2595,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 108)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 12240
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (4520,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 109)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 9326
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (3863,)
+---------------------------------------------------
+
+
+INSPECTION DE LA STRUCTURE 'tracks' (Bloc 110)
+---------------------------------------------------
+1. Type de l'objet 'tracks' : <class 'list'>
+2. Nombre d'éléments dans 'tracks' : 2
+3. Contenu de tracks[0] (Raw Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Quantité : 12573
+4. Contenu de tracks[1] (Interpolated Tracks) :
+   - Type : <class 'numpy.ndarray'>
+   - Shape (Dimensions) : (5527,)
+---------------------------------------------------
+

@@ -1,0 +1,79 @@
+[1mConfig file: /projects/ecptr/Espace_GIT/Espace_Enzo/Chef-D-oeuvre-ECPTR-/Open-3DULM-main/config/basic_config.yaml[0m
+[1m400 IQ files generated: /projects/ecptr/3D_ULM_Data (/projects/ecptr/3D_ULM_Data/IQ001.npy...)[0m
+[1mOutput dir: /projects/ecptr/results/rfdetr/config_6[0m
+LOG FROM YAML = []
+Final workers count: 4
+[34m[1mInput params from /projects/ecptr/Espace_GIT/Espace_Enzo/Chef-D-oeuvre-ECPTR-/Open-3DULM-main/config/basic_config.yaml:
+ bandpass_filter:
+- 10
+- 64
+export_extension_tracks_localizations:
+- npz
+- csv
+- hdf5
+export_extension_volume:
+- npz
+- hdf5
+- npy
+export_volume:
+- density
+- velocity
+- directivity
+- saturation_curve
+- power_doppler
+filt_mode: SVD
+filter_order: 2
+fwhm:
+- 5
+- 5
+- 5
+input_var_name: IQ
+log: []
+max_gap_closing: 5
+max_velocity: 30
+max_workers: 0
+min_length: 5
+min_snr: 0
+nb_local_max: 10
+number_of_particles: 900
+origin:
+- 37.453
+- -4.8
+- -5.175
+patch_size:
+- 7
+- 7
+- 7
+res: 10
+rfdetr_model_path: YOLO/Entrainement_RFDETR/checkpoint.pt
+svd_values:
+- 12
+- 200
+volumerate: 260
+voxel_size:
+- 0.09856
+- 0.15
+- 0.15
+z_dim: 0
+[0m
+NOTE! Installing ujson may make loading annotations faster.
+ULM RECEIVED LOG = []
+[32m[1mOutput folders created at /projects/ecptr/results/rfdetr/config_6[0m
+[1mCompute Power Doppler on 2 blocs.[0m
+[34m[1mSaving dict_keys(['power_doppler', 'pitch', 'origin']) in /projects/ecptr/results/rfdetr/config_6/volume/power_doppler[0m
+[1mStart parallel pool (4 workers)[0m
+NOTE! Installing ujson may make loading annotations faster.
+ULM RECEIVED LOG = []
+ULM RECEIVED LOG = []
+NOTE! Installing ujson may make loading annotations faster.
+ULM RECEIVED LOG = []
+ULM RECEIVED LOG = []
+ULM RECEIVED LOG = []
+NOTE! Installing ujson may make loading annotations faster.
+ULM RECEIVED LOG = []
+ULM RECEIVED LOG = []
+ULM RECEIVED LOG = []
+NOTE! Installing ujson may make loading annotations faster.
+ULM RECEIVED LOG = []
+ULM RECEIVED LOG = []
+ULM RECEIVED LOG = []

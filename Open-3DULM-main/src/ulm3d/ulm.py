@@ -8,10 +8,11 @@ from peasyTracker import SimpleTracker
 from scipy.ndimage import maximum_filter
 from scipy.signal import butter, convolve, lfilter
 
-from ulm3d.loc.radial_symmetry_center import radial_symmetry_center_3d
+#Changer cette ligne pour passer de cpu à gpu (de numpy à torch)
+from ulm3d.loc.radial_symmetry_center_numpy import radial_symmetry_center_3d
+# from ulm3d.loc.radial_symmetry_center_torch import radial_symmetry_center_3d
 from ulm3d.utils.load_data import load_iq
 from ulm3d.utils.matlab_tool import smooth
-
 
 class ULM:
     """

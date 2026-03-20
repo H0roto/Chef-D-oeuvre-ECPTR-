@@ -6,8 +6,13 @@ ULM volumes are load and displayed.
 import argparse
 import os
 import sys
-from tkinter import Tk, filedialog
+# from tkinter import Tk, filedialog
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+SRC_PATH = os.path.abspath(os.path.join(CURRENT_DIR, "../src")) 
 
+if SRC_PATH not in sys.path:
+    sys.path.insert(0, SRC_PATH)
+    
 import matplotlib as mpl
 import matplotlib.colors as mcolors
 import matplotlib.pyplot as plt
@@ -143,7 +148,7 @@ def export_rendering(vol_files: list, show: bool, scale: bool):
             cax=cbar_ax,
             orientation="horizontal",
         )
-        fig_path = os.path.join(os.path.dirname(vol_files[0]), label + ".png")
+        fig_path = os.path.join(os.path.dirname(file), label + ".png")
         logger.info(f"Figure saved at {fig_path}")
         fig.savefig(fig_path)
 
@@ -152,8 +157,9 @@ def export_rendering(vol_files: list, show: bool, scale: bool):
 
 
 if __name__ == "__main__":
+    import matplotlib
+    matplotlib.use('Agg')
 
-    # Get path of the config file with visual interface.
     args = parse_arguments()
 
     logger.remove()
@@ -165,32 +171,26 @@ if __name__ == "__main__":
     )
 
     if args.input is None:
-        # Get volume folder with visual interface.
-        root = Tk()
-        root.withdraw()
-        root.wm_attributes("-topmost", 1)
-        volume_files = filedialog.askopenfilenames(
-            initialdir=".",
-            title="Select volume files",
-            filetypes=(
-                ("hdf5 files", "*.hdf5"),
-                ("npz files", "*.npz"),
-                ("all files", "*.*"),
-            ),
-            parent=root,
-        )
-    else:
-        volume_files = [
-            os.path.join(os.path.abspath(args.input), d)
-            for d in os.listdir(args.input)
-            if d.endswith(".mat")
-        ]
-    logger.success(
-        f"{len(volume_files)} volume files found in {os.path.dirname(volume_files[0])}"
-    )
+        logger.error("Aucun dossier d'entrée spécifié. Utilisez --input.")
+        sys.exit(1)
+        
+    input_path = os.path.abspath(args.input)
+    volume_files = []
+    
+    logger.info(f"Recherche des volumes dans : {input_path}")
+    for root, dirs, files in os.walk(input_path):
+        for f in files:
+            if f.lower().endswith((".hdf5", ".npz")):
+                volume_files.append(os.path.join(root, f))
+
+    if not volume_files:
+        logger.warning(f"Aucun fichier HDF5/NPZ trouvé dans {input_path} ou ses sous-dossiers.")
+        sys.exit(0)
+
+    logger.success(f"{len(volume_files)} fichiers de volume trouvés au total !")
 
     export_rendering(
         vol_files=volume_files,
         show=args.show,
-        scale=args.scale,
+        scale=(args.scale == "mm"),
     )

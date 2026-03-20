@@ -1,0 +1,18 @@
+[[32m15:51:24[0m [2m(1s)[0m] [1mINFO [0m [36m__main__[0m:[36m<module>[0m - [1mCHEMINS DEFINIS EN DUR DANS LE SCRIPT[0m
+[[32m15:51:24[0m [2m(1s)[0m] [1mINFO [0m [36m__main__[0m:[36m<module>[0m - [1mConfig file: /projects/ecptr/Open-3DULM-main-test/config/basic_config.yaml[0m
+[[32m15:51:24[0m [2m(1s)[0m] [1mINFO [0m [36m__main__[0m:[36m<module>[0m - [1m2 IQ files générés: /projects/ecptr/3D_ULM_Data (/projects/ecptr/3D_ULM_Data/IQ001.mat...)[0m
+[[32m15:51:24[0m [2m(1s)[0m] [1mINFO [0m [36m__main__[0m:[36m<module>[0m - [1mOutput dir: /projects/ecptr/results/config_137[0m
+[[32m15:51:24[0m [2m(1s)[0m] [1mINFO [0m [36m__main__[0m:[36mrun[0m - [1mUse default number of workers 1[0m
+[[32m15:51:24[0m [2m(1s)[0m] [32m[1mSUCCESS[0m [36mulm3d.utils.create_archi_export[0m:[36mcreate_archi_export[0m - [32m[1mOutput folders created at /projects/ecptr/results/config_137[0m
+[[32m15:51:24[0m [2m(1s)[0m] [1mINFO [0m [36mulm3d.ulm[0m:[36m__init__[0m - [1mInitializing ULM pipeline...[0m
+[[32m15:51:27[0m [2m(4s)[0m] [1mINFO [0m [36mulm3d.ulm[0m:[36m__init__[0m - [1mmax_gap_closing: 0[0m
+[[32m15:51:27[0m [2m(4s)[0m] [1mINFO [0m [36mulm3d.ulm[0m:[36m__init__[0m - [1mmax_linking_distance_dist: 0.159424 (~1.2 voxel)[0m
+[[32m15:51:27[0m [2m(4s)[0m] [1mINFO [0m [36mulm3d.ulm[0m:[36m__init__[0m - [1mmin_track_len: 19[0m
+[[32m15:51:27[0m [2m(4s)[0m] [1mINFO [0m [36mulm3d.utils.power_doppler[0m:[36mcompute_power_doppler[0m - [1mCompute Power Doppler on 2 blocs.[0m
+[[32m15:51:36[0m [2m(13s)[0m] [1mINFO [0m [36m__main__[0m:[36mrun[0m - [1mStart processing (single thread)[0m
+[[32m15:52:58[0m [2m(95s)[0m] [1mINFO [0m [36mulm3d.utils.render[0m:[36mrendering_3d[0m - [1mULM rendering export[0m
+[[32m15:52:58[0m [2m(95s)[0m] [1mINFO [0m [36mulm3d.utils.render[0m:[36mrendering_3d[0m - [1m2 track files found.[0m
+[[32m15:52:58[0m [2m(95s)[0m] [1mINFO [0m [36mulm3d.utils.render[0m:[36mrendering_3d[0m - [1mSuper-resolution matrix size [407 590 640] pitch 0.015 (low res (68, 65, 70), pitch 0.004)[0m
+[[32m15:52:59[0m [2m(95s)[0m] [1mINFO [0m [36mulm3d.utils.render[0m:[36mrendering_3d[0m - [1mSaving outputs matrix[0m
+[[32m15:53:06[0m [2m(103s)[0m] [32m[1mSUCCESS[0m [36mulm3d.utils.render[0m:[36mrendering_3d[0m - [32m[1mRendering succefully ended.[0m
+[[32m15:53:06[0m [2m(103s)[0m] [32m[1mSUCCESS[0m [36m__main__[0m:[36mrun[0m - [32m[1mProcessing successfully ended, save at /projects/ecptr/results/config_137[0m

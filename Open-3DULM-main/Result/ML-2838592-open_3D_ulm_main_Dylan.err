@@ -1,0 +1,6 @@
+WARNING: Could not find any nv files on this host!
+Traceback (most recent call last):
+  File "/projects/ecptr/Espace_GIT/Espace_Dylan/Chef-D-oeuvre-ECPTR-/Open-3DULM-main/scripts/display_3D_ulm.py", line 9, in <module>
+    from tkinter import Tk, filedialog
+ModuleNotFoundError: No module named 'tkinter'
+srun: error: r9nc-48-2: task 0: Exited with exit code 1

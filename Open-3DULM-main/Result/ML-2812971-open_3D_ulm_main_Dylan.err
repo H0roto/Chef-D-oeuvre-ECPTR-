@@ -1,0 +1,117 @@
+  0%|          | 0/400 [00:00<?, ?it/s]2026-03-02 13:39:24.280 | INFO     | ulm3d.ulm:__init__:105 - Initializing ULM pipeline...
+2026-03-02 13:39:24.282 | INFO     | ulm3d.ulm:__init__:105 - Initializing ULM pipeline...
+2026-03-02 13:39:24.290 | INFO     | ulm3d.ulm:__init__:105 - Initializing ULM pipeline...
+2026-03-02 13:39:24.292 | INFO     | ulm3d.ulm:__init__:105 - Initializing ULM pipeline...
+2026-03-02 13:39:26.614 | INFO     | ulm3d.ulm:__init__:146 - max_gap_closing: 0
+2026-03-02 13:39:26.614 | INFO     | ulm3d.ulm:__init__:146 - max_gap_closing: 0
+2026-03-02 13:39:26.614 | INFO     | ulm3d.ulm:__init__:151 - max_linking_distance_dist: 0.159424 (~1.2 voxel)
+2026-03-02 13:39:26.614 | INFO     | ulm3d.ulm:__init__:151 - max_linking_distance_dist: 0.159424 (~1.2 voxel)
+2026-03-02 13:39:26.615 | INFO     | ulm3d.ulm:__init__:155 - min_track_len: 19
+2026-03-02 13:39:26.615 | INFO     | ulm3d.ulm:__init__:155 - min_track_len: 19
+2026-03-02 13:39:26.617 | INFO     | ulm3d.ulm:__init__:146 - max_gap_closing: 0
+2026-03-02 13:39:26.617 | INFO     | ulm3d.ulm:__init__:146 - max_gap_closing: 0
+2026-03-02 13:39:26.617 | INFO     | ulm3d.ulm:__init__:151 - max_linking_distance_dist: 0.159424 (~1.2 voxel)
+2026-03-02 13:39:26.617 | INFO     | ulm3d.ulm:__init__:155 - min_track_len: 19
+2026-03-02 13:39:26.617 | INFO     | ulm3d.ulm:__init__:151 - max_linking_distance_dist: 0.159424 (~1.2 voxel)
+2026-03-02 13:39:26.618 | INFO     | ulm3d.ulm:__init__:155 - min_track_len: 19
+2026-03-02 13:39:33.409 | DEBUG    | ulm3d.ulm:filtering:178 - SVD filtering: keep [ 12 200] over 200 frames.
+2026-03-02 13:39:33.434 | DEBUG    | ulm3d.ulm:filtering:178 - SVD filtering: keep [ 12 200] over 200 frames.
+2026-03-02 13:39:35.150 | DEBUG    | ulm3d.ulm:filtering:178 - SVD filtering: keep [ 12 200] over 200 frames.
+2026-03-02 13:39:35.394 | DEBUG    | ulm3d.ulm:filtering:178 - SVD filtering: keep [ 12 200] over 200 frames.
+2026-03-02 13:39:44.207 | DEBUG    | ulm3d.ulm:get_local_contrast:513 - 73379 maxima found
+2026-03-02 13:39:44.213 | DEBUG    | ulm3d.ulm:super_localization:257 - 73379 maxima kept
+2026-03-02 13:39:44.302 | DEBUG    | ulm3d.ulm:get_local_contrast:513 - 86072 maxima found
+2026-03-02 13:39:44.309 | DEBUG    | ulm3d.ulm:super_localization:257 - 86072 maxima kept
+2026-03-02 13:39:46.027 | DEBUG    | ulm3d.ulm:get_local_contrast:513 - 73821 maxima found
+2026-03-02 13:39:46.033 | DEBUG    | ulm3d.ulm:super_localization:257 - 73821 maxima kept
+2026-03-02 13:39:46.395 | DEBUG    | ulm3d.ulm:get_local_contrast:513 - 87935 maxima found
+2026-03-02 13:39:46.401 | DEBUG    | ulm3d.ulm:super_localization:257 - 87935 maxima kept
+2026-03-02 13:40:14.302 | DEBUG    | ulm3d.ulm:create_tracks:357 - Average voxel pitch 0.13285333333333335 ([0.09856 0.15    0.15   ])
+2026-03-02 13:40:14.303 | DEBUG    | ulm3d.ulm:create_tracks:363 - Start SimpleTracker on 44339
+2026-03-02 13:40:14.304 | DEBUG    | ulm3d.ulm:create_tracks:365 - max_linking_distance_dist: 0.159424 (~1.2 voxel)
+2026-03-02 13:40:14.905 | DEBUG    | ulm3d.ulm:create_tracks:398 - 104 tracks found.
+  0%|          | 1/400 [00:52<5:47:20, 52.23s/it]2026-03-02 13:40:15.115 | INFO     | ulm3d.ulm:__init__:105 - Initializing ULM pipeline...
+2026-03-02 13:40:16.824 | DEBUG    | ulm3d.ulm:create_tracks:357 - Average voxel pitch 0.13285333333333335 ([0.09856 0.15    0.15   ])
+2026-03-02 13:40:16.826 | DEBUG    | ulm3d.ulm:create_tracks:363 - Start SimpleTracker on 40319
+2026-03-02 13:40:16.826 | DEBUG    | ulm3d.ulm:create_tracks:365 - max_linking_distance_dist: 0.159424 (~1.2 voxel)
+2026-03-02 13:40:17.349 | DEBUG    | ulm3d.ulm:create_tracks:398 - 74 tracks found.
+2026-03-02 13:40:17.409 | INFO     | ulm3d.ulm:__init__:146 - max_gap_closing: 0
+2026-03-02 13:40:17.409 | INFO     | ulm3d.ulm:__init__:151 - max_linking_distance_dist: 0.159424 (~1.2 voxel)
+2026-03-02 13:40:17.409 | INFO     | ulm3d.ulm:__init__:155 - min_track_len: 19
+2026-03-02 13:40:17.489 | INFO     | ulm3d.ulm:__init__:105 - Initializing ULM pipeline...
+2026-03-02 13:40:19.883 | INFO     | ulm3d.ulm:__init__:146 - max_gap_closing: 0
+2026-03-02 13:40:19.883 | INFO     | ulm3d.ulm:__init__:151 - max_linking_distance_dist: 0.159424 (~1.2 voxel)
+2026-03-02 13:40:19.883 | INFO     | ulm3d.ulm:__init__:155 - min_track_len: 19
+2026-03-02 13:40:21.328 | DEBUG    | ulm3d.ulm:create_tracks:357 - Average voxel pitch 0.13285333333333335 ([0.09856 0.15    0.15   ])
+2026-03-02 13:40:21.330 | DEBUG    | ulm3d.ulm:create_tracks:363 - Start SimpleTracker on 45258
+2026-03-02 13:40:21.330 | DEBUG    | ulm3d.ulm:create_tracks:365 - max_linking_distance_dist: 0.159424 (~1.2 voxel)
+2026-03-02 13:40:21.947 | DEBUG    | ulm3d.ulm:create_tracks:398 - 99 tracks found.
+2026-03-02 13:40:22.159 | INFO     | ulm3d.ulm:__init__:105 - Initializing ULM pipeline...
+  0%|          | 2/400 [00:59<2:50:09, 25.65s/it]2026-03-02 13:40:24.000 | DEBUG    | ulm3d.ulm:create_tracks:357 - Average voxel pitch 0.13285333333333335 ([0.09856 0.15    0.15   ])
+2026-03-02 13:40:24.002 | DEBUG    | ulm3d.ulm:create_tracks:363 - Start SimpleTracker on 44193
+2026-03-02 13:40:24.002 | DEBUG    | ulm3d.ulm:create_tracks:365 - max_linking_distance_dist: 0.159424 (~1.2 voxel)
+2026-03-02 13:40:24.537 | INFO     | ulm3d.ulm:__init__:146 - max_gap_closing: 0
+2026-03-02 13:40:24.538 | INFO     | ulm3d.ulm:__init__:151 - max_linking_distance_dist: 0.159424 (~1.2 voxel)
+2026-03-02 13:40:24.538 | INFO     | ulm3d.ulm:__init__:155 - min_track_len: 19
+2026-03-02 13:40:24.607 | DEBUG    | ulm3d.ulm:create_tracks:398 - 102 tracks found.
+  1%|          | 3/400 [01:01<1:40:15, 15.15s/it]2026-03-02 13:40:24.819 | INFO     | ulm3d.ulm:__init__:105 - Initializing ULM pipeline...
+2026-03-02 13:40:26.013 | DEBUG    | ulm3d.ulm:filtering:178 - SVD filtering: keep [ 12 200] over 200 frames.
+2026-03-02 13:40:27.178 | INFO     | ulm3d.ulm:__init__:146 - max_gap_closing: 0
+2026-03-02 13:40:27.178 | INFO     | ulm3d.ulm:__init__:151 - max_linking_distance_dist: 0.159424 (~1.2 voxel)
+2026-03-02 13:40:27.178 | INFO     | ulm3d.ulm:__init__:155 - min_track_len: 19
+2026-03-02 13:40:28.225 | DEBUG    | ulm3d.ulm:filtering:178 - SVD filtering: keep [ 12 200] over 200 frames.
+2026-03-02 13:40:33.011 | DEBUG    | ulm3d.ulm:filtering:178 - SVD filtering: keep [ 12 200] over 200 frames.
+2026-03-02 13:40:35.627 | DEBUG    | ulm3d.ulm:filtering:178 - SVD filtering: keep [ 12 200] over 200 frames.
+2026-03-02 13:40:36.810 | DEBUG    | ulm3d.ulm:get_local_contrast:513 - 88992 maxima found
+2026-03-02 13:40:36.817 | DEBUG    | ulm3d.ulm:super_localization:257 - 88992 maxima kept
+2026-03-02 13:40:38.920 | DEBUG    | ulm3d.ulm:get_local_contrast:513 - 89477 maxima found
+2026-03-02 13:40:38.927 | DEBUG    | ulm3d.ulm:super_localization:257 - 89477 maxima kept
+2026-03-02 13:40:43.752 | DEBUG    | ulm3d.ulm:get_local_contrast:513 - 72463 maxima found
+2026-03-02 13:40:43.757 | DEBUG    | ulm3d.ulm:super_localization:257 - 72463 maxima kept
+2026-03-02 13:40:46.556 | DEBUG    | ulm3d.ulm:get_local_contrast:513 - 83452 maxima found
+2026-03-02 13:40:46.562 | DEBUG    | ulm3d.ulm:super_localization:257 - 83452 maxima kept
+2026-03-02 13:41:12.771 | DEBUG    | ulm3d.ulm:create_tracks:357 - Average voxel pitch 0.13285333333333335 ([0.09856 0.15    0.15   ])
+2026-03-02 13:41:12.773 | DEBUG    | ulm3d.ulm:create_tracks:363 - Start SimpleTracker on 38121
+2026-03-02 13:41:12.773 | DEBUG    | ulm3d.ulm:create_tracks:365 - max_linking_distance_dist: 0.159424 (~1.2 voxel)
+2026-03-02 13:41:13.242 | DEBUG    | ulm3d.ulm:create_tracks:398 - 52 tracks found.
+2026-03-02 13:41:13.344 | INFO     | ulm3d.ulm:__init__:105 - Initializing ULM pipeline...
+2026-03-02 13:41:15.608 | INFO     | ulm3d.ulm:__init__:146 - max_gap_closing: 0
+2026-03-02 13:41:15.609 | INFO     | ulm3d.ulm:__init__:151 - max_linking_distance_dist: 0.159424 (~1.2 voxel)
+2026-03-02 13:41:15.609 | INFO     | ulm3d.ulm:__init__:155 - min_track_len: 19
+2026-03-02 13:41:16.219 | DEBUG    | ulm3d.ulm:create_tracks:357 - Average voxel pitch 0.13285333333333335 ([0.09856 0.15    0.15   ])
+2026-03-02 13:41:16.220 | DEBUG    | ulm3d.ulm:create_tracks:363 - Start SimpleTracker on 42113
+2026-03-02 13:41:16.221 | DEBUG    | ulm3d.ulm:create_tracks:365 - max_linking_distance_dist: 0.159424 (~1.2 voxel)
+2026-03-02 13:41:16.763 | DEBUG    | ulm3d.ulm:create_tracks:398 - 73 tracks found.
+2026-03-02 13:41:16.918 | INFO     | ulm3d.ulm:__init__:105 - Initializing ULM pipeline...
+  1%|▏         | 5/400 [01:54<2:20:22, 21.32s/it]2026-03-02 13:41:18.699 | DEBUG    | ulm3d.ulm:create_tracks:357 - Average voxel pitch 0.13285333333333335 ([0.09856 0.15    0.15   ])
+2026-03-02 13:41:18.700 | DEBUG    | ulm3d.ulm:create_tracks:363 - Start SimpleTracker on 41404
+2026-03-02 13:41:18.701 | DEBUG    | ulm3d.ulm:create_tracks:365 - max_linking_distance_dist: 0.159424 (~1.2 voxel)
+2026-03-02 13:41:19.227 | DEBUG    | ulm3d.ulm:create_tracks:398 - 72 tracks found.
+2026-03-02 13:41:19.293 | INFO     | ulm3d.ulm:__init__:146 - max_gap_closing: 0
+2026-03-02 13:41:19.293 | INFO     | ulm3d.ulm:__init__:151 - max_linking_distance_dist: 0.159424 (~1.2 voxel)
+2026-03-02 13:41:19.293 | INFO     | ulm3d.ulm:__init__:155 - min_track_len: 19
+2026-03-02 13:41:19.399 | INFO     | ulm3d.ulm:__init__:105 - Initializing ULM pipeline...
+  2%|▏         | 6/400 [01:56<1:44:23, 15.90s/it]2026-03-02 13:41:21.748 | INFO     | ulm3d.ulm:__init__:146 - max_gap_closing: 0
+2026-03-02 13:41:21.748 | INFO     | ulm3d.ulm:__init__:151 - max_linking_distance_dist: 0.159424 (~1.2 voxel)
+2026-03-02 13:41:21.749 | INFO     | ulm3d.ulm:__init__:155 - min_track_len: 19
+2026-03-02 13:41:22.037 | DEBUG    | ulm3d.ulm:create_tracks:357 - Average voxel pitch 0.13285333333333335 ([0.09856 0.15    0.15   ])
+2026-03-02 13:41:22.039 | DEBUG    | ulm3d.ulm:create_tracks:363 - Start SimpleTracker on 42515
+2026-03-02 13:41:22.039 | DEBUG    | ulm3d.ulm:create_tracks:365 - max_linking_distance_dist: 0.159424 (~1.2 voxel)
+2026-03-02 13:41:22.590 | DEBUG    | ulm3d.ulm:create_tracks:398 - 80 tracks found.
+2026-03-02 13:41:22.771 | INFO     | ulm3d.ulm:__init__:105 - Initializing ULM pipeline...
+  2%|▏         | 8/400 [01:59<1:01:57,  9.48s/it]2026-03-02 13:41:24.252 | DEBUG    | ulm3d.ulm:filtering:178 - SVD filtering: keep [ 12 200] over 200 frames.
+2026-03-02 13:41:25.189 | INFO     | ulm3d.ulm:__init__:146 - max_gap_closing: 0
+2026-03-02 13:41:25.189 | INFO     | ulm3d.ulm:__init__:151 - max_linking_distance_dist: 0.159424 (~1.2 voxel)
+2026-03-02 13:41:25.189 | INFO     | ulm3d.ulm:__init__:155 - min_track_len: 19
+2026-03-02 13:41:27.841 | DEBUG    | ulm3d.ulm:filtering:178 - SVD filtering: keep [ 12 200] over 200 frames.
+2026-03-02 13:41:29.968 | DEBUG    | ulm3d.ulm:filtering:178 - SVD filtering: keep [ 12 200] over 200 frames.
+2026-03-02 13:41:33.557 | DEBUG    | ulm3d.ulm:filtering:178 - SVD filtering: keep [ 12 200] over 200 frames.
+2026-03-02 13:41:35.062 | DEBUG    | ulm3d.ulm:get_local_contrast:513 - 90531 maxima found
+2026-03-02 13:41:35.068 | DEBUG    | ulm3d.ulm:super_localization:257 - 90531 maxima kept
+2026-03-02 13:41:38.715 | DEBUG    | ulm3d.ulm:get_local_contrast:513 - 89597 maxima found
+2026-03-02 13:41:38.721 | DEBUG    | ulm3d.ulm:super_localization:257 - 89597 maxima kept
+2026-03-02 13:41:40.683 | DEBUG    | ulm3d.ulm:get_local_contrast:513 - 80915 maxima found
+2026-03-02 13:41:40.689 | DEBUG    | ulm3d.ulm:super_localization:257 - 80915 maxima kept
+2026-03-02 13:41:44.496 | DEBUG    | ulm3d.ulm:get_local_contrast:513 - 78217 maxima found
+2026-03-02 13:41:44.502 | DEBUG    | ulm3d.ulm:super_localization:257 - 78217 maxima kept
+slurmstepd: error: *** JOB 2812971 ON r9ng-8000-2 CANCELLED AT 2026-03-02T13:41:53 ***

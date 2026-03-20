@@ -1,0 +1,5 @@
+  File "/projects/ecptr/Espace_GIT/Espace_Thomas/test/Open-3DULM-main/scripts/open_3D_ulm_main.py", line 403
+    yolo_model = args.yolo_model
+                 ^^^^^^^^^^^^^^^
+SyntaxError: invalid syntax. Perhaps you forgot a comma?
+srun: error: r9ng-6000-1: task 0: Exited with exit code 1

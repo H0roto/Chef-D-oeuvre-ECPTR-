@@ -1,0 +1,802 @@
+  0%|          | 0/400 [00:00<?, ?it/s]2026-03-03 00:05:51.091 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 86072 maxima found
+2026-03-03 00:05:51.094 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 73379 maxima found
+2026-03-03 00:05:51.095 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 86072 maxima kept
+2026-03-03 00:05:51.098 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 73379 maxima kept
+2026-03-03 00:05:51.964 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87935 maxima found
+2026-03-03 00:05:51.969 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87935 maxima kept
+2026-03-03 00:05:52.340 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 73821 maxima found
+2026-03-03 00:05:52.344 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 73821 maxima kept
+  0%|          | 1/400 [00:10<1:06:57, 10.07s/it]  1%|          | 3/400 [00:11<19:51,  3.00s/it]  2026-03-03 00:05:57.726 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88992 maxima found
+2026-03-03 00:05:57.729 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88992 maxima kept
+2026-03-03 00:05:57.958 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 89477 maxima found
+2026-03-03 00:05:57.961 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 89477 maxima kept
+2026-03-03 00:05:59.525 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 72463 maxima found
+2026-03-03 00:05:59.528 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 72463 maxima kept
+2026-03-03 00:05:59.535 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 83452 maxima found
+2026-03-03 00:05:59.538 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 83452 maxima kept
+  1%|▏         | 5/400 [00:16<18:41,  2.84s/it]  2%|▏         | 6/400 [00:16<14:11,  2.16s/it]  2%|▏         | 7/400 [00:17<12:21,  1.89s/it]  2%|▏         | 8/400 [00:18<09:27,  1.45s/it]2026-03-03 00:06:03.857 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 90531 maxima found
+2026-03-03 00:06:03.859 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 90531 maxima kept
+2026-03-03 00:06:04.723 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 89597 maxima found
+2026-03-03 00:06:04.726 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 89597 maxima kept
+2026-03-03 00:06:06.020 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 80915 maxima found
+2026-03-03 00:06:06.022 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 80915 maxima kept
+  2%|▏         | 9/400 [00:22<14:41,  2.25s/it]2026-03-03 00:06:06.319 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 78217 maxima found
+2026-03-03 00:06:06.322 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 78217 maxima kept
+  2%|▎         | 10/400 [00:23<12:32,  1.93s/it]  3%|▎         | 11/400 [00:24<11:04,  1.71s/it]  3%|▎         | 12/400 [00:25<08:36,  1.33s/it]2026-03-03 00:06:09.765 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 78082 maxima found
+2026-03-03 00:06:09.768 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 78082 maxima kept
+2026-03-03 00:06:11.277 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 82792 maxima found
+2026-03-03 00:06:11.279 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 82792 maxima kept
+  3%|▎         | 13/400 [00:28<11:57,  1.85s/it]2026-03-03 00:06:12.344 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 91702 maxima found
+2026-03-03 00:06:12.347 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 91702 maxima kept
+2026-03-03 00:06:12.799 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 93528 maxima found
+2026-03-03 00:06:12.801 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 93528 maxima kept
+  4%|▎         | 14/400 [00:30<11:49,  1.84s/it]  4%|▍         | 15/400 [00:31<10:39,  1.66s/it]  4%|▍         | 16/400 [00:31<07:47,  1.22s/it]2026-03-03 00:06:15.516 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 75282 maxima found
+2026-03-03 00:06:15.519 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 75282 maxima kept
+  4%|▍         | 17/400 [00:34<10:26,  1.64s/it]2026-03-03 00:06:17.877 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 89049 maxima found
+2026-03-03 00:06:17.880 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 89049 maxima kept
+2026-03-03 00:06:19.376 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 76561 maxima found
+2026-03-03 00:06:19.379 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 76561 maxima kept
+2026-03-03 00:06:19.634 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 82852 maxima found
+2026-03-03 00:06:19.637 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 82852 maxima kept
+  4%|▍         | 18/400 [00:36<12:22,  1.94s/it]2026-03-03 00:06:21.418 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 90212 maxima found
+2026-03-03 00:06:21.421 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 90212 maxima kept
+  5%|▍         | 19/400 [00:38<11:00,  1.73s/it]  5%|▌         | 20/400 [00:38<08:28,  1.34s/it]  5%|▌         | 21/400 [00:40<09:13,  1.46s/it]2026-03-03 00:06:24.371 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 92802 maxima found
+2026-03-03 00:06:24.374 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 92802 maxima kept
+2026-03-03 00:06:25.715 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 93570 maxima found
+2026-03-03 00:06:25.718 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 93570 maxima kept
+2026-03-03 00:06:26.407 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 90100 maxima found
+2026-03-03 00:06:26.410 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 90100 maxima kept
+  6%|▌         | 22/400 [00:43<11:59,  1.90s/it]2026-03-03 00:06:27.788 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 86668 maxima found
+2026-03-03 00:06:27.793 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 86668 maxima kept
+  6%|▌         | 23/400 [00:44<10:47,  1.72s/it]  6%|▌         | 24/400 [00:45<08:49,  1.41s/it]  6%|▋         | 25/400 [00:46<09:10,  1.47s/it]2026-03-03 00:06:30.493 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88154 maxima found
+2026-03-03 00:06:30.496 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88154 maxima kept
+2026-03-03 00:06:32.208 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 78765 maxima found
+2026-03-03 00:06:32.210 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 78765 maxima kept
+2026-03-03 00:06:32.793 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 86560 maxima found
+2026-03-03 00:06:32.796 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 86560 maxima kept
+  6%|▋         | 26/400 [00:49<11:04,  1.78s/it]2026-03-03 00:06:34.222 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 90895 maxima found
+2026-03-03 00:06:34.225 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 90895 maxima kept
+  7%|▋         | 27/400 [00:50<10:46,  1.73s/it]  7%|▋         | 28/400 [00:51<08:45,  1.41s/it]2026-03-03 00:06:36.142 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88237 maxima found
+2026-03-03 00:06:36.144 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88237 maxima kept
+  7%|▋         | 29/400 [00:53<08:40,  1.40s/it]2026-03-03 00:06:38.014 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 93151 maxima found
+2026-03-03 00:06:38.017 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 93151 maxima kept
+  8%|▊         | 30/400 [00:55<10:11,  1.65s/it]2026-03-03 00:06:39.062 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 92500 maxima found
+2026-03-03 00:06:39.066 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 92500 maxima kept
+2026-03-03 00:06:40.231 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 89819 maxima found
+2026-03-03 00:06:40.234 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 89819 maxima kept
+  8%|▊         | 31/400 [00:58<12:26,  2.02s/it]2026-03-03 00:06:42.061 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 90960 maxima found
+2026-03-03 00:06:42.064 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 90960 maxima kept
+  8%|▊         | 32/400 [00:58<10:10,  1.66s/it]  8%|▊         | 33/400 [01:00<09:19,  1.52s/it]2026-03-03 00:06:45.026 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 91226 maxima found
+2026-03-03 00:06:45.028 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 91226 maxima kept
+  8%|▊         | 34/400 [01:02<10:24,  1.71s/it]2026-03-03 00:06:46.277 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87395 maxima found
+2026-03-03 00:06:46.280 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87395 maxima kept
+2026-03-03 00:06:47.332 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 89234 maxima found
+2026-03-03 00:06:47.335 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 89234 maxima kept
+  9%|▉         | 35/400 [01:04<11:55,  1.96s/it]2026-03-03 00:06:49.157 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88114 maxima found
+2026-03-03 00:06:49.159 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88114 maxima kept
+  9%|▉         | 36/400 [01:05<10:25,  1.72s/it]  9%|▉         | 37/400 [01:07<09:55,  1.64s/it]2026-03-03 00:06:52.113 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88313 maxima found
+2026-03-03 00:06:52.117 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88313 maxima kept
+ 10%|▉         | 38/400 [01:09<09:55,  1.64s/it]2026-03-03 00:06:53.017 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88036 maxima found
+2026-03-03 00:06:53.021 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88036 maxima kept
+2026-03-03 00:06:54.920 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 80105 maxima found
+2026-03-03 00:06:54.923 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 80105 maxima kept
+ 10%|▉         | 39/400 [01:11<11:55,  1.98s/it] 10%|█         | 40/400 [01:12<09:56,  1.66s/it]2026-03-03 00:06:56.568 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 86615 maxima found
+2026-03-03 00:06:56.572 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 86615 maxima kept
+ 10%|█         | 41/400 [01:14<09:40,  1.62s/it]2026-03-03 00:06:58.926 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 86682 maxima found
+2026-03-03 00:06:58.929 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 86682 maxima kept
+ 10%|█         | 42/400 [01:16<10:36,  1.78s/it]2026-03-03 00:07:00.087 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87990 maxima found
+2026-03-03 00:07:00.090 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87990 maxima kept
+2026-03-03 00:07:01.570 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 79983 maxima found
+2026-03-03 00:07:01.574 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 79983 maxima kept
+ 11%|█         | 43/400 [01:18<11:31,  1.94s/it]2026-03-03 00:07:03.428 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 86376 maxima found
+2026-03-03 00:07:03.432 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 86376 maxima kept
+ 11%|█         | 44/400 [01:20<10:41,  1.80s/it] 11%|█▏        | 45/400 [01:20<08:47,  1.49s/it]2026-03-03 00:07:05.917 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 81243 maxima found
+2026-03-03 00:07:05.920 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 81243 maxima kept
+ 12%|█▏        | 46/400 [01:23<10:03,  1.71s/it]2026-03-03 00:07:07.923 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87199 maxima found
+2026-03-03 00:07:07.926 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87199 maxima kept
+2026-03-03 00:07:08.275 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 80003 maxima found
+2026-03-03 00:07:08.278 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 80003 maxima kept
+ 12%|█▏        | 47/400 [01:25<10:48,  1.84s/it]2026-03-03 00:07:10.841 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 86523 maxima found
+2026-03-03 00:07:10.844 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 86523 maxima kept
+ 12%|█▏        | 48/400 [01:27<10:54,  1.86s/it] 12%|█▏        | 49/400 [01:27<08:06,  1.39s/it]2026-03-03 00:07:12.908 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 81572 maxima found
+2026-03-03 00:07:12.911 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 81572 maxima kept
+ 12%|█▎        | 50/400 [01:30<10:32,  1.81s/it]2026-03-03 00:07:15.228 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87725 maxima found
+2026-03-03 00:07:15.231 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87725 maxima kept
+2026-03-03 00:07:15.321 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 79167 maxima found
+2026-03-03 00:07:15.324 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 79167 maxima kept
+ 13%|█▎        | 51/400 [01:31<10:01,  1.72s/it]2026-03-03 00:07:17.652 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 80317 maxima found
+2026-03-03 00:07:17.656 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 80317 maxima kept
+ 13%|█▎        | 52/400 [01:35<12:35,  2.17s/it]2026-03-03 00:07:19.141 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 85996 maxima found
+2026-03-03 00:07:19.143 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 85996 maxima kept
+ 14%|█▎        | 54/400 [01:36<09:05,  1.58s/it]2026-03-03 00:07:21.547 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 86710 maxima found
+2026-03-03 00:07:21.549 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 86710 maxima kept
+ 14%|█▍        | 55/400 [01:38<09:04,  1.58s/it]2026-03-03 00:07:22.071 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 82347 maxima found
+2026-03-03 00:07:22.074 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 82347 maxima kept
+2026-03-03 00:07:24.280 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 80300 maxima found
+2026-03-03 00:07:24.282 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 80300 maxima kept
+ 14%|█▍        | 56/400 [01:40<10:13,  1.78s/it] 14%|█▍        | 57/400 [01:41<07:52,  1.38s/it]2026-03-03 00:07:25.214 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88146 maxima found
+2026-03-03 00:07:25.217 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88146 maxima kept
+ 14%|█▍        | 58/400 [01:43<09:01,  1.58s/it]2026-03-03 00:07:27.670 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 84820 maxima found
+2026-03-03 00:07:27.673 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 84820 maxima kept
+ 15%|█▍        | 59/400 [01:44<08:00,  1.41s/it]2026-03-03 00:07:28.301 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 81230 maxima found
+2026-03-03 00:07:28.303 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 81230 maxima kept
+ 15%|█▌        | 60/400 [01:46<09:57,  1.76s/it]2026-03-03 00:07:30.444 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 79582 maxima found
+2026-03-03 00:07:30.447 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 79582 maxima kept
+ 15%|█▌        | 61/400 [01:47<07:52,  1.39s/it]2026-03-03 00:07:31.154 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 82560 maxima found
+2026-03-03 00:07:31.157 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 82560 maxima kept
+ 16%|█▌        | 62/400 [01:49<09:14,  1.64s/it]2026-03-03 00:07:33.404 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 80056 maxima found
+2026-03-03 00:07:33.406 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 80056 maxima kept
+ 16%|█▌        | 63/400 [01:50<07:51,  1.40s/it]2026-03-03 00:07:34.152 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87725 maxima found
+2026-03-03 00:07:34.154 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87725 maxima kept
+ 16%|█▌        | 64/400 [01:52<08:40,  1.55s/it]2026-03-03 00:07:36.595 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87348 maxima found
+2026-03-03 00:07:36.598 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87348 maxima kept
+ 16%|█▋        | 65/400 [01:53<07:41,  1.38s/it]2026-03-03 00:07:37.208 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 77244 maxima found
+2026-03-03 00:07:37.211 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 77244 maxima kept
+2026-03-03 00:07:39.192 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 82400 maxima found
+2026-03-03 00:07:39.195 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 82400 maxima kept
+ 16%|█▋        | 66/400 [01:55<09:29,  1.70s/it] 17%|█▋        | 67/400 [01:55<06:58,  1.26s/it]2026-03-03 00:07:40.018 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 81672 maxima found
+2026-03-03 00:07:40.020 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 81672 maxima kept
+ 17%|█▋        | 68/400 [01:58<08:41,  1.57s/it] 17%|█▋        | 69/400 [01:58<07:04,  1.28s/it]2026-03-03 00:07:42.461 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 86535 maxima found
+2026-03-03 00:07:42.464 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 86535 maxima kept
+2026-03-03 00:07:42.758 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 72155 maxima found
+2026-03-03 00:07:42.761 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 72155 maxima kept
+ 18%|█▊        | 70/400 [02:01<09:04,  1.65s/it]2026-03-03 00:07:44.942 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 83329 maxima found
+2026-03-03 00:07:44.948 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 83329 maxima kept
+2026-03-03 00:07:45.569 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 84804 maxima found
+2026-03-03 00:07:45.572 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 84804 maxima kept
+ 18%|█▊        | 72/400 [02:03<08:07,  1.49s/it] 18%|█▊        | 73/400 [02:04<06:47,  1.25s/it]2026-03-03 00:07:48.370 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 82300 maxima found
+2026-03-03 00:07:48.373 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 82300 maxima kept
+2026-03-03 00:07:48.753 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 79089 maxima found
+2026-03-03 00:07:48.756 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 79089 maxima kept
+ 18%|█▊        | 74/400 [02:07<09:10,  1.69s/it] 19%|█▉        | 75/400 [02:07<06:58,  1.29s/it]2026-03-03 00:07:51.503 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 78483 maxima found
+2026-03-03 00:07:51.508 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 78483 maxima kept
+2026-03-03 00:07:51.803 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 83748 maxima found
+2026-03-03 00:07:51.805 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 83748 maxima kept
+ 19%|█▉        | 76/400 [02:10<08:51,  1.64s/it] 19%|█▉        | 77/400 [02:10<06:57,  1.29s/it]2026-03-03 00:07:54.712 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 74484 maxima found
+2026-03-03 00:07:54.714 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 74484 maxima kept
+2026-03-03 00:07:55.163 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 86077 maxima found
+2026-03-03 00:07:55.167 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 86077 maxima kept
+ 20%|█▉        | 78/400 [02:13<09:04,  1.69s/it]2026-03-03 00:07:57.285 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 82904 maxima found
+2026-03-03 00:07:57.288 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 82904 maxima kept
+ 20%|█▉        | 79/400 [02:14<07:48,  1.46s/it]2026-03-03 00:07:58.026 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 76594 maxima found
+2026-03-03 00:07:58.028 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 76594 maxima kept
+ 20%|██        | 80/400 [02:16<08:33,  1.61s/it] 20%|██        | 81/400 [02:16<06:57,  1.31s/it]2026-03-03 00:08:00.517 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 84457 maxima found
+2026-03-03 00:08:00.520 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 84457 maxima kept
+2026-03-03 00:08:00.863 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87674 maxima found
+2026-03-03 00:08:00.866 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87674 maxima kept
+ 20%|██        | 82/400 [02:19<08:52,  1.67s/it] 21%|██        | 83/400 [02:19<06:44,  1.27s/it]2026-03-03 00:08:03.207 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 73333 maxima found
+2026-03-03 00:08:03.211 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 73333 maxima kept
+2026-03-03 00:08:03.594 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 83923 maxima found
+2026-03-03 00:08:03.596 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 83923 maxima kept
+ 21%|██        | 84/400 [02:21<07:57,  1.51s/it] 21%|██▏       | 85/400 [02:22<06:57,  1.32s/it]2026-03-03 00:08:06.445 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87383 maxima found
+2026-03-03 00:08:06.448 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87383 maxima kept
+2026-03-03 00:08:06.766 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87581 maxima found
+2026-03-03 00:08:06.769 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87581 maxima kept
+ 22%|██▏       | 86/400 [02:25<09:13,  1.76s/it] 22%|██▏       | 87/400 [02:25<06:47,  1.30s/it]2026-03-03 00:08:09.324 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87385 maxima found
+2026-03-03 00:08:09.328 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87385 maxima kept
+2026-03-03 00:08:09.531 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 72888 maxima found
+2026-03-03 00:08:09.533 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 72888 maxima kept
+ 22%|██▏       | 88/400 [02:28<08:47,  1.69s/it]2026-03-03 00:08:12.105 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88728 maxima found
+2026-03-03 00:08:12.108 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88728 maxima kept
+2026-03-03 00:08:12.370 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87369 maxima found
+2026-03-03 00:08:12.373 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87369 maxima kept
+ 22%|██▎       | 90/400 [02:30<07:57,  1.54s/it]2026-03-03 00:08:14.953 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 89877 maxima found
+2026-03-03 00:08:14.956 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 89877 maxima kept
+2026-03-03 00:08:15.272 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87269 maxima found
+2026-03-03 00:08:15.275 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87269 maxima kept
+ 23%|██▎       | 92/400 [02:33<07:37,  1.49s/it] 23%|██▎       | 93/400 [02:34<06:26,  1.26s/it]2026-03-03 00:08:18.113 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88605 maxima found
+2026-03-03 00:08:18.116 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88605 maxima kept
+2026-03-03 00:08:18.116 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 76427 maxima found
+2026-03-03 00:08:18.119 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 76427 maxima kept
+ 24%|██▎       | 94/400 [02:36<07:55,  1.55s/it]2026-03-03 00:08:20.277 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 74790 maxima found
+2026-03-03 00:08:20.279 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 74790 maxima kept
+ 24%|██▍       | 95/400 [02:36<06:22,  1.25s/it]2026-03-03 00:08:20.980 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 77143 maxima found
+2026-03-03 00:08:20.983 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 77143 maxima kept
+ 24%|██▍       | 96/400 [02:38<07:08,  1.41s/it]2026-03-03 00:08:23.027 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 76000 maxima found
+2026-03-03 00:08:23.030 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 76000 maxima kept
+ 24%|██▍       | 97/400 [02:39<06:03,  1.20s/it]2026-03-03 00:08:23.581 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 77659 maxima found
+2026-03-03 00:08:23.583 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 77659 maxima kept
+ 24%|██▍       | 98/400 [02:41<07:06,  1.41s/it]2026-03-03 00:08:25.452 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 77796 maxima found
+2026-03-03 00:08:25.455 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 77796 maxima kept
+ 25%|██▍       | 99/400 [02:42<06:08,  1.23s/it]2026-03-03 00:08:26.083 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 78556 maxima found
+2026-03-03 00:08:26.085 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 78556 maxima kept
+ 25%|██▌       | 100/400 [02:43<06:51,  1.37s/it]2026-03-03 00:08:28.158 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 89873 maxima found
+2026-03-03 00:08:28.162 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 89873 maxima kept
+ 25%|██▌       | 101/400 [02:44<05:56,  1.19s/it]2026-03-03 00:08:28.757 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 90126 maxima found
+2026-03-03 00:08:28.760 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 90126 maxima kept
+2026-03-03 00:08:30.382 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88472 maxima found
+2026-03-03 00:08:30.385 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88472 maxima kept
+ 26%|██▌       | 102/400 [02:46<07:23,  1.49s/it] 26%|██▌       | 103/400 [02:47<05:52,  1.19s/it]2026-03-03 00:08:31.208 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88605 maxima found
+2026-03-03 00:08:31.211 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88605 maxima kept
+ 26%|██▌       | 104/400 [02:48<06:22,  1.29s/it]2026-03-03 00:08:33.277 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 82630 maxima found
+2026-03-03 00:08:33.279 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 82630 maxima kept
+ 26%|██▋       | 105/400 [02:49<05:49,  1.19s/it]2026-03-03 00:08:33.806 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 71194 maxima found
+2026-03-03 00:08:33.809 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 71194 maxima kept
+ 26%|██▋       | 106/400 [02:51<06:58,  1.42s/it]2026-03-03 00:08:35.610 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 74984 maxima found
+2026-03-03 00:08:35.612 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 74984 maxima kept
+ 27%|██▋       | 107/400 [02:52<05:25,  1.11s/it]2026-03-03 00:08:36.257 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 100771 maxima found
+2026-03-03 00:08:36.259 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 100771 maxima kept
+ 27%|██▋       | 108/400 [02:54<06:54,  1.42s/it]2026-03-03 00:08:38.551 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 106839 maxima found
+2026-03-03 00:08:38.554 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 106839 maxima kept
+2026-03-03 00:08:38.933 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 104492 maxima found
+2026-03-03 00:08:38.936 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 104492 maxima kept
+ 27%|██▋       | 109/400 [02:56<07:36,  1.57s/it]2026-03-03 00:08:41.042 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 104175 maxima found
+2026-03-03 00:08:41.045 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 104175 maxima kept
+ 28%|██▊       | 110/400 [02:59<09:25,  1.95s/it] 28%|██▊       | 111/400 [02:59<06:59,  1.45s/it]2026-03-03 00:08:43.070 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 99016 maxima found
+2026-03-03 00:08:43.073 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 99016 maxima kept
+ 28%|██▊       | 112/400 [03:01<08:00,  1.67s/it]2026-03-03 00:08:46.436 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 96214 maxima found
+2026-03-03 00:08:46.439 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 96214 maxima kept
+2026-03-03 00:08:46.691 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 97504 maxima found
+2026-03-03 00:08:46.693 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 97504 maxima kept
+ 28%|██▊       | 113/400 [03:03<08:38,  1.81s/it]2026-03-03 00:08:48.274 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 97941 maxima found
+2026-03-03 00:08:48.277 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 97941 maxima kept
+ 28%|██▊       | 114/400 [03:06<10:20,  2.17s/it]2026-03-03 00:08:50.344 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 95436 maxima found
+2026-03-03 00:08:50.347 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 95436 maxima kept
+ 29%|██▉       | 115/400 [03:06<07:31,  1.59s/it] 29%|██▉       | 116/400 [03:08<07:06,  1.50s/it]2026-03-03 00:08:53.936 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 94777 maxima found
+2026-03-03 00:08:53.939 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 94777 maxima kept
+2026-03-03 00:08:54.398 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 94273 maxima found
+2026-03-03 00:08:54.401 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 94273 maxima kept
+ 29%|██▉       | 117/400 [03:10<08:39,  1.83s/it]2026-03-03 00:08:55.275 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 94486 maxima found
+2026-03-03 00:08:55.278 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 94486 maxima kept
+ 30%|██▉       | 118/400 [03:13<10:10,  2.16s/it]2026-03-03 00:08:57.381 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 95510 maxima found
+2026-03-03 00:08:57.384 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 95510 maxima kept
+ 30%|██▉       | 119/400 [03:14<08:31,  1.82s/it] 30%|███       | 120/400 [03:15<06:29,  1.39s/it]2026-03-03 00:09:00.270 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 95553 maxima found
+2026-03-03 00:09:00.273 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 95553 maxima kept
+ 30%|███       | 121/400 [03:17<07:45,  1.67s/it]2026-03-03 00:09:01.929 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 92210 maxima found
+2026-03-03 00:09:01.931 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 92210 maxima kept
+2026-03-03 00:09:02.168 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 95142 maxima found
+2026-03-03 00:09:02.170 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 95142 maxima kept
+ 30%|███       | 122/400 [03:20<09:29,  2.05s/it]2026-03-03 00:09:04.160 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 93354 maxima found
+2026-03-03 00:09:04.163 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 93354 maxima kept
+ 31%|███       | 123/400 [03:21<08:44,  1.89s/it]2026-03-03 00:09:06.647 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 92328 maxima found
+2026-03-03 00:09:06.650 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 92328 maxima kept
+ 31%|███▏      | 125/400 [03:24<06:51,  1.49s/it] 32%|███▏      | 126/400 [03:26<07:37,  1.67s/it]2026-03-03 00:09:09.811 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 91350 maxima found
+2026-03-03 00:09:09.814 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 91350 maxima kept
+2026-03-03 00:09:09.817 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 91620 maxima found
+2026-03-03 00:09:09.820 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 91620 maxima kept
+2026-03-03 00:09:11.087 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 93158 maxima found
+2026-03-03 00:09:11.089 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 93158 maxima kept
+2026-03-03 00:09:12.812 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 91268 maxima found
+2026-03-03 00:09:12.815 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 91268 maxima kept
+ 32%|███▏      | 127/400 [03:29<09:44,  2.14s/it] 32%|███▏      | 129/400 [03:30<06:37,  1.47s/it] 32%|███▎      | 130/400 [03:32<06:54,  1.54s/it]2026-03-03 00:09:16.623 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 89188 maxima found
+2026-03-03 00:09:16.626 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 89188 maxima kept
+2026-03-03 00:09:17.017 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88052 maxima found
+2026-03-03 00:09:17.020 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88052 maxima kept
+2026-03-03 00:09:17.891 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 90649 maxima found
+2026-03-03 00:09:17.894 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 90649 maxima kept
+2026-03-03 00:09:19.454 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87951 maxima found
+2026-03-03 00:09:19.457 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87951 maxima kept
+ 33%|███▎      | 131/400 [03:36<09:05,  2.03s/it] 33%|███▎      | 132/400 [03:36<07:22,  1.65s/it] 33%|███▎      | 133/400 [03:38<07:02,  1.58s/it] 34%|███▎      | 134/400 [03:39<06:14,  1.41s/it]2026-03-03 00:09:22.718 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 91047 maxima found
+2026-03-03 00:09:22.722 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 91047 maxima kept
+2026-03-03 00:09:24.051 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88056 maxima found
+2026-03-03 00:09:24.054 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88056 maxima kept
+2026-03-03 00:09:25.598 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 84896 maxima found
+2026-03-03 00:09:25.601 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 84896 maxima kept
+ 34%|███▍      | 135/400 [03:42<08:49,  2.00s/it]2026-03-03 00:09:26.287 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 89146 maxima found
+2026-03-03 00:09:26.290 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 89146 maxima kept
+ 34%|███▍      | 136/400 [03:43<08:07,  1.85s/it] 34%|███▍      | 137/400 [03:44<06:47,  1.55s/it]2026-03-03 00:09:29.256 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 86928 maxima found
+2026-03-03 00:09:29.259 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 86928 maxima kept
+ 34%|███▍      | 138/400 [03:46<06:19,  1.45s/it]2026-03-03 00:09:32.320 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87514 maxima found
+2026-03-03 00:09:32.323 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87514 maxima kept
+ 35%|███▍      | 139/400 [03:48<08:05,  1.86s/it]2026-03-03 00:09:33.091 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87570 maxima found
+2026-03-03 00:09:33.094 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87570 maxima kept
+2026-03-03 00:09:33.989 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88342 maxima found
+2026-03-03 00:09:33.992 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88342 maxima kept
+ 35%|███▌      | 140/400 [03:52<09:54,  2.29s/it]2026-03-03 00:09:36.070 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87749 maxima found
+2026-03-03 00:09:36.073 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87749 maxima kept
+ 35%|███▌      | 141/400 [03:52<07:38,  1.77s/it] 36%|███▌      | 142/400 [03:53<06:19,  1.47s/it]2026-03-03 00:09:38.881 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 89036 maxima found
+2026-03-03 00:09:38.884 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 89036 maxima kept
+ 36%|███▌      | 143/400 [03:55<07:00,  1.64s/it]2026-03-03 00:09:40.593 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 86554 maxima found
+2026-03-03 00:09:40.595 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 86554 maxima kept
+2026-03-03 00:09:40.903 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88228 maxima found
+2026-03-03 00:09:40.906 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88228 maxima kept
+ 36%|███▌      | 144/400 [03:58<08:49,  2.07s/it]2026-03-03 00:09:43.028 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 86038 maxima found
+2026-03-03 00:09:43.032 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 86038 maxima kept
+ 36%|███▋      | 145/400 [04:00<08:07,  1.91s/it] 36%|███▋      | 146/400 [04:00<06:09,  1.46s/it]2026-03-03 00:09:44.707 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 84305 maxima found
+2026-03-03 00:09:44.710 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 84305 maxima kept
+ 37%|███▋      | 147/400 [04:02<06:52,  1.63s/it]2026-03-03 00:09:47.304 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 89559 maxima found
+2026-03-03 00:09:47.306 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 89559 maxima kept
+ 37%|███▋      | 148/400 [04:03<06:27,  1.54s/it]2026-03-03 00:09:47.842 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 83919 maxima found
+2026-03-03 00:09:47.846 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 83919 maxima kept
+2026-03-03 00:09:49.922 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 85634 maxima found
+2026-03-03 00:09:49.925 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 85634 maxima kept
+ 37%|███▋      | 149/400 [04:06<08:15,  1.98s/it] 38%|███▊      | 150/400 [04:07<06:22,  1.53s/it]2026-03-03 00:09:51.107 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87751 maxima found
+2026-03-03 00:09:51.110 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87751 maxima kept
+ 38%|███▊      | 151/400 [04:09<06:44,  1.62s/it]2026-03-03 00:09:53.279 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 79704 maxima found
+2026-03-03 00:09:53.282 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 79704 maxima kept
+ 38%|███▊      | 152/400 [04:10<06:17,  1.52s/it]2026-03-03 00:09:54.295 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 67499 maxima found
+2026-03-03 00:09:54.298 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 67499 maxima kept
+ 38%|███▊      | 153/400 [04:12<06:35,  1.60s/it]2026-03-03 00:09:56.095 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 66873 maxima found
+2026-03-03 00:09:56.098 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 66873 maxima kept
+ 38%|███▊      | 154/400 [04:12<05:11,  1.27s/it]2026-03-03 00:09:56.931 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 68010 maxima found
+2026-03-03 00:09:56.933 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 68010 maxima kept
+ 39%|███▉      | 155/400 [04:14<05:34,  1.36s/it] 39%|███▉      | 156/400 [04:15<04:59,  1.23s/it]2026-03-03 00:09:58.888 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 70910 maxima found
+2026-03-03 00:09:58.892 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 70910 maxima kept
+2026-03-03 00:09:59.242 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 69848 maxima found
+2026-03-03 00:09:59.244 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 69848 maxima kept
+ 39%|███▉      | 157/400 [04:17<06:01,  1.49s/it]2026-03-03 00:10:00.975 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 90644 maxima found
+2026-03-03 00:10:00.978 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 90644 maxima kept
+ 40%|███▉      | 158/400 [04:17<04:39,  1.16s/it]2026-03-03 00:10:01.834 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88496 maxima found
+2026-03-03 00:10:01.836 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88496 maxima kept
+2026-03-03 00:10:03.916 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88653 maxima found
+2026-03-03 00:10:03.919 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88653 maxima kept
+ 40%|███▉      | 159/400 [04:20<06:25,  1.60s/it]2026-03-03 00:10:04.361 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87885 maxima found
+2026-03-03 00:10:04.363 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87885 maxima kept
+ 40%|████      | 160/400 [04:21<05:24,  1.35s/it] 40%|████      | 161/400 [04:23<06:20,  1.59s/it]2026-03-03 00:10:07.061 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 89213 maxima found
+2026-03-03 00:10:07.064 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 89213 maxima kept
+ 40%|████      | 162/400 [04:23<04:53,  1.23s/it]2026-03-03 00:10:07.744 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87596 maxima found
+2026-03-03 00:10:07.746 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87596 maxima kept
+2026-03-03 00:10:09.799 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88914 maxima found
+2026-03-03 00:10:09.802 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88914 maxima kept
+ 41%|████      | 163/400 [04:26<06:48,  1.72s/it]2026-03-03 00:10:10.385 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 86835 maxima found
+2026-03-03 00:10:10.388 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 86835 maxima kept
+ 41%|████      | 164/400 [04:27<05:24,  1.38s/it] 41%|████▏     | 165/400 [04:29<06:17,  1.61s/it]2026-03-03 00:10:13.046 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87112 maxima found
+2026-03-03 00:10:13.049 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87112 maxima kept
+ 42%|████▏     | 166/400 [04:29<04:57,  1.27s/it]2026-03-03 00:10:13.681 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88183 maxima found
+2026-03-03 00:10:13.684 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88183 maxima kept
+ 42%|████▏     | 167/400 [04:32<06:29,  1.67s/it]2026-03-03 00:10:16.153 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87190 maxima found
+2026-03-03 00:10:16.156 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87190 maxima kept
+ 42%|████▏     | 168/400 [04:32<05:05,  1.32s/it]2026-03-03 00:10:16.636 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88446 maxima found
+2026-03-03 00:10:16.638 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88446 maxima kept
+2026-03-03 00:10:19.010 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87513 maxima found
+2026-03-03 00:10:19.013 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87513 maxima kept
+ 42%|████▏     | 169/400 [04:35<06:30,  1.69s/it] 42%|████▎     | 170/400 [04:35<05:00,  1.31s/it]2026-03-03 00:10:19.773 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 86989 maxima found
+2026-03-03 00:10:19.776 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 86989 maxima kept
+ 43%|████▎     | 171/400 [04:38<06:12,  1.63s/it]2026-03-03 00:10:22.058 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 86911 maxima found
+2026-03-03 00:10:22.060 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 86911 maxima kept
+2026-03-03 00:10:22.523 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88192 maxima found
+2026-03-03 00:10:22.525 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88192 maxima kept
+ 43%|████▎     | 172/400 [04:39<05:17,  1.39s/it]2026-03-03 00:10:24.635 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87876 maxima found
+2026-03-03 00:10:24.638 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87876 maxima kept
+ 43%|████▎     | 173/400 [04:41<06:14,  1.65s/it] 44%|████▎     | 174/400 [04:41<04:52,  1.30s/it]2026-03-03 00:10:25.625 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88282 maxima found
+2026-03-03 00:10:25.628 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88282 maxima kept
+ 44%|████▍     | 175/400 [04:43<05:38,  1.51s/it]2026-03-03 00:10:27.661 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87887 maxima found
+2026-03-03 00:10:27.664 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87887 maxima kept
+2026-03-03 00:10:28.292 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88945 maxima found
+2026-03-03 00:10:28.295 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88945 maxima kept
+ 44%|████▍     | 176/400 [04:44<05:01,  1.35s/it]2026-03-03 00:10:30.245 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87140 maxima found
+2026-03-03 00:10:30.248 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87140 maxima kept
+ 44%|████▍     | 177/400 [04:46<05:44,  1.54s/it]2026-03-03 00:10:31.191 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88039 maxima found
+2026-03-03 00:10:31.194 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88039 maxima kept
+ 44%|████▍     | 178/400 [04:47<05:04,  1.37s/it] 45%|████▍     | 179/400 [04:49<05:13,  1.42s/it]2026-03-03 00:10:33.257 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87560 maxima found
+2026-03-03 00:10:33.260 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87560 maxima kept
+ 45%|████▌     | 180/400 [04:50<04:51,  1.32s/it]2026-03-03 00:10:34.309 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 86313 maxima found
+2026-03-03 00:10:34.312 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 86313 maxima kept
+2026-03-03 00:10:35.459 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 86381 maxima found
+2026-03-03 00:10:35.462 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 86381 maxima kept
+ 45%|████▌     | 181/400 [04:52<05:30,  1.51s/it]2026-03-03 00:10:36.744 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 71771 maxima found
+2026-03-03 00:10:36.747 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 71771 maxima kept
+ 46%|████▌     | 182/400 [04:53<04:59,  1.37s/it] 46%|████▌     | 183/400 [04:54<04:39,  1.29s/it]2026-03-03 00:10:38.768 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 68437 maxima found
+2026-03-03 00:10:38.770 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 68437 maxima kept
+ 46%|████▌     | 184/400 [04:55<04:20,  1.21s/it]2026-03-03 00:10:39.987 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 90041 maxima found
+2026-03-03 00:10:39.989 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 90041 maxima kept
+ 46%|████▋     | 185/400 [04:56<04:38,  1.30s/it]2026-03-03 00:10:41.098 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 107639 maxima found
+2026-03-03 00:10:41.101 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 107639 maxima kept
+2026-03-03 00:10:42.198 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 100482 maxima found
+2026-03-03 00:10:42.201 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 100482 maxima kept
+ 46%|████▋     | 186/400 [04:59<05:31,  1.55s/it]2026-03-03 00:10:43.472 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 100303 maxima found
+2026-03-03 00:10:43.476 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 100303 maxima kept
+ 47%|████▋     | 187/400 [05:01<06:21,  1.79s/it]2026-03-03 00:10:45.315 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 98254 maxima found
+2026-03-03 00:10:45.318 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 98254 maxima kept
+ 47%|████▋     | 188/400 [05:02<05:51,  1.66s/it]2026-03-03 00:10:47.569 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 96721 maxima found
+2026-03-03 00:10:47.572 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 96721 maxima kept
+ 47%|████▋     | 189/400 [05:04<05:33,  1.58s/it] 48%|████▊     | 190/400 [05:05<05:32,  1.58s/it]2026-03-03 00:10:49.410 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 95368 maxima found
+2026-03-03 00:10:49.413 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 95368 maxima kept
+2026-03-03 00:10:50.724 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 95860 maxima found
+2026-03-03 00:10:50.727 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 95860 maxima kept
+ 48%|████▊     | 191/400 [05:07<05:53,  1.69s/it]2026-03-03 00:10:52.488 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 93527 maxima found
+2026-03-03 00:10:52.491 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 93527 maxima kept
+ 48%|████▊     | 192/400 [05:09<05:56,  1.71s/it]2026-03-03 00:10:54.194 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 95110 maxima found
+2026-03-03 00:10:54.197 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 95110 maxima kept
+ 48%|████▊     | 193/400 [05:10<05:25,  1.57s/it]2026-03-03 00:10:55.820 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 94264 maxima found
+2026-03-03 00:10:55.822 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 94264 maxima kept
+ 48%|████▊     | 194/400 [05:12<05:37,  1.64s/it]2026-03-03 00:10:57.159 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 93393 maxima found
+2026-03-03 00:10:57.162 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 93393 maxima kept
+ 49%|████▉     | 195/400 [05:14<05:38,  1.65s/it]2026-03-03 00:10:59.033 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 92046 maxima found
+2026-03-03 00:10:59.036 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 92046 maxima kept
+ 49%|████▉     | 196/400 [05:15<05:36,  1.65s/it]2026-03-03 00:11:00.604 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 93979 maxima found
+2026-03-03 00:11:00.606 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 93979 maxima kept
+ 49%|████▉     | 197/400 [05:17<05:19,  1.58s/it]2026-03-03 00:11:02.358 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 89257 maxima found
+2026-03-03 00:11:02.361 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 89257 maxima kept
+ 50%|████▉     | 198/400 [05:18<05:19,  1.58s/it]2026-03-03 00:11:03.665 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 92586 maxima found
+2026-03-03 00:11:03.667 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 92586 maxima kept
+ 50%|████▉     | 199/400 [05:20<05:30,  1.64s/it]2026-03-03 00:11:05.131 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 92430 maxima found
+2026-03-03 00:11:05.134 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 92430 maxima kept
+ 50%|█████     | 200/400 [05:22<05:11,  1.56s/it] 50%|█████     | 201/400 [05:23<04:51,  1.46s/it]2026-03-03 00:11:07.087 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 90735 maxima found
+2026-03-03 00:11:07.090 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 90735 maxima kept
+2026-03-03 00:11:08.460 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 90059 maxima found
+2026-03-03 00:11:08.463 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 90059 maxima kept
+ 50%|█████     | 202/400 [05:24<05:02,  1.53s/it]2026-03-03 00:11:09.870 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 92171 maxima found
+2026-03-03 00:11:09.873 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 92171 maxima kept
+ 51%|█████     | 203/400 [05:26<05:17,  1.61s/it]2026-03-03 00:11:11.172 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 90389 maxima found
+2026-03-03 00:11:11.175 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 90389 maxima kept
+ 51%|█████     | 204/400 [05:28<05:08,  1.57s/it]2026-03-03 00:11:12.953 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88955 maxima found
+2026-03-03 00:11:12.956 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88955 maxima kept
+ 51%|█████▏    | 205/400 [05:29<05:08,  1.58s/it]2026-03-03 00:11:14.571 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 89694 maxima found
+2026-03-03 00:11:14.574 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 89694 maxima kept
+ 52%|█████▏    | 206/400 [05:31<04:44,  1.47s/it] 52%|█████▏    | 207/400 [05:32<04:50,  1.51s/it]2026-03-03 00:11:16.349 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87586 maxima found
+2026-03-03 00:11:16.352 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87586 maxima kept
+2026-03-03 00:11:17.415 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 91931 maxima found
+2026-03-03 00:11:17.418 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 91931 maxima kept
+ 52%|█████▏    | 208/400 [05:34<04:58,  1.55s/it]2026-03-03 00:11:19.066 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 89212 maxima found
+2026-03-03 00:11:19.068 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 89212 maxima kept
+ 52%|█████▏    | 209/400 [05:35<04:49,  1.51s/it] 52%|█████▎    | 210/400 [05:36<04:34,  1.45s/it]2026-03-03 00:11:20.630 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 90245 maxima found
+2026-03-03 00:11:20.633 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 90245 maxima kept
+2026-03-03 00:11:22.189 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88569 maxima found
+2026-03-03 00:11:22.192 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88569 maxima kept
+ 53%|█████▎    | 211/400 [05:38<04:45,  1.51s/it]2026-03-03 00:11:23.388 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87739 maxima found
+2026-03-03 00:11:23.391 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87739 maxima kept
+ 53%|█████▎    | 212/400 [05:40<04:46,  1.53s/it]2026-03-03 00:11:24.850 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87931 maxima found
+2026-03-03 00:11:24.852 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87931 maxima kept
+ 53%|█████▎    | 213/400 [05:41<04:52,  1.56s/it]2026-03-03 00:11:26.501 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 86979 maxima found
+2026-03-03 00:11:26.503 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 86979 maxima kept
+ 54%|█████▎    | 214/400 [05:43<04:29,  1.45s/it] 54%|█████▍    | 215/400 [05:44<04:17,  1.39s/it]2026-03-03 00:11:28.389 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 76255 maxima found
+2026-03-03 00:11:28.392 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 76255 maxima kept
+ 54%|█████▍    | 216/400 [05:46<04:37,  1.51s/it]2026-03-03 00:11:29.861 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 72743 maxima found
+2026-03-03 00:11:29.864 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 72743 maxima kept
+ 54%|█████▍    | 217/400 [05:47<04:06,  1.35s/it]2026-03-03 00:11:30.746 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 84009 maxima found
+2026-03-03 00:11:30.749 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 84009 maxima kept
+ 55%|█████▍    | 218/400 [05:48<04:02,  1.33s/it]2026-03-03 00:11:32.638 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 89852 maxima found
+2026-03-03 00:11:32.641 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 89852 maxima kept
+ 55%|█████▍    | 219/400 [05:49<04:07,  1.36s/it]2026-03-03 00:11:33.992 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 74217 maxima found
+2026-03-03 00:11:33.996 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 74217 maxima kept
+2026-03-03 00:11:35.019 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 67847 maxima found
+2026-03-03 00:11:35.021 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 67847 maxima kept
+ 55%|█████▌    | 220/400 [05:52<04:54,  1.64s/it]2026-03-03 00:11:36.184 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 75075 maxima found
+2026-03-03 00:11:36.187 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 75075 maxima kept
+ 55%|█████▌    | 221/400 [05:52<03:55,  1.31s/it] 56%|█████▌    | 222/400 [05:53<03:18,  1.12s/it] 56%|█████▌    | 223/400 [05:54<03:48,  1.29s/it]2026-03-03 00:11:38.646 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 89227 maxima found
+2026-03-03 00:11:38.649 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 89227 maxima kept
+2026-03-03 00:11:39.253 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88292 maxima found
+2026-03-03 00:11:39.257 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88292 maxima kept
+2026-03-03 00:11:39.811 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88984 maxima found
+2026-03-03 00:11:39.814 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88984 maxima kept
+2026-03-03 00:11:41.428 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 89102 maxima found
+2026-03-03 00:11:41.430 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 89102 maxima kept
+ 56%|█████▌    | 224/400 [05:58<05:34,  1.90s/it] 56%|█████▋    | 225/400 [05:58<04:17,  1.47s/it] 56%|█████▋    | 226/400 [05:59<03:32,  1.22s/it] 57%|█████▋    | 227/400 [06:00<03:42,  1.29s/it]2026-03-03 00:11:44.791 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 89046 maxima found
+2026-03-03 00:11:44.793 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 89046 maxima kept
+2026-03-03 00:11:45.402 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88444 maxima found
+2026-03-03 00:11:45.405 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88444 maxima kept
+2026-03-03 00:11:46.087 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 89552 maxima found
+2026-03-03 00:11:46.090 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 89552 maxima kept
+2026-03-03 00:11:47.489 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88234 maxima found
+2026-03-03 00:11:47.492 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88234 maxima kept
+ 57%|█████▋    | 228/400 [06:04<05:38,  1.97s/it] 57%|█████▋    | 229/400 [06:04<04:22,  1.53s/it] 57%|█████▊    | 230/400 [06:05<03:42,  1.31s/it] 58%|█████▊    | 231/400 [06:06<03:36,  1.28s/it]2026-03-03 00:11:50.866 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 89812 maxima found
+2026-03-03 00:11:50.868 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 89812 maxima kept
+2026-03-03 00:11:51.745 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 89796 maxima found
+2026-03-03 00:11:51.748 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 89796 maxima kept
+2026-03-03 00:11:52.724 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88303 maxima found
+2026-03-03 00:11:52.727 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88303 maxima kept
+2026-03-03 00:11:53.472 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87770 maxima found
+2026-03-03 00:11:53.475 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87770 maxima kept
+ 58%|█████▊    | 232/400 [06:10<05:13,  1.87s/it] 58%|█████▊    | 233/400 [06:11<04:31,  1.63s/it] 58%|█████▊    | 234/400 [06:12<04:08,  1.50s/it] 59%|█████▉    | 235/400 [06:12<03:10,  1.15s/it]2026-03-03 00:11:56.388 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88988 maxima found
+2026-03-03 00:11:56.391 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88988 maxima kept
+2026-03-03 00:11:57.446 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87324 maxima found
+2026-03-03 00:11:57.448 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87324 maxima kept
+2026-03-03 00:11:59.044 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87023 maxima found
+2026-03-03 00:11:59.046 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87023 maxima kept
+ 59%|█████▉    | 236/400 [06:15<04:40,  1.71s/it]2026-03-03 00:11:59.602 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87415 maxima found
+2026-03-03 00:11:59.605 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87415 maxima kept
+ 59%|█████▉    | 237/400 [06:16<03:56,  1.45s/it] 60%|█████▉    | 238/400 [06:18<04:15,  1.58s/it]2026-03-03 00:12:02.283 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 85399 maxima found
+2026-03-03 00:12:02.285 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 85399 maxima kept
+ 60%|█████▉    | 239/400 [06:19<03:22,  1.26s/it]2026-03-03 00:12:03.166 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88979 maxima found
+2026-03-03 00:12:03.169 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88979 maxima kept
+ 60%|██████    | 240/400 [06:21<04:11,  1.57s/it]2026-03-03 00:12:05.252 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88363 maxima found
+2026-03-03 00:12:05.255 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88363 maxima kept
+2026-03-03 00:12:05.466 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87616 maxima found
+2026-03-03 00:12:05.469 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87616 maxima kept
+ 60%|██████    | 241/400 [06:22<03:43,  1.40s/it]2026-03-03 00:12:07.620 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87652 maxima found
+2026-03-03 00:12:07.623 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87652 maxima kept
+ 60%|██████    | 242/400 [06:24<04:23,  1.67s/it]2026-03-03 00:12:08.883 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88399 maxima found
+2026-03-03 00:12:08.886 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88399 maxima kept
+ 61%|██████    | 244/400 [06:26<03:32,  1.37s/it] 61%|██████▏   | 245/400 [06:28<03:34,  1.39s/it]2026-03-03 00:12:11.754 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 86991 maxima found
+2026-03-03 00:12:11.757 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 86991 maxima kept
+2026-03-03 00:12:11.807 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87485 maxima found
+2026-03-03 00:12:11.809 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87485 maxima kept
+2026-03-03 00:12:13.384 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 86832 maxima found
+2026-03-03 00:12:13.387 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 86832 maxima kept
+2026-03-03 00:12:14.487 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 79585 maxima found
+2026-03-03 00:12:14.490 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 79585 maxima kept
+ 62%|██████▏   | 246/400 [06:30<04:31,  1.76s/it] 62%|██████▏   | 247/400 [06:31<03:21,  1.32s/it] 62%|██████▏   | 248/400 [06:32<03:23,  1.34s/it] 62%|██████▏   | 249/400 [06:33<02:56,  1.17s/it]2026-03-03 00:12:17.833 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 76786 maxima found
+2026-03-03 00:12:17.836 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 76786 maxima kept
+2026-03-03 00:12:18.193 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 73581 maxima found
+2026-03-03 00:12:18.196 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 73581 maxima kept
+2026-03-03 00:12:19.941 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 73814 maxima found
+2026-03-03 00:12:19.944 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 73814 maxima kept
+ 62%|██████▎   | 250/400 [06:36<04:25,  1.77s/it]2026-03-03 00:12:20.024 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 84157 maxima found
+2026-03-03 00:12:20.027 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 84157 maxima kept
+ 63%|██████▎   | 251/400 [06:36<03:17,  1.32s/it] 63%|██████▎   | 252/400 [06:38<03:38,  1.48s/it] 63%|██████▎   | 253/400 [06:39<03:06,  1.27s/it]2026-03-03 00:12:23.130 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 79931 maxima found
+2026-03-03 00:12:23.133 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 79931 maxima kept
+2026-03-03 00:12:23.358 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87888 maxima found
+2026-03-03 00:12:23.361 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87888 maxima kept
+2026-03-03 00:12:25.187 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 79404 maxima found
+2026-03-03 00:12:25.191 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 79404 maxima kept
+ 64%|██████▎   | 254/400 [06:42<04:11,  1.72s/it]2026-03-03 00:12:25.822 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88079 maxima found
+2026-03-03 00:12:25.825 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88079 maxima kept
+ 64%|██████▍   | 255/400 [06:42<03:10,  1.32s/it] 64%|██████▍   | 256/400 [06:44<03:26,  1.43s/it] 64%|██████▍   | 257/400 [06:44<02:55,  1.23s/it]2026-03-03 00:12:28.770 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87643 maxima found
+2026-03-03 00:12:28.772 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87643 maxima kept
+2026-03-03 00:12:29.337 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88731 maxima found
+2026-03-03 00:12:29.339 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88731 maxima kept
+2026-03-03 00:12:30.994 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 79281 maxima found
+2026-03-03 00:12:30.996 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 79281 maxima kept
+ 64%|██████▍   | 258/400 [06:47<04:06,  1.73s/it]2026-03-03 00:12:31.490 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 85874 maxima found
+2026-03-03 00:12:31.493 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 85874 maxima kept
+ 65%|██████▍   | 259/400 [06:48<03:24,  1.45s/it] 65%|██████▌   | 260/400 [06:49<03:04,  1.32s/it]2026-03-03 00:12:34.255 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 81095 maxima found
+ 65%|██████▌   | 261/400 [06:50<02:52,  1.24s/it]2026-03-03 00:12:34.258 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 81095 maxima kept
+2026-03-03 00:12:35.628 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87661 maxima found
+2026-03-03 00:12:35.631 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87661 maxima kept
+ 66%|██████▌   | 262/400 [06:52<03:30,  1.52s/it]2026-03-03 00:12:36.506 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 93479 maxima found
+2026-03-03 00:12:36.509 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 93479 maxima kept
+2026-03-03 00:12:37.276 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 104960 maxima found
+2026-03-03 00:12:37.279 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 104960 maxima kept
+ 66%|██████▌   | 263/400 [06:54<03:44,  1.64s/it]2026-03-03 00:12:39.044 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 101027 maxima found
+2026-03-03 00:12:39.048 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 101027 maxima kept
+ 66%|██████▌   | 264/400 [06:56<03:42,  1.64s/it]2026-03-03 00:12:40.997 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 99324 maxima found
+2026-03-03 00:12:41.000 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 99324 maxima kept
+ 66%|██████▋   | 265/400 [06:57<03:31,  1.56s/it]2026-03-03 00:12:42.848 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 95556 maxima found
+2026-03-03 00:12:42.851 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 95556 maxima kept
+ 66%|██████▋   | 266/400 [06:59<03:29,  1.56s/it]2026-03-03 00:12:44.068 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 93604 maxima found
+2026-03-03 00:12:44.071 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 93604 maxima kept
+ 67%|██████▋   | 267/400 [07:01<03:33,  1.61s/it]2026-03-03 00:12:45.779 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 94390 maxima found
+2026-03-03 00:12:45.782 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 94390 maxima kept
+ 67%|██████▋   | 268/400 [07:02<03:42,  1.68s/it]2026-03-03 00:12:47.327 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 91927 maxima found
+2026-03-03 00:12:47.330 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 91927 maxima kept
+ 67%|██████▋   | 269/400 [07:03<03:16,  1.50s/it] 68%|██████▊   | 270/400 [07:05<03:23,  1.56s/it]2026-03-03 00:12:49.411 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 91857 maxima found
+2026-03-03 00:12:49.414 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 91857 maxima kept
+2026-03-03 00:12:50.511 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 89331 maxima found
+2026-03-03 00:12:50.514 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 89331 maxima kept
+ 68%|██████▊   | 271/400 [07:07<03:24,  1.59s/it]2026-03-03 00:12:52.089 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 92065 maxima found
+2026-03-03 00:12:52.092 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 92065 maxima kept
+ 68%|██████▊   | 272/400 [07:09<03:40,  1.73s/it]2026-03-03 00:12:53.639 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 90937 maxima found
+2026-03-03 00:12:53.641 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 90937 maxima kept
+ 68%|██████▊   | 273/400 [07:10<03:00,  1.42s/it] 68%|██████▊   | 274/400 [07:11<03:12,  1.53s/it]2026-03-03 00:12:55.933 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87603 maxima found
+2026-03-03 00:12:55.936 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87603 maxima kept
+2026-03-03 00:12:56.949 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 89217 maxima found
+2026-03-03 00:12:56.951 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 89217 maxima kept
+ 69%|██████▉   | 275/400 [07:13<03:16,  1.57s/it]2026-03-03 00:12:58.102 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 86211 maxima found
+2026-03-03 00:12:58.105 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 86211 maxima kept
+ 69%|██████▉   | 276/400 [07:15<03:26,  1.67s/it]2026-03-03 00:12:59.871 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 91722 maxima found
+2026-03-03 00:12:59.874 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 91722 maxima kept
+ 69%|██████▉   | 277/400 [07:16<03:10,  1.54s/it] 70%|██████▉   | 278/400 [07:17<02:41,  1.32s/it]2026-03-03 00:13:01.814 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87760 maxima found
+2026-03-03 00:13:01.816 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87760 maxima kept
+ 70%|██████▉   | 279/400 [07:19<03:08,  1.56s/it]2026-03-03 00:13:03.422 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 89484 maxima found
+2026-03-03 00:13:03.425 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 89484 maxima kept
+2026-03-03 00:13:04.137 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 98570 maxima found
+2026-03-03 00:13:04.140 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 98570 maxima kept
+ 70%|███████   | 280/400 [07:21<03:09,  1.58s/it]2026-03-03 00:13:05.786 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 94296 maxima found
+2026-03-03 00:13:05.789 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 94296 maxima kept
+ 70%|███████   | 281/400 [07:23<03:23,  1.71s/it]2026-03-03 00:13:07.703 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 92161 maxima found
+2026-03-03 00:13:07.706 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 92161 maxima kept
+ 70%|███████   | 282/400 [07:24<02:55,  1.48s/it] 71%|███████   | 283/400 [07:25<03:03,  1.57s/it]2026-03-03 00:13:09.914 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 93163 maxima found
+2026-03-03 00:13:09.917 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 93163 maxima kept
+2026-03-03 00:13:10.658 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 89923 maxima found
+2026-03-03 00:13:10.661 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 89923 maxima kept
+ 71%|███████   | 284/400 [07:27<03:04,  1.59s/it]2026-03-03 00:13:12.563 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 91889 maxima found
+2026-03-03 00:13:12.566 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 91889 maxima kept
+ 71%|███████▏  | 285/400 [07:30<03:38,  1.90s/it] 72%|███████▏  | 286/400 [07:30<02:37,  1.38s/it]2026-03-03 00:13:14.569 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 90178 maxima found
+2026-03-03 00:13:14.572 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 90178 maxima kept
+ 72%|███████▏  | 287/400 [07:32<02:59,  1.59s/it]2026-03-03 00:13:17.192 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 91497 maxima found
+2026-03-03 00:13:17.195 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 91497 maxima kept
+ 72%|███████▏  | 288/400 [07:34<03:07,  1.68s/it]2026-03-03 00:13:18.059 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 91313 maxima found
+2026-03-03 00:13:18.062 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 91313 maxima kept
+2026-03-03 00:13:19.765 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 91646 maxima found
+2026-03-03 00:13:19.768 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 91646 maxima kept
+ 72%|███████▏  | 289/400 [07:37<03:38,  1.97s/it]2026-03-03 00:13:21.409 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87104 maxima found
+2026-03-03 00:13:21.413 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87104 maxima kept
+ 72%|███████▎  | 290/400 [07:38<03:05,  1.69s/it] 73%|███████▎  | 291/400 [07:39<02:56,  1.62s/it]2026-03-03 00:13:23.481 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88602 maxima found
+2026-03-03 00:13:23.484 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88602 maxima kept
+ 73%|███████▎  | 292/400 [07:41<02:56,  1.64s/it]2026-03-03 00:13:25.482 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87390 maxima found
+2026-03-03 00:13:25.485 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87390 maxima kept
+ 73%|███████▎  | 293/400 [07:43<03:06,  1.74s/it]2026-03-03 00:13:26.779 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 89430 maxima found
+2026-03-03 00:13:26.782 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 89430 maxima kept
+2026-03-03 00:13:27.747 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88449 maxima found
+2026-03-03 00:13:27.750 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88449 maxima kept
+ 74%|███████▎  | 294/400 [07:44<02:58,  1.69s/it]2026-03-03 00:13:29.484 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 80200 maxima found
+2026-03-03 00:13:29.487 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 80200 maxima kept
+ 74%|███████▍  | 295/400 [07:46<02:59,  1.71s/it] 74%|███████▍  | 296/400 [07:47<02:28,  1.43s/it]2026-03-03 00:13:31.120 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 86539 maxima found
+2026-03-03 00:13:31.123 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 86539 maxima kept
+ 74%|███████▍  | 297/400 [07:48<02:24,  1.40s/it]2026-03-03 00:13:32.961 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 86414 maxima found
+2026-03-03 00:13:32.964 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 86414 maxima kept
+2026-03-03 00:13:33.873 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 86505 maxima found
+2026-03-03 00:13:33.876 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 86505 maxima kept
+ 74%|███████▍  | 298/400 [07:50<02:37,  1.54s/it]2026-03-03 00:13:35.034 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 84890 maxima found
+2026-03-03 00:13:35.036 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 84890 maxima kept
+ 75%|███████▍  | 299/400 [07:52<02:43,  1.62s/it] 75%|███████▌  | 300/400 [07:53<02:20,  1.41s/it]2026-03-03 00:13:36.838 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88360 maxima found
+2026-03-03 00:13:36.842 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88360 maxima kept
+ 75%|███████▌  | 301/400 [07:54<02:14,  1.36s/it]2026-03-03 00:13:38.742 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 85740 maxima found
+2026-03-03 00:13:38.744 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 85740 maxima kept
+ 76%|███████▌  | 302/400 [07:56<02:30,  1.54s/it]2026-03-03 00:13:40.110 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 84116 maxima found
+2026-03-03 00:13:40.112 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 84116 maxima kept
+2026-03-03 00:13:41.099 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 83791 maxima found
+2026-03-03 00:13:41.102 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 83791 maxima kept
+ 76%|███████▌  | 303/400 [07:58<02:32,  1.57s/it]2026-03-03 00:13:42.806 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87932 maxima found
+2026-03-03 00:13:42.809 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87932 maxima kept
+ 76%|███████▌  | 304/400 [07:59<02:21,  1.47s/it] 76%|███████▋  | 305/400 [08:00<02:11,  1.38s/it]2026-03-03 00:13:44.337 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 80018 maxima found
+2026-03-03 00:13:44.340 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 80018 maxima kept
+2026-03-03 00:13:45.730 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 86509 maxima found
+2026-03-03 00:13:45.733 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 86509 maxima kept
+ 76%|███████▋  | 306/400 [08:02<02:22,  1.51s/it] 77%|███████▋  | 307/400 [08:03<02:08,  1.39s/it]2026-03-03 00:13:47.015 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 82752 maxima found
+2026-03-03 00:13:47.017 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 82752 maxima kept
+ 77%|███████▋  | 308/400 [08:05<02:14,  1.46s/it]2026-03-03 00:13:48.758 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 85739 maxima found
+2026-03-03 00:13:48.761 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 85739 maxima kept
+ 77%|███████▋  | 309/400 [08:06<02:06,  1.39s/it]2026-03-03 00:13:50.018 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 82055 maxima found
+2026-03-03 00:13:50.021 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 82055 maxima kept
+2026-03-03 00:13:51.284 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 81539 maxima found
+2026-03-03 00:13:51.287 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 81539 maxima kept
+ 78%|███████▊  | 310/400 [08:07<02:14,  1.49s/it]2026-03-03 00:13:52.571 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87883 maxima found
+2026-03-03 00:13:52.574 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87883 maxima kept
+ 78%|███████▊  | 311/400 [08:09<02:02,  1.38s/it] 78%|███████▊  | 312/400 [08:10<01:56,  1.32s/it]2026-03-03 00:13:54.490 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 82522 maxima found
+2026-03-03 00:13:54.494 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 82522 maxima kept
+ 78%|███████▊  | 313/400 [08:11<02:04,  1.43s/it]2026-03-03 00:13:55.923 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 82548 maxima found
+2026-03-03 00:13:55.926 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 82548 maxima kept
+2026-03-03 00:13:56.684 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 85970 maxima found
+2026-03-03 00:13:56.687 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 85970 maxima kept
+ 78%|███████▊  | 314/400 [08:13<02:05,  1.46s/it]2026-03-03 00:13:58.283 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88801 maxima found
+2026-03-03 00:13:58.286 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88801 maxima kept
+ 79%|███████▉  | 315/400 [08:15<02:06,  1.49s/it] 79%|███████▉  | 316/400 [08:15<01:46,  1.27s/it]2026-03-03 00:13:59.830 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 80757 maxima found
+2026-03-03 00:13:59.833 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 80757 maxima kept
+ 79%|███████▉  | 317/400 [08:17<01:58,  1.43s/it]2026-03-03 00:14:01.682 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 86533 maxima found
+2026-03-03 00:14:01.686 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 86533 maxima kept
+ 80%|███████▉  | 318/400 [08:18<01:51,  1.37s/it]2026-03-03 00:14:02.576 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 80630 maxima found
+2026-03-03 00:14:02.579 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 80630 maxima kept
+ 80%|███████▉  | 319/400 [08:21<02:11,  1.62s/it]2026-03-03 00:14:04.932 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88233 maxima found
+2026-03-03 00:14:04.935 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88233 maxima kept
+ 80%|████████  | 320/400 [08:21<01:49,  1.36s/it]2026-03-03 00:14:05.657 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 80436 maxima found
+2026-03-03 00:14:05.660 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 80436 maxima kept
+ 80%|████████  | 321/400 [08:24<02:10,  1.65s/it]2026-03-03 00:14:08.030 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 86857 maxima found
+2026-03-03 00:14:08.034 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 86857 maxima kept
+ 80%|████████  | 322/400 [08:24<01:44,  1.34s/it]2026-03-03 00:14:08.535 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 86949 maxima found
+2026-03-03 00:14:08.537 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 86949 maxima kept
+ 81%|████████  | 323/400 [08:27<02:07,  1.66s/it]2026-03-03 00:14:10.954 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 82305 maxima found
+2026-03-03 00:14:10.957 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 82305 maxima kept
+ 81%|████████  | 324/400 [08:27<01:41,  1.34s/it]2026-03-03 00:14:11.479 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 83475 maxima found
+2026-03-03 00:14:11.483 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 83475 maxima kept
+ 81%|████████▏ | 325/400 [08:29<01:55,  1.54s/it]2026-03-03 00:14:13.666 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87511 maxima found
+2026-03-03 00:14:13.669 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87511 maxima kept
+ 82%|████████▏ | 326/400 [08:30<01:35,  1.29s/it]2026-03-03 00:14:14.320 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88524 maxima found
+2026-03-03 00:14:14.323 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88524 maxima kept
+ 82%|████████▏ | 327/400 [08:32<01:55,  1.58s/it]2026-03-03 00:14:16.640 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 86532 maxima found
+2026-03-03 00:14:16.643 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 86532 maxima kept
+ 82%|████████▏ | 328/400 [08:33<01:36,  1.34s/it]2026-03-03 00:14:17.202 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 84340 maxima found
+2026-03-03 00:14:17.205 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 84340 maxima kept
+ 82%|████████▏ | 329/400 [08:35<01:52,  1.59s/it]2026-03-03 00:14:19.553 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87885 maxima found
+2026-03-03 00:14:19.556 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87885 maxima kept
+ 82%|████████▎ | 330/400 [08:36<01:33,  1.33s/it]2026-03-03 00:14:20.168 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87949 maxima found
+2026-03-03 00:14:20.170 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87949 maxima kept
+ 83%|████████▎ | 331/400 [08:38<01:51,  1.61s/it]2026-03-03 00:14:22.546 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88106 maxima found
+2026-03-03 00:14:22.549 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88106 maxima kept
+ 83%|████████▎ | 332/400 [08:39<01:32,  1.37s/it]2026-03-03 00:14:23.203 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 77755 maxima found
+2026-03-03 00:14:23.206 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 77755 maxima kept
+ 83%|████████▎ | 333/400 [08:41<01:49,  1.63s/it] 84%|████████▎ | 334/400 [08:41<01:19,  1.21s/it]2026-03-03 00:14:25.528 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 78092 maxima found
+2026-03-03 00:14:25.531 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 78092 maxima kept
+2026-03-03 00:14:26.148 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87197 maxima found
+2026-03-03 00:14:26.151 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87197 maxima kept
+ 84%|████████▍ | 335/400 [08:44<01:40,  1.54s/it]2026-03-03 00:14:28.624 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 78950 maxima found
+2026-03-03 00:14:28.628 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 78950 maxima kept
+ 84%|████████▍ | 336/400 [08:45<01:26,  1.35s/it]2026-03-03 00:14:29.043 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87413 maxima found
+2026-03-03 00:14:29.046 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87413 maxima kept
+2026-03-03 00:14:30.754 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 76954 maxima found
+2026-03-03 00:14:30.757 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 76954 maxima kept
+ 84%|████████▍ | 337/400 [08:47<01:39,  1.58s/it] 84%|████████▍ | 338/400 [08:48<01:23,  1.34s/it]2026-03-03 00:14:31.716 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88004 maxima found
+2026-03-03 00:14:31.719 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88004 maxima kept
+ 85%|████████▍ | 339/400 [08:49<01:21,  1.34s/it]2026-03-03 00:14:33.663 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87813 maxima found
+2026-03-03 00:14:33.667 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87813 maxima kept
+ 85%|████████▌ | 340/400 [08:50<01:19,  1.33s/it]2026-03-03 00:14:34.704 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 94901 maxima found
+2026-03-03 00:14:34.707 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 94901 maxima kept
+ 85%|████████▌ | 341/400 [08:52<01:25,  1.45s/it]2026-03-03 00:14:36.196 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 101262 maxima found
+2026-03-03 00:14:36.199 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 101262 maxima kept
+2026-03-03 00:14:37.064 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 98499 maxima found
+2026-03-03 00:14:37.067 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 98499 maxima kept
+ 86%|████████▌ | 342/400 [08:54<01:34,  1.64s/it]2026-03-03 00:14:38.742 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 93433 maxima found
+2026-03-03 00:14:38.745 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 93433 maxima kept
+ 86%|████████▌ | 343/400 [08:56<01:35,  1.67s/it]2026-03-03 00:14:40.732 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 93864 maxima found
+ 86%|████████▌ | 344/400 [08:57<01:20,  1.44s/it]2026-03-03 00:14:40.735 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 93864 maxima kept
+ 86%|████████▋ | 345/400 [08:58<01:20,  1.46s/it]2026-03-03 00:14:42.664 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 92980 maxima found
+2026-03-03 00:14:42.667 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 92980 maxima kept
+2026-03-03 00:14:43.606 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 91098 maxima found
+2026-03-03 00:14:43.609 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 91098 maxima kept
+ 86%|████████▋ | 346/400 [09:00<01:30,  1.67s/it]2026-03-03 00:14:45.092 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 90546 maxima found
+2026-03-03 00:14:45.095 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 90546 maxima kept
+ 87%|████████▋ | 347/400 [09:02<01:29,  1.68s/it] 87%|████████▋ | 348/400 [09:03<01:11,  1.38s/it]2026-03-03 00:14:47.052 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 89083 maxima found
+2026-03-03 00:14:47.054 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 89083 maxima kept
+ 87%|████████▋ | 349/400 [09:05<01:19,  1.56s/it]2026-03-03 00:14:49.001 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 90496 maxima found
+2026-03-03 00:14:49.005 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 90496 maxima kept
+2026-03-03 00:14:49.712 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 86014 maxima found
+2026-03-03 00:14:49.715 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 86014 maxima kept
+ 88%|████████▊ | 350/400 [09:06<01:14,  1.50s/it]2026-03-03 00:14:51.543 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 89984 maxima found
+2026-03-03 00:14:51.546 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 89984 maxima kept
+ 88%|████████▊ | 351/400 [09:08<01:26,  1.76s/it] 88%|████████▊ | 352/400 [09:09<01:01,  1.29s/it]2026-03-03 00:14:52.862 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 86265 maxima found
+2026-03-03 00:14:52.865 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 86265 maxima kept
+ 88%|████████▊ | 353/400 [09:11<01:11,  1.52s/it]2026-03-03 00:14:55.550 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 86211 maxima found
+2026-03-03 00:14:55.553 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 86211 maxima kept
+2026-03-03 00:14:55.905 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88425 maxima found
+2026-03-03 00:14:55.908 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88425 maxima kept
+ 88%|████████▊ | 354/400 [09:12<01:07,  1.47s/it]2026-03-03 00:14:57.524 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 85844 maxima found
+2026-03-03 00:14:57.527 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 85844 maxima kept
+ 89%|████████▉ | 355/400 [09:14<01:18,  1.76s/it] 89%|████████▉ | 356/400 [09:15<01:00,  1.38s/it]2026-03-03 00:14:59.104 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 89614 maxima found
+2026-03-03 00:14:59.107 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 89614 maxima kept
+ 89%|████████▉ | 357/400 [09:16<01:01,  1.42s/it]2026-03-03 00:15:01.275 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88563 maxima found
+2026-03-03 00:15:01.278 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88563 maxima kept
+ 90%|████████▉ | 358/400 [09:18<01:04,  1.53s/it]2026-03-03 00:15:02.450 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 85879 maxima found
+2026-03-03 00:15:02.454 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 85879 maxima kept
+2026-03-03 00:15:03.411 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88163 maxima found
+2026-03-03 00:15:03.413 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88163 maxima kept
+ 90%|████████▉ | 359/400 [09:20<01:08,  1.68s/it]2026-03-03 00:15:05.157 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88992 maxima found
+2026-03-03 00:15:05.160 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88992 maxima kept
+ 90%|█████████ | 360/400 [09:21<01:01,  1.54s/it] 90%|█████████ | 361/400 [09:22<00:52,  1.34s/it]2026-03-03 00:15:07.074 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 80677 maxima found
+2026-03-03 00:15:07.077 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 80677 maxima kept
+ 90%|█████████ | 362/400 [09:24<00:55,  1.47s/it]2026-03-03 00:15:08.641 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87373 maxima found
+2026-03-03 00:15:08.644 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87373 maxima kept
+2026-03-03 00:15:09.129 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 86563 maxima found
+2026-03-03 00:15:09.132 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 86563 maxima kept
+ 91%|█████████ | 363/400 [09:26<00:54,  1.48s/it]2026-03-03 00:15:10.946 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 86781 maxima found
+2026-03-03 00:15:10.949 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 86781 maxima kept
+ 91%|█████████ | 364/400 [09:28<01:01,  1.72s/it]2026-03-03 00:15:12.583 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 83318 maxima found
+2026-03-03 00:15:12.586 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 83318 maxima kept
+ 92%|█████████▏| 366/400 [09:30<00:45,  1.35s/it] 92%|█████████▏| 367/400 [09:31<00:47,  1.43s/it]2026-03-03 00:15:15.746 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 82210 maxima found
+2026-03-03 00:15:15.749 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 82210 maxima kept
+2026-03-03 00:15:15.969 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 78233 maxima found
+2026-03-03 00:15:15.972 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 78233 maxima kept
+2026-03-03 00:15:16.944 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 84614 maxima found
+2026-03-03 00:15:16.946 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 84614 maxima kept
+2026-03-03 00:15:18.104 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 86655 maxima found
+2026-03-03 00:15:18.107 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 86655 maxima kept
+ 92%|█████████▏| 368/400 [09:34<00:57,  1.80s/it] 92%|█████████▎| 370/400 [09:35<00:38,  1.29s/it] 93%|█████████▎| 371/400 [09:37<00:37,  1.28s/it]2026-03-03 00:15:22.065 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 80561 maxima found
+2026-03-03 00:15:22.067 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 80561 maxima kept
+2026-03-03 00:15:22.138 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 88262 maxima found
+2026-03-03 00:15:22.141 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 88262 maxima kept
+2026-03-03 00:15:22.846 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 85540 maxima found
+2026-03-03 00:15:22.848 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 85540 maxima kept
+2026-03-03 00:15:23.983 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 85311 maxima found
+2026-03-03 00:15:23.986 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 85311 maxima kept
+ 93%|█████████▎| 372/400 [09:40<00:52,  1.88s/it] 93%|█████████▎| 373/400 [09:41<00:41,  1.52s/it] 94%|█████████▎| 374/400 [09:42<00:35,  1.36s/it] 94%|█████████▍| 375/400 [09:43<00:31,  1.24s/it]2026-03-03 00:15:27.257 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87045 maxima found
+2026-03-03 00:15:27.259 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87045 maxima kept
+2026-03-03 00:15:28.220 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 82694 maxima found
+2026-03-03 00:15:28.223 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 82694 maxima kept
+2026-03-03 00:15:29.531 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87334 maxima found
+2026-03-03 00:15:29.534 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87334 maxima kept
+2026-03-03 00:15:29.804 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 82291 maxima found
+2026-03-03 00:15:29.807 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 82291 maxima kept
+ 94%|█████████▍| 376/400 [09:46<00:44,  1.84s/it] 94%|█████████▍| 377/400 [09:47<00:36,  1.57s/it] 94%|█████████▍| 378/400 [09:49<00:35,  1.61s/it]2026-03-03 00:15:32.980 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 83565 maxima found
+2026-03-03 00:15:32.982 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 83565 maxima kept
+2026-03-03 00:15:33.954 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 86257 maxima found
+2026-03-03 00:15:33.958 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 86257 maxima kept
+2026-03-03 00:15:35.537 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87113 maxima found
+2026-03-03 00:15:35.540 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87113 maxima kept
+ 95%|█████████▌| 380/400 [09:52<00:31,  1.55s/it]2026-03-03 00:15:36.115 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87574 maxima found
+2026-03-03 00:15:36.118 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87574 maxima kept
+ 95%|█████████▌| 381/400 [09:53<00:26,  1.40s/it] 96%|█████████▌| 382/400 [09:54<00:27,  1.51s/it]2026-03-03 00:15:38.704 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 84251 maxima found
+2026-03-03 00:15:38.707 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 84251 maxima kept
+ 96%|█████████▌| 383/400 [09:55<00:20,  1.22s/it]2026-03-03 00:15:39.758 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87546 maxima found
+2026-03-03 00:15:39.761 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87546 maxima kept
+ 96%|█████████▌| 384/400 [09:57<00:24,  1.50s/it]2026-03-03 00:15:41.726 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 78166 maxima found
+2026-03-03 00:15:41.729 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 78166 maxima kept
+2026-03-03 00:15:42.027 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 82435 maxima found
+2026-03-03 00:15:42.030 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 82435 maxima kept
+ 96%|█████████▋| 385/400 [09:58<00:21,  1.42s/it]2026-03-03 00:15:43.823 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87177 maxima found
+2026-03-03 00:15:43.826 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87177 maxima kept
+ 96%|█████████▋| 386/400 [10:00<00:21,  1.54s/it] 97%|█████████▋| 387/400 [10:01<00:15,  1.21s/it]2026-03-03 00:15:45.161 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87040 maxima found
+2026-03-03 00:15:45.164 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87040 maxima kept
+ 97%|█████████▋| 388/400 [10:03<00:17,  1.44s/it]2026-03-03 00:15:47.304 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 86884 maxima found
+2026-03-03 00:15:47.307 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 86884 maxima kept
+2026-03-03 00:15:47.714 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 76313 maxima found
+2026-03-03 00:15:47.717 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 76313 maxima kept
+ 97%|█████████▋| 389/400 [10:04<00:15,  1.37s/it]2026-03-03 00:15:49.775 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 85761 maxima found
+2026-03-03 00:15:49.778 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 85761 maxima kept
+ 98%|█████████▊| 390/400 [10:06<00:16,  1.66s/it]2026-03-03 00:15:50.877 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 85555 maxima found
+2026-03-03 00:15:50.879 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 85555 maxima kept
+ 98%|█████████▊| 392/400 [10:09<00:11,  1.45s/it]2026-03-03 00:15:53.368 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87289 maxima found
+2026-03-03 00:15:53.372 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87289 maxima kept
+ 98%|█████████▊| 393/400 [10:10<00:09,  1.38s/it]2026-03-03 00:15:53.776 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 79839 maxima found
+2026-03-03 00:15:53.779 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 79839 maxima kept
+2026-03-03 00:15:55.751 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 83252 maxima found
+2026-03-03 00:15:55.754 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 83252 maxima kept
+ 98%|█████████▊| 394/400 [10:12<00:09,  1.66s/it] 99%|█████████▉| 395/400 [10:13<00:06,  1.36s/it]2026-03-03 00:15:56.887 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 80409 maxima found
+2026-03-03 00:15:56.890 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 80409 maxima kept
+ 99%|█████████▉| 396/400 [10:14<00:05,  1.48s/it]2026-03-03 00:15:58.986 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 81740 maxima found
+2026-03-03 00:15:58.988 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 81740 maxima kept
+ 99%|█████████▉| 397/400 [10:15<00:03,  1.29s/it]2026-03-03 00:15:59.699 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 87561 maxima found
+2026-03-03 00:15:59.702 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 87561 maxima kept
+2026-03-03 00:16:01.309 | DEBUG    | ulm3d.ulm_torch:get_local_contrast:640 - 79348 maxima found
+2026-03-03 00:16:01.312 | DEBUG    | ulm3d.ulm_torch:super_localization:277 - 79348 maxima kept
+100%|█████████▉| 398/400 [10:17<00:03,  1.54s/it]100%|█████████▉| 399/400 [10:18<00:01,  1.33s/it]100%|██████████| 400/400 [10:19<00:00,  1.27s/it]100%|██████████| 400/400 [10:19<00:00,  1.55s/it]
+Filling SR matrices:   0%|          | 0/400 [00:00<?, ?it/s]Filling SR matrices:   0%|          | 1/400 [00:00<00:50,  7.88it/s]Filling SR matrices:   1%|          | 3/400 [00:00<00:41,  9.60it/s]Filling SR matrices:   1%|▏         | 5/400 [00:00<00:36, 10.91it/s]Filling SR matrices:   2%|▏         | 7/400 [00:00<00:33, 11.63it/s]Filling SR matrices:   2%|▏         | 9/400 [00:00<00:33, 11.73it/s]Filling SR matrices:   3%|▎         | 11/400 [00:00<00:33, 11.77it/s]Filling SR matrices:   3%|▎         | 13/400 [00:01<00:31, 12.12it/s]Filling SR matrices:   4%|▍         | 15/400 [00:01<00:31, 12.34it/s]Filling SR matrices:   4%|▍         | 17/400 [00:01<00:30, 12.55it/s]Filling SR matrices:   5%|▍         | 19/400 [00:01<00:30, 12.63it/s]Filling SR matrices:   5%|▌         | 21/400 [00:01<00:29, 12.79it/s]Filling SR matrices:   6%|▌         | 23/400 [00:01<00:28, 13.07it/s]Filling SR matrices:   6%|▋         | 25/400 [00:02<00:28, 13.20it/s]Filling SR matrices:   7%|▋         | 27/400 [00:02<00:28, 13.27it/s]Filling SR matrices:   7%|▋         | 29/400 [00:02<00:28, 13.05it/s]Filling SR matrices:   8%|▊         | 31/400 [00:02<00:31, 11.57it/s]Filling SR matrices:   8%|▊         | 33/400 [00:02<00:33, 10.89it/s]Filling SR matrices:   9%|▉         | 35/400 [00:03<00:38,  9.37it/s]Filling SR matrices:   9%|▉         | 36/400 [00:03<00:40,  9.04it/s]Filling SR matrices:   9%|▉         | 37/400 [00:03<00:42,  8.58it/s]Filling SR matrices:  10%|▉         | 38/400 [00:03<00:43,  8.35it/s]Filling SR matrices:  10%|▉         | 39/400 [00:03<00:43,  8.27it/s]Filling SR matrices:  10%|█         | 40/400 [00:03<00:44,  8.09it/s]Filling SR matrices:  10%|█         | 41/400 [00:03<00:42,  8.51it/s]Filling SR matrices:  10%|█         | 42/400 [00:03<00:43,  8.20it/s]Filling SR matrices:  11%|█         | 43/400 [00:04<00:43,  8.17it/s]Filling SR matrices:  11%|█         | 44/400 [00:04<00:43,  8.20it/s]Filling SR matrices:  11%|█▏        | 45/400 [00:04<00:41,  8.55it/s]Filling SR matrices:  12%|█▏        | 46/400 [00:04<00:41,  8.43it/s]Filling SR matrices:  12%|█▏        | 47/400 [00:04<00:40,  8.73it/s]Filling SR matrices:  12%|█▏        | 48/400 [00:04<00:41,  8.40it/s]Filling SR matrices:  12%|█▏        | 49/400 [00:04<00:40,  8.70it/s]Filling SR matrices:  12%|█▎        | 50/400 [00:04<00:40,  8.63it/s]Filling SR matrices:  13%|█▎        | 51/400 [00:04<00:39,  8.94it/s]Filling SR matrices:  13%|█▎        | 52/400 [00:05<00:39,  8.83it/s]Filling SR matrices:  14%|█▎        | 54/400 [00:05<00:37,  9.24it/s]Filling SR matrices:  14%|█▍        | 55/400 [00:05<00:38,  9.06it/s]Filling SR matrices:  14%|█▍        | 56/400 [00:05<00:38,  8.96it/s]Filling SR matrices:  14%|█▍        | 57/400 [00:05<00:38,  8.99it/s]Filling SR matrices:  14%|█▍        | 58/400 [00:05<00:37,  9.23it/s]Filling SR matrices:  15%|█▍        | 59/400 [00:05<00:36,  9.30it/s]Filling SR matrices:  15%|█▌        | 60/400 [00:05<00:36,  9.27it/s]Filling SR matrices:  16%|█▌        | 62/400 [00:06<00:35,  9.41it/s]Filling SR matrices:  16%|█▌        | 63/400 [00:06<00:35,  9.49it/s]Filling SR matrices:  16%|█▋        | 65/400 [00:06<00:34,  9.79it/s]Filling SR matrices:  17%|█▋        | 67/400 [00:06<00:32, 10.12it/s]Filling SR matrices:  17%|█▋        | 69/400 [00:06<00:32, 10.07it/s]Filling SR matrices:  18%|█▊        | 71/400 [00:07<00:31, 10.44it/s]Filling SR matrices:  18%|█▊        | 73/400 [00:07<00:31, 10.31it/s]Filling SR matrices:  19%|█▉        | 75/400 [00:07<00:31, 10.30it/s]Filling SR matrices:  19%|█▉        | 77/400 [00:07<00:31, 10.36it/s]Filling SR matrices:  20%|█▉        | 79/400 [00:07<00:30, 10.61it/s]Filling SR matrices:  20%|██        | 81/400 [00:07<00:29, 10.80it/s]Filling SR matrices:  21%|██        | 83/400 [00:08<00:29, 10.83it/s]Filling SR matrices:  21%|██▏       | 85/400 [00:08<00:28, 11.08it/s]Filling SR matrices:  22%|██▏       | 87/400 [00:08<00:27, 11.20it/s]Filling SR matrices:  22%|██▏       | 89/400 [00:08<00:27, 11.52it/s]Filling SR matrices:  23%|██▎       | 91/400 [00:08<00:26, 11.56it/s]Filling SR matrices:  23%|██▎       | 93/400 [00:09<00:26, 11.58it/s]Filling SR matrices:  24%|██▍       | 95/400 [00:09<00:26, 11.49it/s]Filling SR matrices:  24%|██▍       | 97/400 [00:09<00:26, 11.65it/s]Filling SR matrices:  25%|██▍       | 99/400 [00:09<00:25, 11.97it/s]Filling SR matrices:  25%|██▌       | 101/400 [00:09<00:24, 12.13it/s]Filling SR matrices:  26%|██▌       | 103/400 [00:09<00:24, 11.99it/s]Filling SR matrices:  26%|██▋       | 105/400 [00:09<00:24, 12.13it/s]Filling SR matrices:  27%|██▋       | 107/400 [00:10<00:23, 12.25it/s]Filling SR matrices:  27%|██▋       | 109/400 [00:10<00:24, 12.08it/s]Filling SR matrices:  28%|██▊       | 111/400 [00:10<00:24, 11.66it/s]Filling SR matrices:  28%|██▊       | 113/400 [00:10<00:26, 10.86it/s]Filling SR matrices:  29%|██▉       | 115/400 [00:10<00:28, 10.03it/s]Filling SR matrices:  29%|██▉       | 117/400 [00:11<00:29,  9.47it/s]Filling SR matrices:  30%|██▉       | 118/400 [00:11<00:30,  9.34it/s]Filling SR matrices:  30%|██▉       | 119/400 [00:11<00:30,  9.07it/s]Filling SR matrices:  30%|███       | 120/400 [00:11<00:31,  8.84it/s]Filling SR matrices:  30%|███       | 121/400 [00:11<00:31,  8.78it/s]Filling SR matrices:  30%|███       | 122/400 [00:11<00:32,  8.45it/s]Filling SR matrices:  31%|███       | 123/400 [00:11<00:33,  8.38it/s]Filling SR matrices:  31%|███       | 124/400 [00:12<00:32,  8.42it/s]Filling SR matrices:  31%|███▏      | 125/400 [00:12<00:32,  8.39it/s]Filling SR matrices:  32%|███▏      | 126/400 [00:12<00:32,  8.43it/s]Filling SR matrices:  32%|███▏      | 127/400 [00:12<00:31,  8.64it/s]Filling SR matrices:  32%|███▏      | 128/400 [00:12<00:31,  8.66it/s]Filling SR matrices:  32%|███▏      | 129/400 [00:12<00:32,  8.31it/s]Filling SR matrices:  32%|███▎      | 130/400 [00:12<00:32,  8.30it/s]Filling SR matrices:  33%|███▎      | 131/400 [00:12<00:31,  8.44it/s]Filling SR matrices:  33%|███▎      | 132/400 [00:12<00:32,  8.35it/s]Filling SR matrices:  33%|███▎      | 133/400 [00:13<00:32,  8.16it/s]Filling SR matrices:  34%|███▎      | 134/400 [00:13<00:31,  8.33it/s]Filling SR matrices:  34%|███▍      | 135/400 [00:13<00:32,  8.28it/s]Filling SR matrices:  34%|███▍      | 136/400 [00:13<00:31,  8.33it/s]Filling SR matrices:  34%|███▍      | 137/400 [00:13<00:30,  8.58it/s]Filling SR matrices:  34%|███▍      | 138/400 [00:13<00:30,  8.46it/s]Filling SR matrices:  35%|███▍      | 139/400 [00:13<00:30,  8.51it/s]Filling SR matrices:  35%|███▌      | 140/400 [00:13<00:30,  8.40it/s]Filling SR matrices:  35%|███▌      | 141/400 [00:14<00:30,  8.49it/s]Filling SR matrices:  36%|███▌      | 142/400 [00:14<00:30,  8.59it/s]Filling SR matrices:  36%|███▌      | 143/400 [00:14<00:29,  8.67it/s]Filling SR matrices:  36%|███▌      | 144/400 [00:14<00:30,  8.50it/s]Filling SR matrices:  36%|███▋      | 145/400 [00:14<00:29,  8.64it/s]Filling SR matrices:  36%|███▋      | 146/400 [00:14<00:29,  8.48it/s]Filling SR matrices:  37%|███▋      | 147/400 [00:14<00:30,  8.37it/s]Filling SR matrices:  37%|███▋      | 148/400 [00:14<00:29,  8.56it/s]Filling SR matrices:  37%|███▋      | 149/400 [00:14<00:28,  8.66it/s]Filling SR matrices:  38%|███▊      | 150/400 [00:15<00:28,  8.75it/s]Filling SR matrices:  38%|███▊      | 151/400 [00:15<00:27,  8.91it/s]Filling SR matrices:  38%|███▊      | 152/400 [00:15<00:27,  8.90it/s]Filling SR matrices:  38%|███▊      | 154/400 [00:15<00:24,  9.95it/s]Filling SR matrices:  39%|███▉      | 156/400 [00:15<00:21, 11.19it/s]Filling SR matrices:  40%|███▉      | 158/400 [00:15<00:20, 11.78it/s]Filling SR matrices:  40%|████      | 160/400 [00:16<00:23, 10.25it/s]Filling SR matrices:  40%|████      | 162/400 [00:16<00:24,  9.69it/s]Filling SR matrices:  41%|████      | 163/400 [00:16<00:25,  9.34it/s]Filling SR matrices:  41%|████      | 164/400 [00:16<00:25,  9.16it/s]Filling SR matrices:  41%|████▏     | 165/400 [00:16<00:25,  9.09it/s]Filling SR matrices:  42%|████▏     | 166/400 [00:16<00:26,  9.00it/s]Filling SR matrices:  42%|████▏     | 167/400 [00:16<00:26,  8.91it/s]Filling SR matrices:  42%|████▏     | 168/400 [00:16<00:26,  8.86it/s]Filling SR matrices:  42%|████▏     | 169/400 [00:17<00:26,  8.85it/s]Filling SR matrices:  43%|████▎     | 171/400 [00:17<00:24,  9.27it/s]Filling SR matrices:  43%|████▎     | 172/400 [00:17<00:24,  9.37it/s]Filling SR matrices:  43%|████▎     | 173/400 [00:17<00:24,  9.18it/s]Filling SR matrices:  44%|████▎     | 174/400 [00:17<00:24,  9.10it/s]Filling SR matrices:  44%|████▍     | 175/400 [00:17<00:25,  8.93it/s]Filling SR matrices:  44%|████▍     | 176/400 [00:17<00:24,  9.20it/s]Filling SR matrices:  44%|████▍     | 178/400 [00:18<00:23,  9.55it/s]Filling SR matrices:  45%|████▌     | 180/400 [00:18<00:22,  9.66it/s]Filling SR matrices:  45%|████▌     | 181/400 [00:18<00:22,  9.67it/s]Filling SR matrices:  46%|████▌     | 183/400 [00:18<00:21,  9.94it/s]Filling SR matrices:  46%|████▋     | 185/400 [00:18<00:19, 10.82it/s]Filling SR matrices:  47%|████▋     | 187/400 [00:18<00:19, 11.01it/s]Filling SR matrices:  47%|████▋     | 189/400 [00:19<00:20, 10.54it/s]Filling SR matrices:  48%|████▊     | 191/400 [00:19<00:21,  9.89it/s]Filling SR matrices:  48%|████▊     | 193/400 [00:19<00:22,  9.25it/s]Filling SR matrices:  48%|████▊     | 194/400 [00:19<00:22,  8.99it/s]Filling SR matrices:  49%|████▉     | 195/400 [00:19<00:23,  8.75it/s]Filling SR matrices:  49%|████▉     | 196/400 [00:19<00:23,  8.57it/s]Filling SR matrices:  49%|████▉     | 197/400 [00:20<00:23,  8.49it/s]Filling SR matrices:  50%|████▉     | 198/400 [00:20<00:23,  8.44it/s]Filling SR matrices:  50%|████▉     | 199/400 [00:20<00:24,  8.34it/s]Filling SR matrices:  50%|█████     | 201/400 [00:20<00:22,  8.87it/s]Filling SR matrices:  50%|█████     | 202/400 [00:20<00:22,  8.89it/s]Filling SR matrices:  51%|█████     | 203/400 [00:20<00:22,  8.63it/s]Filling SR matrices:  51%|█████     | 204/400 [00:20<00:22,  8.53it/s]Filling SR matrices:  51%|█████▏    | 205/400 [00:20<00:22,  8.57it/s]Filling SR matrices:  52%|█████▏    | 206/400 [00:21<00:23,  8.31it/s]Filling SR matrices:  52%|█████▏    | 207/400 [00:21<00:23,  8.31it/s]Filling SR matrices:  52%|█████▏    | 208/400 [00:21<00:23,  8.27it/s]Filling SR matrices:  52%|█████▎    | 210/400 [00:21<00:21,  8.75it/s]Filling SR matrices:  53%|█████▎    | 211/400 [00:21<00:21,  8.64it/s]Filling SR matrices:  53%|█████▎    | 212/400 [00:21<00:21,  8.55it/s]Filling SR matrices:  53%|█████▎    | 213/400 [00:21<00:21,  8.63it/s]Filling SR matrices:  54%|█████▎    | 214/400 [00:22<00:21,  8.56it/s]Filling SR matrices:  54%|█████▍    | 215/400 [00:22<00:21,  8.61it/s]Filling SR matrices:  54%|█████▍    | 216/400 [00:22<00:20,  8.79it/s]Filling SR matrices:  55%|█████▍    | 218/400 [00:22<00:17, 10.30it/s]Filling SR matrices:  55%|█████▌    | 220/400 [00:22<00:18,  9.52it/s]Filling SR matrices:  56%|█████▌    | 222/400 [00:22<00:16, 10.57it/s]Filling SR matrices:  56%|█████▌    | 224/400 [00:22<00:17, 10.32it/s]Filling SR matrices:  56%|█████▋    | 226/400 [00:23<00:17,  9.74it/s]Filling SR matrices:  57%|█████▋    | 227/400 [00:23<00:18,  9.45it/s]Filling SR matrices:  57%|█████▋    | 228/400 [00:23<00:18,  9.22it/s]Filling SR matrices:  57%|█████▋    | 229/400 [00:23<00:18,  9.23it/s]Filling SR matrices:  57%|█████▊    | 230/400 [00:23<00:18,  9.12it/s]Filling SR matrices:  58%|█████▊    | 231/400 [00:23<00:18,  9.14it/s]Filling SR matrices:  58%|█████▊    | 232/400 [00:23<00:18,  9.25it/s]Filling SR matrices:  58%|█████▊    | 233/400 [00:23<00:18,  9.24it/s]Filling SR matrices:  58%|█████▊    | 234/400 [00:24<00:17,  9.26it/s]Filling SR matrices:  59%|█████▉    | 235/400 [00:24<00:17,  9.45it/s]Filling SR matrices:  59%|█████▉    | 236/400 [00:24<00:17,  9.28it/s]Filling SR matrices:  59%|█████▉    | 237/400 [00:24<00:17,  9.34it/s]Filling SR matrices:  60%|█████▉    | 238/400 [00:24<00:17,  9.26it/s]Filling SR matrices:  60%|█████▉    | 239/400 [00:24<00:17,  9.39it/s]Filling SR matrices:  60%|██████    | 241/400 [00:24<00:16,  9.67it/s]Filling SR matrices:  61%|██████    | 243/400 [00:25<00:16,  9.78it/s]Filling SR matrices:  61%|██████▏   | 245/400 [00:25<00:15,  9.88it/s]Filling SR matrices:  62%|██████▏   | 247/400 [00:25<00:15,  9.97it/s]Filling SR matrices:  62%|██████▏   | 249/400 [00:25<00:14, 10.24it/s]Filling SR matrices:  63%|██████▎   | 251/400 [00:25<00:13, 10.71it/s]Filling SR matrices:  63%|██████▎   | 253/400 [00:25<00:13, 10.88it/s]Filling SR matrices:  64%|██████▍   | 255/400 [00:26<00:13, 10.48it/s]Filling SR matrices:  64%|██████▍   | 257/400 [00:26<00:13, 10.50it/s]Filling SR matrices:  65%|██████▍   | 259/400 [00:26<00:13, 10.45it/s]Filling SR matrices:  65%|██████▌   | 261/400 [00:26<00:13, 10.68it/s]Filling SR matrices:  66%|██████▌   | 263/400 [00:26<00:12, 10.73it/s]Filling SR matrices:  66%|██████▋   | 265/400 [00:27<00:12, 10.76it/s]Filling SR matrices:  67%|██████▋   | 267/400 [00:27<00:12, 10.63it/s]Filling SR matrices:  67%|██████▋   | 269/400 [00:27<00:12, 10.10it/s]Filling SR matrices:  68%|██████▊   | 271/400 [00:27<00:13,  9.84it/s]Filling SR matrices:  68%|██████▊   | 272/400 [00:27<00:13,  9.52it/s]Filling SR matrices:  68%|██████▊   | 273/400 [00:27<00:13,  9.55it/s]Filling SR matrices:  68%|██████▊   | 274/400 [00:28<00:13,  9.25it/s]Filling SR matrices:  69%|██████▉   | 275/400 [00:28<00:14,  8.89it/s]Filling SR matrices:  69%|██████▉   | 276/400 [00:28<00:13,  9.02it/s]Filling SR matrices:  69%|██████▉   | 277/400 [00:28<00:13,  8.97it/s]Filling SR matrices:  70%|██████▉   | 278/400 [00:28<00:13,  9.20it/s]Filling SR matrices:  70%|██████▉   | 279/400 [00:28<00:13,  9.03it/s]Filling SR matrices:  70%|███████   | 280/400 [00:28<00:13,  8.95it/s]Filling SR matrices:  70%|███████   | 281/400 [00:28<00:13,  8.93it/s]Filling SR matrices:  71%|███████   | 283/400 [00:29<00:12,  9.11it/s]Filling SR matrices:  71%|███████   | 284/400 [00:29<00:12,  9.20it/s]Filling SR matrices:  71%|███████▏  | 285/400 [00:29<00:12,  9.01it/s]Filling SR matrices:  72%|███████▏  | 286/400 [00:29<00:12,  8.91it/s]Filling SR matrices:  72%|███████▏  | 287/400 [00:29<00:12,  8.79it/s]Filling SR matrices:  72%|███████▏  | 288/400 [00:29<00:12,  8.65it/s]Filling SR matrices:  72%|███████▏  | 289/400 [00:29<00:12,  8.54it/s]Filling SR matrices:  72%|███████▎  | 290/400 [00:29<00:12,  8.60it/s]Filling SR matrices:  73%|███████▎  | 291/400 [00:30<00:12,  8.60it/s]Filling SR matrices:  73%|███████▎  | 292/400 [00:30<00:12,  8.65it/s]Filling SR matrices:  73%|███████▎  | 293/400 [00:30<00:12,  8.65it/s]Filling SR matrices:  74%|███████▎  | 294/400 [00:30<00:11,  8.96it/s]Filling SR matrices:  74%|███████▍  | 295/400 [00:30<00:11,  8.96it/s]Filling SR matrices:  74%|███████▍  | 296/400 [00:30<00:11,  8.90it/s]Filling SR matrices:  74%|███████▍  | 298/400 [00:30<00:10,  9.45it/s]Filling SR matrices:  75%|███████▍  | 299/400 [00:30<00:10,  9.38it/s]Filling SR matrices:  75%|███████▌  | 300/400 [00:30<00:10,  9.26it/s]Filling SR matrices:  75%|███████▌  | 301/400 [00:31<00:10,  9.36it/s]Filling SR matrices:  76%|███████▌  | 302/400 [00:31<00:10,  9.29it/s]Filling SR matrices:  76%|███████▌  | 303/400 [00:31<00:10,  9.28it/s]Filling SR matrices:  76%|███████▋  | 305/400 [00:31<00:09,  9.56it/s]Filling SR matrices:  76%|███████▋  | 306/400 [00:31<00:10,  9.39it/s]Filling SR matrices:  77%|███████▋  | 308/400 [00:31<00:09,  9.60it/s]Filling SR matrices:  77%|███████▋  | 309/400 [00:31<00:09,  9.51it/s]Filling SR matrices:  78%|███████▊  | 310/400 [00:32<00:09,  9.60it/s]Filling SR matrices:  78%|███████▊  | 312/400 [00:32<00:08,  9.98it/s]Filling SR matrices:  78%|███████▊  | 313/400 [00:32<00:08,  9.95it/s]Filling SR matrices:  79%|███████▉  | 315/400 [00:32<00:08, 10.08it/s]Filling SR matrices:  79%|███████▉  | 316/400 [00:32<00:08,  9.86it/s]Filling SR matrices:  79%|███████▉  | 317/400 [00:32<00:08,  9.65it/s]Filling SR matrices:  80%|███████▉  | 319/400 [00:32<00:08,  9.76it/s]Filling SR matrices:  80%|████████  | 321/400 [00:33<00:07,  9.98it/s]Filling SR matrices:  81%|████████  | 323/400 [00:33<00:07, 10.05it/s]Filling SR matrices:  81%|████████▏ | 325/400 [00:33<00:07, 10.47it/s]Filling SR matrices:  82%|████████▏ | 327/400 [00:33<00:06, 10.59it/s]Filling SR matrices:  82%|████████▏ | 329/400 [00:33<00:06, 10.68it/s]Filling SR matrices:  83%|████████▎ | 331/400 [00:34<00:06, 10.63it/s]Filling SR matrices:  83%|████████▎ | 333/400 [00:34<00:06, 10.56it/s]Filling SR matrices:  84%|████████▍ | 335/400 [00:34<00:05, 11.02it/s]Filling SR matrices:  84%|████████▍ | 337/400 [00:34<00:05, 11.14it/s]Filling SR matrices:  85%|████████▍ | 339/400 [00:34<00:05, 11.24it/s]Filling SR matrices:  85%|████████▌ | 341/400 [00:34<00:05, 11.49it/s]Filling SR matrices:  86%|████████▌ | 343/400 [00:35<00:05, 11.25it/s]Filling SR matrices:  86%|████████▋ | 345/400 [00:35<00:05, 10.51it/s]Filling SR matrices:  87%|████████▋ | 347/400 [00:35<00:05,  9.83it/s]Filling SR matrices:  87%|████████▋ | 349/400 [00:35<00:05,  9.52it/s]Filling SR matrices:  88%|████████▊ | 350/400 [00:35<00:05,  9.49it/s]Filling SR matrices:  88%|████████▊ | 351/400 [00:36<00:05,  9.38it/s]Filling SR matrices:  88%|████████▊ | 352/400 [00:36<00:05,  9.44it/s]Filling SR matrices:  88%|████████▊ | 353/400 [00:36<00:05,  9.30it/s]Filling SR matrices:  88%|████████▊ | 354/400 [00:36<00:04,  9.32it/s]Filling SR matrices:  89%|████████▉ | 355/400 [00:36<00:04,  9.36it/s]Filling SR matrices:  89%|████████▉ | 356/400 [00:36<00:04,  9.10it/s]Filling SR matrices:  89%|████████▉ | 357/400 [00:36<00:04,  9.09it/s]Filling SR matrices:  90%|████████▉ | 358/400 [00:36<00:04,  9.02it/s]Filling SR matrices:  90%|████████▉ | 359/400 [00:36<00:04,  9.05it/s]Filling SR matrices:  90%|█████████ | 360/400 [00:36<00:04,  9.06it/s]Filling SR matrices:  90%|█████████ | 361/400 [00:37<00:04,  9.03it/s]Filling SR matrices:  90%|█████████ | 362/400 [00:37<00:04,  8.98it/s]Filling SR matrices:  91%|█████████ | 364/400 [00:37<00:03,  9.43it/s]Filling SR matrices:  91%|█████████▏| 365/400 [00:37<00:03,  9.46it/s]Filling SR matrices:  92%|█████████▏| 366/400 [00:37<00:03,  9.25it/s]Filling SR matrices:  92%|█████████▏| 367/400 [00:37<00:03,  9.42it/s]Filling SR matrices:  92%|█████████▏| 369/400 [00:37<00:03, 10.14it/s]Filling SR matrices:  93%|█████████▎| 371/400 [00:38<00:02, 10.31it/s]Filling SR matrices:  93%|█████████▎| 373/400 [00:38<00:02, 10.27it/s]Filling SR matrices:  94%|█████████▍| 375/400 [00:38<00:02, 10.03it/s]Filling SR matrices:  94%|█████████▍| 376/400 [00:38<00:02,  9.85it/s]Filling SR matrices:  94%|█████████▍| 377/400 [00:38<00:02,  9.82it/s]Filling SR matrices:  94%|█████████▍| 378/400 [00:38<00:02,  9.55it/s]Filling SR matrices:  95%|█████████▍| 379/400 [00:38<00:02,  9.64it/s]Filling SR matrices:  95%|█████████▌| 380/400 [00:39<00:02,  9.70it/s]Filling SR matrices:  95%|█████████▌| 381/400 [00:39<00:01,  9.60it/s]Filling SR matrices:  96%|█████████▌| 382/400 [00:39<00:01,  9.69it/s]Filling SR matrices:  96%|█████████▌| 384/400 [00:39<00:01,  9.83it/s]Filling SR matrices:  96%|█████████▋| 386/400 [00:39<00:01, 10.04it/s]Filling SR matrices:  97%|█████████▋| 388/400 [00:39<00:01, 10.04it/s]Filling SR matrices:  98%|█████████▊| 390/400 [00:40<00:00, 10.08it/s]Filling SR matrices:  98%|█████████▊| 392/400 [00:40<00:00, 10.09it/s]Filling SR matrices:  98%|█████████▊| 394/400 [00:40<00:00,  9.81it/s]Filling SR matrices:  99%|█████████▉| 395/400 [00:40<00:00,  9.83it/s]Filling SR matrices:  99%|█████████▉| 396/400 [00:40<00:00,  9.85it/s]Filling SR matrices: 100%|█████████▉| 398/400 [00:40<00:00, 10.04it/s]Filling SR matrices: 100%|██████████| 400/400 [00:41<00:00, 10.29it/s]Filling SR matrices: 100%|██████████| 400/400 [00:41<00:00,  9.75it/s]

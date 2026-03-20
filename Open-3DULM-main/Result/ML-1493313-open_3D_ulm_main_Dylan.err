@@ -1,0 +1,17 @@
+  0%|          | 0/10 [00:00<?, ?it/s]  0%|          | 0/10 [00:23<?, ?it/s]
+Traceback (most recent call last):
+  File "/projects/ecptr/Espace_GIT/Espace_Dylan/Chef-D-oeuvre-ECPTR-/Open-3DULM-main/scripts/open_3D_ulm_main_torch.py", line 323, in <module>
+    run(
+  File "/projects/ecptr/Espace_GIT/Espace_Dylan/Chef-D-oeuvre-ECPTR-/Open-3DULM-main/scripts/open_3D_ulm_main_torch.py", line 235, in run
+    compute_bloc(
+  File "/projects/ecptr/Espace_GIT/Espace_Dylan/Chef-D-oeuvre-ECPTR-/Open-3DULM-main/scripts/open_3D_ulm_main_torch.py", line 122, in compute_bloc
+    localizations = ulm_pipeline.super_localization(iq_before_loc)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/projects/ecptr/Espace_GIT/Espace_Dylan/Chef-D-oeuvre-ECPTR-/Open-3DULM-main/src/ulm3d/ulm_torch.py", line 313, in super_localization
+    sub_pos = radial_symmetry_center_3d_torch(intensity_roi_torch)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/projects/ecptr/Espace_GIT/Espace_Dylan/Chef-D-oeuvre-ECPTR-/Open-3DULM-main/src/ulm3d/loc/radial_symmetry_center_torch.py", line 92, in radial_symmetry_center_3d_torch
+    W = mag_dI / denom / dist
+        ~~~~~~~~~~~~~~~^~~~~~
+RuntimeError: The size of tensor a (6) must match the size of tensor b (5) at non-singleton dimension 2
+srun: error: r9ng-8000-2: task 0: Exited with exit code 1

@@ -1,0 +1,7 @@
+WARNING: Could not find any nv files on this host!
+Traceback (most recent call last):
+  File "/projects/ecptr/Espace_GIT/Espace_Dylan/Chef-D-oeuvre-ECPTR-/Open-3DULM-main/scripts/display_3D_ulm.py", line 195, in <module>
+    f"{len(volume_files)} volume files found in {os.path.dirname(volume_files[0])}"
+                                                                 ~~~~~~~~~~~~^^^
+IndexError: list index out of range
+srun: error: r9nc-48-2: task 0: Exited with exit code 1
